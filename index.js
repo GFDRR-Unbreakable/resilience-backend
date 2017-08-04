@@ -18,6 +18,7 @@ var server = restify.createServer();
 server.use(corsHeaders);
 
 server.get('/api/output_data', apiFns.getOutputData);
+server.post('/api/pdf', apiFns.createPDFFile)
 server.opts(/./, serveOptions);
 
 server.listen(port, function() {

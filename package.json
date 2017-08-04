@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "handlebars": "^4.0.10",
+    "html-pdf": "^2.1.0",
     "restify": "^5.0.1"
   }
 }

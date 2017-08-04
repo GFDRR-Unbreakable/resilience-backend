@@ -1,3 +1,4 @@
 .git/
 node_modules/
 package-lock.json
+data/viewer_pdf_template/viewer_report.html
