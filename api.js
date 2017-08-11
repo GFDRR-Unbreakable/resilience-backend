@@ -38,6 +38,7 @@ module.exports = {
         var data = [];
         data.push(buffer);
         var pdfContent = Buffer.concat(data).toString('base64');
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.header('content-type', 'application/pdf');
         res.send(pdfContent);
       });
