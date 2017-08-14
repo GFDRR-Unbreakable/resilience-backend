@@ -2,3 +2,7 @@
 node_modules/
 package-lock.json
 data/viewer_pdf_template/viewer_report.html
+data/viewer_pdf_template/viewer_template.html
+data/model/model.log
+data/model_inputs.csv
+data/__pycache__/
