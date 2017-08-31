@@ -50,11 +50,7 @@ module.exports = {
     setCSVDirectories();
     var data = [];
     var fields = [];
-    console.log(req);
-    console.log(resData);
     formatCSVData(resData, data, fields);
-    console.log(fields);
-    console.log(data);
     var csvDir = process.env.VIEWER_CSV_DIRECTORY;
     var csvFileName = '/viewer_report.csv';
     var fullPath = csvDir + csvFileName;
@@ -62,8 +58,6 @@ module.exports = {
     fs.writeFile(fullPath, csv, function (err) {
         if (err) { handleError(res, err); }
         var csvFile = fs.readFileSync(fullPath, 'utf8');
-        // res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-        // res.header('Access-Control-Allow-Headers', 'Content-Type');
         res.header('Content-Type', 'text/csv');
         res.send(csvFile);
     });
@@ -107,15 +101,15 @@ function formatCSVData(resData, data, fields) {
       objData['name'] = resData[key]['name'];
       for (var outp in out) {
         if (out.hasOwnProperty(outp)) {
-            objData[out[outp].label] = objData[out[outp].value];
+            objData[out[outp].label] = out[outp].value;
         }
       }
       for (var inp in inD) {
         if (inD.hasOwnProperty(inp)) {
           for (var inoKe in inD[inp]) {
-              if (inD[inp].hasOwnProperty(inoKe)) {
-                  objData[inD[inp][inoKe].label] = objData[inD[inp].value];
-              }
+            if (inD[inp].hasOwnProperty(inoKe)) {
+              objData[inD[inp][inoKe].label] = inD[inp][inoKe].value;
+            }
           }
         }
       }
