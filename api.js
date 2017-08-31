@@ -51,14 +51,16 @@ module.exports = {
     var data = [];
     var fields = [];
     formatCSVData(resData, data, fields);
+    console.log(fields);
+    console.log(data);
     var csvDir = process.env.VIEWER_CSV_DIRECTORY;
     var csvFileName = '/viewer_report.csv';
-    var csv = json2csv({ data: data, fields: fields });
     var fullPath = csvDir + csvFileName;
+    var csv = json2csv({ data: data, fields: fields });
     fs.writeFile(fullPath, csv, function (err) {
         if (err) { handleError(res, err); }
         var csvFile = fs.readFileSync(fullPath, 'utf8');
-        res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+        // res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
         // res.header('Access-Control-Allow-Headers', 'Content-Type');
         res.header('Content-Type', 'text/csv');
         res.send(csvFile);
@@ -89,9 +91,13 @@ function formatCSVData(resData, data, fields) {
         }
         for (var inK in inD) {
           if (inD.hasOwnProperty(inK)) {
-            fields.push({
-              label: inD[inK].label
-            });
+            for (var inoK in inD[inK]) {
+              if (inD[inK].hasOwnProperty(inoK)) {
+                fields.push({
+                  label: inD[inK][inoK].label
+                });
+              }
+            }
           }
         }
       }
@@ -104,7 +110,11 @@ function formatCSVData(resData, data, fields) {
       }
       for (var inp in inD) {
         if (inD.hasOwnProperty(inp)) {
-          objData[inD[inp].label] = objData[inD[inp].value];
+          for (var inoKe in inD[inp]) {
+              if (inD[inp].hasOwnProperty(inoKe)) {
+                  objData[inD[inp][inoKe].label] = objData[inD[inp].value];
+              }
+          }
         }
       }
       data.push(objData);
