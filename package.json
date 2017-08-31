@@ -12,6 +12,7 @@
     "handlebars": "^4.0.10",
     "html-pdf": "^2.1.0",
     "json2csv": "^3.11.1",
-    "restify": "^5.0.1"
+    "restify": "^5.0.1",
+    "restify-cors-middleware": "^1.0.1"
   }
 }
