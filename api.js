@@ -1,7 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 var htmlPdf = require('html-pdf');
-var HandleBars = require('handlebars');
+var Handlebars = require('handlebars');
+var json2csv = require('json2csv');
 var selfPath = __dirname;
 
 module.exports = {
@@ -17,7 +18,7 @@ module.exports = {
   createPDFFile: function (req, res, next) {
     var data = {
       test: req.body.test
-    }
+    };
     setPDFDirectories();
     var compiledHTML = compilePDFTemplate()(data);
     var reportDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
@@ -43,8 +44,26 @@ module.exports = {
         res.send(pdfContent);
       });
     });
+  },
+  createCSVFile: function (req, res, next) {
+    var resData = req.body;
+    setCSVDirectories();
+    var data = [];
+    var fields = [];
+    formatCSVData(resData, data, fields);
+    var csvDir = process.env.VIEWER_CSV_DIRECTORY;
+    var csvFileName = '/viewer_report.csv';
+    var csv = json2csv({ data: data, fields: fields });
+    var fullPath = csvDir + csvFileName;
+    fs.writeFile(fullPath, csv, function (err) {
+        if (err) { handleError(res, err); }
+        var csvFile = fs.readFileSync(fullPath, 'utf8');
+        res.header('Access-Control-Allow-Headers', 'X-Requested=With');
+        res.header('content-type', 'text/csv');
+        res.send(csvFile);
+    });
   }
-}
+};
 
 function compilePDFTemplate() {
   var filePath = process.env.VIEWER_TEMPLATE_DIRECTORY;
@@ -53,7 +72,52 @@ function compilePDFTemplate() {
   var template = fs.readdirSync(filePath, 'utf8');
   return Handlebars.compile(template);
 }
-
+function formatCSVData(resData, data, fields) {
+  for (var key in resData) {
+    if (resData.hasOwnProperty(key)) {
+      var out = resData[key]['outputs'];
+      var inD = resData[key]['inputs'];
+      if (!fields.length) {
+        fields.push('name');
+        for (var outK in out) {
+          if (out.hasOwnProperty(outK)) {
+            fields.push({
+              label: out[outK].label
+            });
+          }
+        }
+        for (var inK in inD) {
+          if (inD.hasOwnProperty(inK)) {
+            fields.push({
+              label: inD[inK].label
+            });
+          }
+        }
+      }
+      var objData = {};
+      objData['name'] = resData[key]['name'];
+      for (var outp in out) {
+        if (out.hasOwnProperty(outp)) {
+            objData[out[outp].label] = objData[out[outp].value];
+        }
+      }
+      for (var inp in inD) {
+        if (inD.hasOwnProperty(inp)) {
+          objData[inD[inp].label] = objData[inD[inp].value];
+        }
+      }
+      data.push(objData);
+    }
+  }
+}
+function setCSVDirectories() {
+    var dir = __dirname + '/data/viewer_csv';
+    dir = path.resolve(dir);
+    var files = fs.readdirSync(dir);
+    console.log('- - - - Access CSV files - - - -');
+    console.log(files);
+    process.env.VIEWER_CSV_DIRECTORY = dir;
+}
 function setPDFDirectories() {
   var dir = __dirname + '/data/viewer_pdf_template';
   dir = path.resolve(dir);
