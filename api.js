@@ -81,18 +81,14 @@ function formatCSVData(resData, data, fields) {
         fields.push('name');
         for (var outK in out) {
           if (out.hasOwnProperty(outK)) {
-            fields.push({
-              label: out[outK].label
-            });
+            fields.push(out[outK].label);
           }
         }
         for (var inK in inD) {
           if (inD.hasOwnProperty(inK)) {
             for (var inoK in inD[inK]) {
               if (inD[inK].hasOwnProperty(inoK)) {
-                fields.push({
-                  label: inD[inK][inoK].label
-                });
+                fields.push(inD[inK][inoK].label);
               }
             }
           }
