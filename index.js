@@ -2,8 +2,8 @@ var restify = require('restify');
 var apiFns = require('./api');
 
 function corsHeaders(req, res, next) {
-  req.setHeader('Access-Control-Request-Headers', "Origin, Accept, X-Requested-With, Content-Type");
-  req.setHeader('Access-Control-Request-Method', "GET, POST, OPTIONS");
+  req.setRequestHeader('Access-Control-Request-Headers', "Origin, Accept, X-Requested-With, Content-Type");
+  req.setRequestHeader('Access-Control-Request-Method', "GET, POST, OPTIONS");
   res.setHeader('Access-Control-Allow-Origin', "*");
   res.setHeader('Access-Control-Allow-Headers', "Origin, Accept, X-Requested-With, Content-Type");
   res.setHeader('Access-Control-Allow-Methods', "GET, POST, OPTIONS");
