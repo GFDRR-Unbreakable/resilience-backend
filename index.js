@@ -13,6 +13,7 @@ var port = 9090;
 var server = restify.createServer();
 server.pre(cors.preflight);
 server.use(cors.actual);
+server.use(restify.plugins.bodyParser());
 
 server.get('/api/output_data', apiFns.getOutputData);
 server.post('/api/pdf', apiFns.createPDFFile);

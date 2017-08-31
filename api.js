@@ -50,6 +50,8 @@ module.exports = {
     setCSVDirectories();
     var data = [];
     var fields = [];
+    console.log(req);
+    console.log(resData);
     formatCSVData(resData, data, fields);
     console.log(fields);
     console.log(data);
