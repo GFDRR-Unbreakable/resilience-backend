@@ -55,6 +55,7 @@ module.exports = {
     var csvFileName = '/viewer_report.csv';
     var fullPath = csvDir + csvFileName;
     var csv = json2csv({ data: data, fields: fields });
+    console.log("Data generated: ", data);
     fs.writeFile(fullPath, csv, function (err) {
         if (err) { handleError(res, err); }
         var csvFile = fs.readFileSync(fullPath, 'utf8');
