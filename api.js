@@ -58,8 +58,9 @@ module.exports = {
     fs.writeFile(fullPath, csv, function (err) {
         if (err) { handleError(res, err); }
         var csvFile = fs.readFileSync(fullPath, 'utf8');
-        res.header('Access-Control-Allow-Headers', 'X-Requested=With');
-        res.header('content-type', 'text/csv');
+        res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+        // res.header('Access-Control-Allow-Headers', 'Content-Type');
+        res.header('Content-Type', 'text/csv');
         res.send(csvFile);
     });
   }
