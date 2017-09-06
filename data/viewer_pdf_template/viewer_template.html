@@ -10,7 +10,7 @@
     </head>
     <body>
 
-    <style media="print">
+    <style media="screen">
         *{
             margin: 0px;
             padding: 0px;
@@ -18,22 +18,25 @@
         body{
             font-size: 12px;
             font-family: "Lato", sans-serif;
+            color: #3a3a3b;
         }
+
+
         .cabecera{
-            background:#4b5757;
-            width:100%;
-            height:54px;
+		    background:#4b5757;
+			width:100%;
+			height:45px;
             font-weight: 600;
-        }
+		}
         .cabecera img, .cabecera p{
             float: left;
-            height:50px;
+            margin: 8px 10px;
+			height:32px;
         }
         .cabecera p{
             color: #FFF;
             font-size: 14px;
-            margin-top: 8px;
-            padding-left: 20px;
+            margin-top: 12px;
             font-weight: bold;
             height: 20px;
         }
@@ -50,7 +53,8 @@
             padding-top: 5px;
         }
         .container{
-            height: 1900px;
+            height: 1895px;
+            /*height: 2070px;*/
         }
         .contenido-scroll{
             width: 40%;
@@ -81,39 +85,47 @@
             text-align: center;
             padding-top: 10px;
         }
-        .fuente-titulo{
-            font-size:14px;
-            line-height:15px;
-            font-weight:600;
+        .titulo{
+            font-weight: 600;
+            /*font-size: 14px;*/
+            font-size: 12px;
         }
-        .fuente-subtitulo{
-            font-size:13px;
-            line-height:39px;
-            font-weight:bold;
-        }
-        .fuente-res-subtitulo{
+        .titulo-2{
+            font-weight: bold;
+            /*font-size: 12px;*/
             font-size: 10px;
-            line-height: 13px;
-            font-style: normal;
         }
-        .fuente-res-subtitulo-numero{
-            font-size: 13px;
-            line-height: 20px;
-            font-style: normal;
+        .titulo-2 p{
+            float: left;
         }
-        .fuente-titulo-2{
-            font-size: 11px;
+        .titulo-3{
+            /*font-size: 11px;*/
+            font-size: 8px;
             font-weight: bold;
             line-height: 17px;
         }
-        .fuente-titulo-2 p{
-            float: left;
-            padding-right: 10px;
+        .titulo-4{
+            font-weight: normal;
+            /*font-size: 13px;*/
+            font-size: 8px;
+            line-height: 20px;
         }
-        .fuente-res-titulo-2{
-            font-size: 14px;
-            font-weight: 900;
-            line-height: 21px;
+        .titulo-5{
+            font-weight: 600;
+            font-size: 8px;
+            line-height: 15px;
+        }
+        .titulo-6{
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .subtitulo{
+            font-size: 8px;
+            font-style: normal;
+        }
+        .subtitulo-numero{
+            font-size: 8px;
+            font-weight: bold;
         }
         .imagenes{
             padding-top:10px;
@@ -131,14 +143,12 @@
             width:100%;
             height: 278px;
         }
-        .pie-pagina{
-            clear:both;
-            height:50px;
-            background:#485050;
-        }
+
         .resultado{
             clear: both;
-            margin-bottom: 600px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .space-img-letter{
             padding-left: 10px;
@@ -153,16 +163,7 @@
         .scroll{
             width: 100%;
             height: 38px;
-            background: #485050;
-        }
-        .tabla-1{
-            float: left;
-            width: 50%;
-        }
-        .tabla-2{
-            float: left;
-            padding-left: 1%;
-            width: 45%;
+            background: #404949;
         }
         .tabla-2-img img{
             width: 100%;
@@ -170,13 +171,13 @@
             padding-top: 20px;
         }
         .tabla-2 button{
+            color: #3a3a3b;
             padding: 12px 30px;
             border-radius: 3px;
             border: none;
             background-color: #f4f5fa;
             font-weight: 600;
-            font-size: 13px;
-            line-height: 16px;
+            font-size: 12px;
         }
         table.tabla-1 tr td:nth-child(1){
             width: 30%;
@@ -189,7 +190,25 @@
         table.tabla-2 tr td:nth-child(1){
             height: 50px;
         }
-
+        .pie-pagina{
+            clear:both;
+			height:40px;
+			background:#4b5757;
+		}
+        .image{
+            width: 35%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .image img:nth-child(2){
+            padding-left: 10px;
+        }
+        .fecha-impresion{
+            float: right;
+            font-size: 12px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+        }
 
     </style>
 
@@ -197,9 +216,7 @@
 
             <div class="cabecera">
                 <img src="images/ulogo.png" alt="">
-                <p style="padding-top:10px;">
-                    Resilience Viewer : Malawi and Zambawi
-                </p>
+                <p>Resilience Viewer : Malawi and Zambawi</p>
             </div>
 
             <div class="scroll">
@@ -219,185 +236,185 @@
 
             <div class="resultado">
 
-                <table class="tabla-1">
+                <table class="tabla-1" style="float:left;" width="45%">
                     <!-- Social Protection -->
                     <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;" colspan="5" class="fuente-titulo">RESILIENCE FACTORS</td>
+                        <td style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;" colspan="5" class="titulo">RESILIENCE FACTORS</td>
                     </tr>
-                    <tr class="fuente-titulo-2">
+                    <tr class="titulo-2">
                         <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;">
                             <p>Hazard Selection : &nbsp;&nbsp;</p>
                             <p>Flood, Earthqueke, Tsunamis,<br>and Extreme Wind</p>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="fuente-subtitulo">Social Protection</td>
+                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Social Protection</td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo space-img-letter-2">Share of social protection / remittances to poor people (% of poor)</td>
+                        <td class="subtitulo space-img-letter-2">Share of social protection / remittances to poor people (% of poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Total social protection spending and remittances (US$,PPP)</td>
+                        <td class="subtitulo">Total social protection spending and remittances (US$,PPP)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Ability to access post-disaster financial resources (% of population)</td>
+                        <td class="subtitulo">Ability to access post-disaster financial resources (% of population)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Readiness to scale-up social protection (% increase in SP total payout post-disaster)</td>
+                        <td class="subtitulo">Readiness to scale-up social protection (% increase in SP total payout post-disaster)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo">Time to recover and reconstruct (years)</td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Time to recover and reconstruct (years)</td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
 
                     <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
                     <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
+                    <tr> <td colspan="5" ></td> </tr>
+                    <!-- <tr> <td colspan="5" ></td> </tr> -->
 
                     <!-- ECONOMIC -->
                     <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="fuente-subtitulo">Economic</td>
+                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Economic</td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Financial inclusion, poor people (% of poor)</td>
+                        <td class="subtitulo">Financial inclusion, poor people (% of poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Financial inclusion, non-poor people (% of non-poor)</td>
+                        <td class="subtitulo">Financial inclusion, non-poor people (% of non-poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Wealth, poor people (US$, PPP)</td>
+                        <td class="subtitulo">Wealth, poor people (US$, PPP)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
 
                     <!-- grafico -->
                     <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo">Wealth, non-poor people (US$, PPP)</td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Wealth, non-poor people (US$, PPP)</td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
 
                     <!-- Vulnerability -->
                     <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="fuente-subtitulo">Vulnerability</td>
+                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Vulnerability</td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Asset vulnerability, poor people (% destruction of exposed assets of poor)</td>
+                        <td class="subtitulo">Asset vulnerability, poor people (% destruction of exposed assets of poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Asset vulnerability, non-poor people (% destruction of exposed assets of non-poor)</td>
+                        <td class="subtitulo">Asset vulnerability, non-poor people (% destruction of exposed assets of non-poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo">Access to early warning (% of population)</td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Access to early warning (% of population)</td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
 
                     <!-- Exposure -->
                     <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="fuente-subtitulo">Exposure</td>
+                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Exposure</td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Exposure to riverine and coastal floods, poor (% of total assets of poor)</td>
+                        <td class="subtitulo">Exposure to riverine and coastal floods, poor (% of total assets of poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Exposure to riverine and coastal floods, non-poor (% of total assets of non-poor)</td>
+                        <td class="subtitulo">Exposure to riverine and coastal floods, non-poor (% of total assets of non-poor)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Exposure to earthquakes (% of total assets)</td>
+                        <td class="subtitulo">Exposure to earthquakes (% of total assets)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td class="fuente-res-subtitulo">Exposure to tsunamis (% of total assets)</td>
+                        <td class="subtitulo">Exposure to tsunamis (% of total assets)</td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td class="subtitulo-numero"> 40% </td>
                         <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo">Exposure to windstorms (% of total assets)</td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Exposure to windstorms (% of total assets)</td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="fuente-res-subtitulo-numero"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
                         <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="fuente-res-subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
                     </tr>
 
                 </table>
 
-                <table class="tabla-2">
+                <table class="tabla-2" style="float:right;" width="45%">
                     <tr class="fuente-oscura">
                         <td colspan="2">
-                            <div class="fuente-titulo cabecera-2">
+                            <div class="titulo cabecera-2">
                                 <span>RESULTS</span>
                                 <img class="circular" src="images/punto.png" alt="">
                                 <span>Country</span>
@@ -418,22 +435,25 @@
                     <tr>
                         <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
                         <td class="space-img-letter">
-                            <span class="fuente-titulo-2">RISK TO ASSETS</span><br>
-                            <span class="fuente-res-titulo-2">0.0632% of GDP per Year</span>
+                            <span class="titulo-6">RISK TO ASSETS</span><br>
+                            <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
                         <td  class="space-img-letter">
-                            <span class="fuente-titulo-2">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="fuente-res-titulo-2">61.12%</span>
+                            <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
+                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
+                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
                         <td class="space-img-letter">
-                            <span class="fuente-titulo-2">RISK TO WELL-BEING</span><br>
-                            <span class="fuente-res-titulo-2">1.073% of GDP per year</span>
+                            <span class="titulo-6">RISK TO WELL-BEING</span><br>
+                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
+                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
                         </td>
                     </tr>
                     <!-- PAIS -->
@@ -448,22 +468,25 @@
                     <tr>
                         <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
                         <td class="space-img-letter">
-                            <span class="fuente-titulo-2">RISK TO ASSETS</span><br>
-                            <span class="fuente-res-titulo-2">0.0632% of GDP per Year</span>
+                            <span class="titulo-6">RISK TO ASSETS</span><br>
+                            <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
                         <td class="space-img-letter">
-                            <span class="fuente-titulo-2">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="fuente-res-titulo-2">61.12%</span>
+                            <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
+                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
+                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
                         <td class="space-img-letter">
-                            <span class="fuente-titulo-2">RISK TO WELL-BEING</span><br>
-                            <span class="fuente-res-titulo-2">1.073% of GDP per year</span>
+                            <span class="titulo-6">RISK TO WELL-BEING</span><br>
+                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
+                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
                         </td>
                     </tr>
 
@@ -473,10 +496,16 @@
 
         </div>
 
+        <div class="fecha-impresion">
+            <p>
+                Report printed on 2 August, 2017
+            </p>
+        </div>
+
         <div class="pie-pagina">
-            <div class="imagenes">
-                <img src="images/img-pie-1.png" alt="">
-                <img class="space-image" src="images/img-pie-2.png" alt="">
+            <div class="image">
+                <img height="20px" style="margin-top:10px;" src="images/img-pie-1.png" alt="">
+                <img height="20px" style="margin-top:10px;" src="images/img-pie-2.png" alt="">
             </div>
         </div>
 
