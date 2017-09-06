@@ -65,6 +65,56 @@ module.exports = {
   }
 };
 
+function outputFN() {
+    function porcentajePixel(min, max, centro){
+                var totalCalcular, centroPorcentaje, barra_color, circulo, numero, avancePX;
+                var idColor = "", idFigura = "",  idNumber = "";
+                /*=== validamos los datos que ingresen ===*/
+                min = min || 0;
+                max = max || 320;
+                centro = centro || 0;
+
+                for (var i = 1; i <= 10; i++) {
+                    idColor = "color" + i;
+                    idFigura = "figura" + i;
+                    idNumber = "number" + i;
+                    barra_color = document.getElementById(idColor);
+                    circulo = document.getElementById(idFigura);
+                    numero = document.getElementById(idNumber);
+                    if(max > min && centro <= max && centro >= min){
+                        totalCalcular = max - min;
+                        /*=== aqui 100 es en porcentaje ===*/
+                        centroPorcentaje = ((centro - min) * 100) / totalCalcular;
+                        centroPorcentaje = Math.round(centroPorcentaje);
+                        avancePX = (centroPorcentaje * 80) / 100;
+                        barra_color.style.width = avancePX + "px";
+                        /*=== El -10 significa el radio del circulo ===*/
+                        avancePX = avancePX - 10;
+                        circulo.style.left = avancePX+"px";
+                        /*=== El +20 es 10 del radio y un margind igual 10 para que se vea separado ===*/
+                        avancePX = avancePX + 20;
+                        numero.style.left = avancePX+"px";
+                        numero.innerHTML = centroPorcentaje + '%';
+
+                        console.log("Minimo: " + min, "Maximo: " + max, "Centro: " + centro);
+                        console.log("Total sobre cual calcular el porcentaje: " + totalCalcular);
+                        console.log(centro, "Es: " + centroPorcentaje+ "%");
+                    }
+                    else {
+                        console.log("No Es Posible Calcular El Porcentaje");
+                    }
+
+                }
+
+            }
+            //Recive como datos min, max, numeroCentro
+            var min = Math.round(Math.random() * 100);
+            var max = Math.round(Math.random() * 100);
+            var centro = Math.round(Math.random() * 100);
+            porcentajePixel(min,max,centro);
+}
+
+
 function compilePDFTemplate() {
   var filePath = process.env.VIEWER_TEMPLATE_DIRECTORY;
   filePath += 'viewer_template.html';
@@ -130,7 +180,7 @@ function setPDFDirectories() {
   console.log(files);
   process.env.VIEWER_TEMPLATE_DIRECTORY = dir;
 }
- 
+
 function handleError(res, err) {
   return res.send(err);
 }
