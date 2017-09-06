@@ -5,642 +5,326 @@
         <title>View_2</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <style media="">
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            body{
+                font-size: 12px;
+                font-family: "Lato", sans-serif;
+                color: #3a3a3b;
+            }
+            .pie-pagina{
+                clear:both;
+                height:40px;
+                background:#4b5757;
+            }
+            .image{
+                width: 35%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .image img:nth-child(2){
+                padding-left: 10px;
+            }
+            .cabecera{
+                background:#4b5757;
+                width:100%;
+                height:45px;
+                font-weight: 600;
+            }
+            .cabecera img, .cabecera p{
+                float: left;
+                margin: 8px 10px;
+                height:32px;
+            }
+            .cabecera p{
+                color: #FFF;
+                font-size: 14px;
+                margin-top: 12px;
+                font-weight: bold;
+                height: 20px;
+            }
+            .cabecera-2 img, .cabecera-2 span{
+                float: left;
+            }
+            .cabecera-2 img{
+                padding-left: 50px;
+                padding-right: 10px;
+            }
+            .cabecera-2 img.circular{
+                width: 5px;
+                height: 5px;
+                padding-top: 5px;
+            }
+            .container{
+                height: 1900px;
+                /*height: 2070px;*/
+            }
+            .contenido-scroll{
+                width: 40%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .contenido-scroll p, .contenido-scroll img{
+                float: left;
+            }
+            .contenido-scroll img.prev-i{
+                position: absolute;
+                padding-top: 15px;
+                padding-left: 15px;
+                top: 100;
+                left: 0;
+            }
+            .contenido-scroll img.next-i{
+                position: absolute;
+                padding-top: 15px;
+                padding-right: 15px;
+                top: 100;
+                right: 0;
+            }
+            .contenido-scroll p{
+                color: #FFF;
+                line-height: 13px;
+                font-size: 12px;
+                text-align: center;
+                padding-top: 10px;
+            }
+            .titulo{
+                font-weight: 600;
+                /*font-size: 14px;*/
+                font-size: 12px;
+            }
+            .titulo-normal{
+                font-weight: normal;
+                font-size: 12px;
+            }
+            .titulo-2{
+                font-weight: bold;
+                /*font-size: 12px;*/
+                font-size: 10px;
+            }
+            .titulo-2 p{
+                float: left;
+            }
+            .titulo-3{
+                /*font-size: 11px;*/
+                font-size: 8px;
+                font-weight: bold;
+                line-height: 17px;
+            }
+            .titulo-4{
+                font-weight: normal;
+                /*font-size: 13px;*/
+                font-size: 8px;
+                line-height: 20px;
+            }
+            .titulo-5{
+                font-weight: 600;
+                font-size: 8px;
+                line-height: 15px;
+            }
+            .titulo-6{
+                font-size: 11px;
+                font-weight: 500;
+            }
+            .subtitulo{
+                font-size: 8px;
+                font-style: normal;
+            }
+            .subtitulo-numero{
+                font-size: 8px;
+                font-weight: bold;
+            }
+            .imagenes{
+                padding-top:10px;
+                width:70%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            .linea{
+                border-bottom: 1px solid #f4f5fa;
+                margin-top: -1px;
+                width: 180px;
+                position: absolute;
+            }
+            .mapa-mundial img{
+                width:100%;
+                height: 278px;
+            }
 
+            .result{
+                clear: both;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .space-img-letter{
+                padding-left: 10px;
+                padding-top: 20px;
+            }
+            .space-img-letter-2{
+                padding-right: 20px;
+            }
+            .space-image{
+                padding-left: 50px;
+            }
+            .scroll{
+                width: 100%;
+                height: 38px;
+                background: #485050;
+            }
+            .tabla-2-img img{
+                width: 100%;
+                height: 40px;
+                padding-top: 20px;
+            }
+            .tabla-2 button{
+                color: #3a3a3b;
+                padding: 12px 30px;
+                border-radius: 3px;
+                border: none;
+                background-color: #f4f5fa;
+                font-weight: 600;
+                font-size: 12px;
+            }
+            table.tabla-1 tr td:nth-child(1){
+                width: 30%;
+                height: 50px;
+            }
+            table.tabla-2 tr td:nth-child(1){
+                height: 50px;
+            }
+            .image-1{
+                width: 100%;
+            }
+            .image-1 img{
+                width: 98%;
+                height: 20px;
+            }
+            .image-2{
+                width: 100%;
+            }
+            .image-2 img{
+                width: 98%;
+                height: 20px;
+            }
+            .barra{
+                width:80px;
+                /*height:320px;*/
+                height: 20px;
+                margin-left:auto;
+                margin-right:auto;
+                position:relative;
+            }
+            .barra-normal, .barra-color{
+                height:5px;
+                position:absolute;
+                top:10px;
+                left:0px;
+                border-radius:5px;
+            }
+            .barra-normal{
+                width:80px;
+                background-color:#e5e8ef;
+                z-index:1;
+            }
+            .barra-color{
+                /*width:200px;*/
+                background-color:#475656;
+                z-index:2;
+            }
+            .numero{
+                position:absolute;
+                font-size:8px;
+                font-weight: bold;
+                z-index:4;
+            }
+            /*si barra-color avanza 115 entonces el ciculo avanza -15px es decir 100*/
+            .circulo{
+                width:10px;
+                height:10px;
+                background-color:#e5e8ef;
+                border-radius:50%;
+                position:absolute;
+                top:7px;
+                left:-5px;
+                z-index:3;
+            }
+            .fecha-impresion{
+                float: right;
+                font-size: 12px;
+                padding-right: 20px;
+                padding-bottom: 5px;
+            }
+            .input .slider-wrapper {
+                margin-left:auto;
+                margin-right:auto;
+                position:relative;
+                width:80px;
+                height: 20px;
+            }
+            .input .slider-ebar, .input .slider-fill, .input .slider-thumb {
+                position: absolute;
+                background: #e5e8ef;
+                width: 80px;
+                height: 5px;
+                top:10px;
+                border-radius: 50%;
+            }
+            .input .slider-ebar {
+                z-index: 0;
+            }
+            .input .slider-fill {
+                background: #475656;
+                width: 0;
+                z-index: 1;
+            }
+            .input .slider-thumb {
+                width: 10px;
+                height: 10px;
+                left: -5px;
+                top: 7px;
+                z-index: 2;
+            }
+            .input .text-result {
+                width: 80px;
+                text-align: center;
+                font-size: 12px;
+            }
+
+        </style>
 
     </head>
     <body>
 
-    <style media="print">
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        body{
-            font-size: 12px;
-            font-family: "Lato", sans-serif;
-            color: #3a3a3b;
-        }
-        .pie-pagina{
-            clear:both;
-			height:40px;
-			background:#4b5757;
-		}
-        .image{
-            width: 35%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .image img:nth-child(2){
-            padding-left: 10px;
-        }
-        .cabecera{
-		    background:#4b5757;
-			width:100%;
-			height:45px;
-            font-weight: 600;
-		}
-        .cabecera img, .cabecera p{
-            float: left;
-            margin: 8px 10px;
-			height:32px;
-        }
-        .cabecera p{
-            color: #FFF;
-            font-size: 14px;
-            margin-top: 12px;
-            font-weight: bold;
-            height: 20px;
-        }
-        .cabecera-2 img, .cabecera-2 span{
-            float: left;
-        }
-        .cabecera-2 img{
-            padding-left: 50px;
-            padding-right: 10px;
-        }
-        .cabecera-2 img.circular{
-            width: 5px;
-            height: 5px;
-            padding-top: 5px;
-        }
-        .container{
-            height: 1900px;
-            /*height: 2070px;*/
-        }
-        .contenido-scroll{
-            width: 40%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .contenido-scroll p, .contenido-scroll img{
-            float: left;
-        }
-        .contenido-scroll img.prev-i{
-            position: absolute;
-            padding-top: 15px;
-            padding-left: 15px;
-            top: 100;
-            left: 0;
-        }
-        .contenido-scroll img.next-i{
-            position: absolute;
-            padding-top: 15px;
-            padding-right: 15px;
-            top: 100;
-            right: 0;
-        }
-        .contenido-scroll p{
-            color: #FFF;
-            line-height: 13px;
-            font-size: 12px;
-            text-align: center;
-            padding-top: 10px;
-        }
-        .titulo{
-            font-weight: 600;
-            /*font-size: 14px;*/
-            font-size: 12px;
-        }
-        .titulo-normal{
-            font-weight: normal;
-            font-size: 12px;
-        }
-        .titulo-2{
-            font-weight: bold;
-            /*font-size: 12px;*/
-            font-size: 10px;
-        }
-        .titulo-2 p{
-            float: left;
-        }
-        .titulo-3{
-            /*font-size: 11px;*/
-            font-size: 8px;
-            font-weight: bold;
-            line-height: 17px;
-        }
-        .titulo-4{
-            font-weight: normal;
-            /*font-size: 13px;*/
-            font-size: 8px;
-            line-height: 20px;
-        }
-        .titulo-5{
-            font-weight: 600;
-            font-size: 8px;
-            line-height: 15px;
-        }
-        .titulo-6{
-            font-size: 11px;
-            font-weight: 500;
-        }
-        .subtitulo{
-            font-size: 8px;
-            font-style: normal;
-        }
-        .subtitulo-numero{
-            font-size: 8px;
-            font-weight: bold;
-        }
-        .imagenes{
-            padding-top:10px;
-            width:70%;
-            margin-left:auto;
-            margin-right:auto;
-        }
-        .linea{
-            border-bottom: 1px solid #f4f5fa;
-            margin-top: -1px;
-            width: 180px;
-            position: absolute;
-        }
-        .mapa-mundial img{
-            width:100%;
-            height: 278px;
-        }
 
-        .resultado{
-            clear: both;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .space-img-letter{
-            padding-left: 10px;
-            padding-top: 20px;
-        }
-        .space-img-letter-2{
-            padding-right: 20px;
-        }
-        .space-image{
-            padding-left: 50px;
-        }
-        .scroll{
-            width: 100%;
-            height: 38px;
-            background: #485050;
-        }
-        .tabla-2-img img{
-            width: 100%;
-            height: 40px;
-            padding-top: 20px;
-        }
-        .tabla-2 button{
-            color: #3a3a3b;
-            padding: 12px 30px;
-            border-radius: 3px;
-            border: none;
-            background-color: #f4f5fa;
-            font-weight: 600;
-            font-size: 12px;
-        }
-        table.tabla-1 tr td:nth-child(1){
-            width: 30%;
-            height: 50px;
-        }
-        table.tabla-2 tr td:nth-child(1){
-            height: 50px;
-        }
-        .image-1{
-            width: 100%;
-        }
-        .image-1 img{
-            width: 98%;
-            height: 20px;
-        }
-        .image-2{
-            width: 100%;
-        }
-        .image-2 img{
-            width: 98%;
-            height: 20px;
-        }
-
-
-
-
-
-
-
-
-
-
-        .barra{
-          width:80px;
-          /*height:320px;*/
-          height: 20px;
-          margin-left:auto;
-          margin-right:auto;
-          position:relative;
-        }
-        .barra-normal, .barra-color{
-          height:5px;
-          position:absolute;
-          top:10px;
-          left:0px;
-          border-radius:5px;
-        }
-        .barra-normal{
-          width:80px;
-          background-color:#e5e8ef;
-          z-index:1;
-        }
-        .barra-color{
-          /*width:200px;*/
-          background-color:#475656;
-          z-index:2;
-        }
-        .numero{
-          position:absolute;
-          font-size:8px;
-          font-weight: bold;
-          z-index:4;
-        }
-        /*si barra-color avanza 115 entonces el ciculo avanza -15px es decir 100*/
-        .circulo{
-          width:10px;
-          height:10px;
-          background-color:#e5e8ef;
-          border-radius:50%;
-          position:absolute;
-          top:7px;
-          left:-5px;
-          z-index:3;
-        }
-        .fecha-impresion{
-            float: right;
-            font-size: 12px;
-            padding-right: 20px;
-            padding-bottom: 5px;
-        }
-
-    </style>
 
         <div class="container">
 
             <div class="cabecera">
                 <img src="images/ulogo.png" alt="">
-                <p>Technical Map: Malawi and Zimbabwe</p>
+                <p>Technical Map: {{country1.name}} and {{country2.name}}</p>
             </div>
 
             <div class="scroll">
                 <div class="contenido-scroll">
                     <img class="prev-i" width="10px" height="10px" src="images/prev-icon.png" alt="">
                     <p>
-                        SOCIO-ECONOMIC CPACITY : MALAWI 71,9%
+                        SOCIO-ECONOMIC CPACITY : {{country1.name}} {{country1.outputs.resilience.value}}%
                     </p>
                     <img class="next-i" width="10px" height="10px" src="images/next-icon.png" alt="">
                 </div>
             </div>
 
             <div class="mapa-mundial">
-                <img src="images/mapa-mundial.png" alt="">
+                <img src="{{map.image}}" alt="">
             </div>
 
 
-            <div class="resultado">
-
-                <table class="tabla-1" style="float:left;" width="45%">
-                    <!-- Social Protection -->
-                    <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;" colspan="5" class="titulo">RESILIENCE FACTORS</td>
-                    </tr>
-                    <tr class="titulo-2">
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;">
-                            <p>Hazard Selection : &nbsp;&nbsp;</p>
-                            <p>Flood, Extreme Wind</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa">
-                            <span class="titulo">Social Protection</span>
-                            <span class="titulo-normal" style="padding-left:20px;">Malawi</span>
-                            <span class="titulo-normal" style="padding-left:50px;">Zimbabwe</span>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Share of social protection / remittances to poor people (% of poor)</td>
-                        <td colspan="2">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color1"></div>
-
-                                <div class="circulo" id="figura1"></div>
-
-                                <div class="numero" id="number1"></div>
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color2"></div>
-
-                                <div class="circulo" id="figura2"></div>
-
-                                <div class="numero" id="number2"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Total social protection spending and remittances (US$,PPP)</td>
-                        <td colspan="2">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color3"></div>
-
-                                <div class="circulo" id="figura3"></div>
-
-                                <div class="numero" id="number3"></div>
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color4"></div>
-
-                                <div class="circulo" id="figura4"></div>
-
-                                <div class="numero" id="number4"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Ability to access post-disaster financial resources (% of population)</td>
-                        <td colspan="2">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color5"></div>
-
-                                <div class="circulo" id="figura5"></div>
-
-                                <div class="numero" id="number5"></div>
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color6"></div>
-
-                                <div class="circulo" id="figura6"></div>
-
-                                <div class="numero" id="number6"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Readiness to scale-up social protection (% increase in SP total payout post-disaster)</td>
-                        <td colspan="2">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color7"></div>
-
-                                <div class="circulo" id="figura7"></div>
-
-                                <div class="numero" id="number7"></div>
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color8"></div>
-
-                                <div class="circulo" id="figura8"></div>
-
-                                <div class="numero" id="number8"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Time to recover and reconstruct (years)</td>
-                        <td colspan="2">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color9"></div>
-
-                                <div class="circulo" id="figura9"></div>
-
-                                <div class="numero" id="number9"></div>
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="barra">
-                                <div class="barra-normal"></div>
-
-                                <div class="barra-color" id="color10"></div>
-
-                                <div class="circulo" id="figura10"></div>
-
-                                <div class="numero" id="number10"></div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
-                    <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
-                    <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
-                    <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
-                    <!-- <tr> <td colspan="5" ></td> </tr>
-                    <tr> <td colspan="5" ></td> </tr> -->
-
-                    <!-- ECONOMIC -->
-                    <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Economic</td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Financial inclusion, poor people (% of poor)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Financial inclusion, non-poor people (% of non-poor)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Wealth, poor people (US$, PPP)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- grafico -->
-                    <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Wealth, non-poor people (US$, PPP)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Vulnerability -->
-                    <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Vulnerability</td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Asset vulnerability, poor people (% destruction of exposed assets of poor)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Asset vulnerability, non-poor people (% destruction of exposed assets of non-poor)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Access to early warning (% of population)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Exposure -->
-                    <tr>
-                        <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa" class="titulo">Exposure</td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Exposure to riverine and coastal floods, poor (% of total assets of poor)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Exposure to riverine and coastal floods, non-poor (% of total assets of non-poor)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Exposure to earthquakes (% of total assets)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td class="subtitulo">Exposure to tsunamis (% of total assets)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- grafico -->
-                    <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Exposure to windstorms (% of total assets)</td>
-                        <td colspan="2">
-                            <div class="image-1">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                        <td colspan="2" style="border-right: 1px solid #f4f5fa;">
-                            <div class="image-2">
-                                <img src="images/grafica-4.png" alt="">
-                            </div>
-                        </td>
-                    </tr>
-
-                </table>
+            <div class="result">
+                [[INPUT_SLIDERS]]
 
                 <table class="tabla-2" style="float:right;" width="45%">
                     <tr class="fuente-oscura">

@@ -1,8 +1,6 @@
 .git/
 node_modules/
 .idea/
-package-lock.json
-
 
 data/viewer_csv/viewer_report.csv
 data/model/model.log

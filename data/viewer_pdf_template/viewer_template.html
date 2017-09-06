@@ -3,220 +3,217 @@
     <head>
         <meta charset="utf-8">
         <title>View_1</title>
-
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <style media="screen">
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            body{
+                font-size: 12px;
+                font-family: "Lato", sans-serif;
+                color: #3a3a3b;
+            }
 
 
+            .cabecera{
+                background:#4b5757;
+                width:100%;
+                height:45px;
+                font-weight: 600;
+            }
+            .cabecera img, .cabecera p{
+                float: left;
+                margin: 8px 10px;
+                height:32px;
+            }
+            .cabecera p{
+                color: #FFF;
+                font-size: 14px;
+                margin-top: 12px;
+                font-weight: bold;
+                height: 20px;
+            }
+            .cabecera-2 img, .cabecera-2 span{
+                float: left;
+            }
+            .cabecera-2 img{
+                padding-left: 50px;
+                padding-right: 10px;
+            }
+            .cabecera-2 img.circular{
+                width: 5px;
+                height: 5px;
+                padding-top: 5px;
+            }
+            .container{
+                height: 1895px;
+                /*height: 2070px;*/
+            }
+            .contenido-scroll{
+                width: 40%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .contenido-scroll p, .contenido-scroll img{
+                float: left;
+            }
+            .contenido-scroll img.prev-i{
+                position: absolute;
+                padding-top: 15px;
+                padding-left: 15px;
+                top: 100;
+                left: 0;
+            }
+            .contenido-scroll img.next-i{
+                position: absolute;
+                padding-top: 15px;
+                padding-right: 15px;
+                top: 100;
+                right: 0;
+            }
+            .contenido-scroll p{
+                color: #FFF;
+                line-height: 13px;
+                font-size: 12px;
+                text-align: center;
+                padding-top: 10px;
+            }
+            .titulo{
+                font-weight: 600;
+                /*font-size: 14px;*/
+                font-size: 12px;
+            }
+            .titulo-2{
+                font-weight: bold;
+                /*font-size: 12px;*/
+                font-size: 10px;
+            }
+            .titulo-2 p{
+                float: left;
+            }
+            .titulo-3{
+                /*font-size: 11px;*/
+                font-size: 8px;
+                font-weight: bold;
+                line-height: 17px;
+            }
+            .titulo-4{
+                font-weight: normal;
+                /*font-size: 13px;*/
+                font-size: 8px;
+                line-height: 20px;
+            }
+            .titulo-5{
+                font-weight: 600;
+                font-size: 8px;
+                line-height: 15px;
+            }
+            .titulo-6{
+                font-size: 11px;
+                font-weight: 500;
+            }
+            .subtitulo{
+                font-size: 8px;
+                font-style: normal;
+            }
+            .subtitulo-numero{
+                font-size: 8px;
+                font-weight: bold;
+            }
+            .imagenes{
+                padding-top:10px;
+                width:70%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            .linea{
+                border-bottom: 1px solid #f4f5fa;
+                margin-top: -1px;
+                width: 180px;
+                position: absolute;
+            }
+            .map img{
+                width:100%;
+                height: 278px;
+            }
+
+            .resultado{
+                clear: both;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .space-img-letter{
+                padding-left: 10px;
+                padding-top: 20px;
+            }
+            .space-img-letter-2{
+                padding-right: 20px;
+            }
+            .space-image{
+                padding-left: 50px;
+            }
+            .scroll{
+                width: 100%;
+                height: 38px;
+                background: #404949;
+            }
+            .tabla-2-img img{
+                width: 100%;
+                height: 40px;
+                padding-top: 20px;
+            }
+            .tabla-2 button{
+                color: #3a3a3b;
+                padding: 12px 30px;
+                border-radius: 3px;
+                border: none;
+                background-color: #f4f5fa;
+                font-weight: 600;
+                font-size: 12px;
+            }
+            table.tabla-1 tr td:nth-child(1){
+                width: 30%;
+                height: 50px;
+            }
+            table.tabla-1 img{
+                width: 100%;
+                height:50px;
+            }
+            table.tabla-2 tr td:nth-child(1){
+                height: 50px;
+            }
+            .pie-pagina{
+                clear:both;
+                height:40px;
+                background:#4b5757;
+            }
+            .image{
+                width: 35%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .image img:nth-child(2){
+                padding-left: 10px;
+            }
+            .fecha-impresion{
+                float: right;
+                font-size: 12px;
+                padding-right: 20px;
+                padding-bottom: 5px;
+            }
+
+        </style>
     </head>
     <body>
 
-    <style media="screen">
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        body{
-            font-size: 12px;
-            font-family: "Lato", sans-serif;
-            color: #3a3a3b;
-        }
-
-
-        .cabecera{
-		    background:#4b5757;
-			width:100%;
-			height:45px;
-            font-weight: 600;
-		}
-        .cabecera img, .cabecera p{
-            float: left;
-            margin: 8px 10px;
-			height:32px;
-        }
-        .cabecera p{
-            color: #FFF;
-            font-size: 14px;
-            margin-top: 12px;
-            font-weight: bold;
-            height: 20px;
-        }
-        .cabecera-2 img, .cabecera-2 span{
-            float: left;
-        }
-        .cabecera-2 img{
-            padding-left: 50px;
-            padding-right: 10px;
-        }
-        .cabecera-2 img.circular{
-            width: 5px;
-            height: 5px;
-            padding-top: 5px;
-        }
-        .container{
-            height: 1895px;
-            /*height: 2070px;*/
-        }
-        .contenido-scroll{
-            width: 40%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .contenido-scroll p, .contenido-scroll img{
-            float: left;
-        }
-        .contenido-scroll img.prev-i{
-            position: absolute;
-            padding-top: 15px;
-            padding-left: 15px;
-            top: 100;
-            left: 0;
-        }
-        .contenido-scroll img.next-i{
-            position: absolute;
-            padding-top: 15px;
-            padding-right: 15px;
-            top: 100;
-            right: 0;
-        }
-        .contenido-scroll p{
-            color: #FFF;
-            line-height: 13px;
-            font-size: 12px;
-            text-align: center;
-            padding-top: 10px;
-        }
-        .titulo{
-            font-weight: 600;
-            /*font-size: 14px;*/
-            font-size: 12px;
-        }
-        .titulo-2{
-            font-weight: bold;
-            /*font-size: 12px;*/
-            font-size: 10px;
-        }
-        .titulo-2 p{
-            float: left;
-        }
-        .titulo-3{
-            /*font-size: 11px;*/
-            font-size: 8px;
-            font-weight: bold;
-            line-height: 17px;
-        }
-        .titulo-4{
-            font-weight: normal;
-            /*font-size: 13px;*/
-            font-size: 8px;
-            line-height: 20px;
-        }
-        .titulo-5{
-            font-weight: 600;
-            font-size: 8px;
-            line-height: 15px;
-        }
-        .titulo-6{
-            font-size: 11px;
-            font-weight: 500;
-        }
-        .subtitulo{
-            font-size: 8px;
-            font-style: normal;
-        }
-        .subtitulo-numero{
-            font-size: 8px;
-            font-weight: bold;
-        }
-        .imagenes{
-            padding-top:10px;
-            width:70%;
-            margin-left:auto;
-            margin-right:auto;
-        }
-        .linea{
-            border-bottom: 1px solid #f4f5fa;
-            margin-top: -1px;
-            width: 180px;
-            position: absolute;
-        }
-        .mapa-mundial img{
-            width:100%;
-            height: 278px;
-        }
-
-        .resultado{
-            clear: both;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .space-img-letter{
-            padding-left: 10px;
-            padding-top: 20px;
-        }
-        .space-img-letter-2{
-            padding-right: 20px;
-        }
-        .space-image{
-            padding-left: 50px;
-        }
-        .scroll{
-            width: 100%;
-            height: 38px;
-            background: #404949;
-        }
-        .tabla-2-img img{
-            width: 100%;
-            height: 40px;
-            padding-top: 20px;
-        }
-        .tabla-2 button{
-            color: #3a3a3b;
-            padding: 12px 30px;
-            border-radius: 3px;
-            border: none;
-            background-color: #f4f5fa;
-            font-weight: 600;
-            font-size: 12px;
-        }
-        table.tabla-1 tr td:nth-child(1){
-            width: 30%;
-            height: 50px;
-        }
-        table.tabla-1 img{
-            width: 100%;
-            height:50px;
-        }
-        table.tabla-2 tr td:nth-child(1){
-            height: 50px;
-        }
-        .pie-pagina{
-            clear:both;
-			height:40px;
-			background:#4b5757;
-		}
-        .image{
-            width: 35%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .image img:nth-child(2){
-            padding-left: 10px;
-        }
-        .fecha-impresion{
-            float: right;
-            font-size: 12px;
-            padding-right: 20px;
-            padding-bottom: 5px;
-        }
-
-    </style>
 
         <div class="container">
 
             <div class="cabecera">
                 <img src="images/ulogo.png" alt="">
-                <p>Resilience Viewer : Malawi and Zambawi</p>
+                <p>Resilience Viewer : {{country1.name}} and {{country2.name}}</p>
             </div>
 
             <div class="scroll">
@@ -229,8 +226,8 @@
                 </div>
             </div>
 
-            <div class="mapa-mundial">
-                <img src="images/mapa-mundial.png" alt="">
+            <div class="map">
+                <img src="{{map.chart}}" alt="">
             </div>
 
 
@@ -508,7 +505,6 @@
                 <img height="20px" style="margin-top:10px;" src="images/img-pie-2.png" alt="">
             </div>
         </div>
-
 
     </body>
 </html>
