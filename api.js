@@ -197,11 +197,6 @@ function setCSVDirectories() {
 }
 function setHTMLHelpers(data) {
     Handlebars.registerHelper('input', function (options) {
-        // console.log(contextData);
-        console.log(options);
-        console.log(options.fn(this));
-        // console.log(this);
-        // var data = options.fn(this);
         var data = this;
         var inputs1 = data['country1'].inputs;
         var inputs2 = data['country2'].inputs;
@@ -273,8 +268,17 @@ function setHTMLHelpers(data) {
     var compiledHTML = template(data);
     var fullTPath = viewerDir + techFile;
     var techHtml = fs.readFileSync(fullTPath, 'utf8');
+    console.log('/--------------------COMPILED HTML---------------------------------/');
+    console.log(compiledHTML);
+    console.log('/--------------------TECH HTML BEFORE---------------------------------/');
+    console.log(techHtml);
     techHtml = techHtml.split('[[INPUT_SLIDERS]]').join(compiledHTML);
+    console.log('/--------------------TECH HTML AFTER---------------------------------/');
+    console.log(techHtml);
     fs.writeFileSync(fullTPath, techHtml);
+    techHtml = fs.readFileSync(fullTPath, 'utf8');
+    console.log('/--------------------TECH HTML FINAL---------------------------------/');
+    console.log(techHtml);
 }
 function setPDFDirectories() {
     var dir = __dirname + '/data/viewer_pdf_template';
