@@ -129,7 +129,7 @@ function compilePDFTemplate(file) {
     var filePath = process.env.VIEWER_TEMPLATE_DIRECTORY;
     filePath += '/' + file;
     filePath = path.resolve(filePath);
-    var template = fs.readdirSync(filePath, 'utf8');
+    var template = fs.readFileSync(filePath, 'utf8');
     return Handlebars.compile(template);
 }
 function getSliderDrawingValues(data) {
