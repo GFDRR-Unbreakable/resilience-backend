@@ -199,8 +199,10 @@ function setHTMLHelpers(data) {
     Handlebars.registerHelper('input', function (options) {
         // console.log(contextData);
         console.log(options);
-        console.log(this);
-        var data = options.fn(this);
+        console.log(options.fn(this));
+        // console.log(this);
+        // var data = options.fn(this);
+        var data = this;
         var inputs1 = data['country1'].inputs;
         var inputs2 = data['country2'].inputs;
         var template = '';
