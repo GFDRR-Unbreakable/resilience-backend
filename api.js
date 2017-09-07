@@ -198,6 +198,8 @@ function setCSVDirectories() {
 function setHTMLHelpers(data) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
+        var data1 = options.fn(data);
+        console.log(data1);
         var inputs1 = data['country1'].inputs;
         var inputs2 = data['country2'].inputs;
         var template = '';
