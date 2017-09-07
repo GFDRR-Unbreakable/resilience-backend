@@ -161,11 +161,9 @@ function getHTMLHelperProcess(data) {
         for (var inKey in inputs1) {
             if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
-                template += '<td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;">';
-                template += '<span class="titulo">' + inputsTitle(inKey) + '</span>';
-                template += '<span class="titulo-normal" style="padding-left: 20px">' + data['country1'].name + '</span>';
-                template += '<span class="titulo-normal" style="padding-left: 50px">' + data['country2'].name + '</span>';
-                template += '</td>';
+                template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"><span class="titulo">' + inputsTitle(inKey) + '</span></td>';
+                template += '<td><p class="titulo-normal" style="text-align:center;">' + data['country1'].name + '</p></td>';
+                template += '<td><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
                 template += '</tr>';
                 inputType1 = inputs1[inKey];
                 inputType2 = inputs2[inKey];
