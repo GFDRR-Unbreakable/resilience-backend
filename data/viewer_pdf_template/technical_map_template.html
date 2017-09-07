@@ -3,292 +3,329 @@
     <head>
         <meta charset="utf-8">
         <title>View_2</title>
-            <link rel="stylesheet" href="http://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">
+
+        <link rel="stylesheet" href="http://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">
+
 
         <style media="print">
-            *{
-                margin: 0px;
-                padding: 0px;
-            }
-            body{
-                font-size: 12px;
-                font-family: "Lato", sans-serif;
-                color: #3a3a3b;
-            }
-            @font-face {
-                font-family: 'Lato';
-                src: url('../fonts/Lato-Black.ttf') format('truetype');
-                font-weight: normal;
-                font-style: normal;
-            }
-            @font-face {
-                font-family: 'Lato';
-                src: url('../fonts/Lato-Bold.ttf') format('truetype');
-                font-weight: normal;
-                font-style: normal;
-            }
-            @font-face {
-                font-family: 'Lato';
-                src: url('../fonts/Lato-Regular.ttf') format('truetype');
-                font-weight: normal;
-                font-style: normal;
-            }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            font-size: 12px;
+            font-family: "Lato", sans-serif;
+            color: #3a3a3b;
+        }
+        @font-face {
+            font-family: 'Lato';
+            src: url('../fonts/Lato-Black.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Lato';
+            src: url('../fonts/Lato-Bold.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Lato';
+            src: url('../fonts/Lato-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-            .pie-pagina{
-                clear:both;
-    			height:40px;
-    			background:#4b5757;
-    		}
-            .image{
-                width: 35%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .image img:nth-child(2){
-                padding-left: 10px;
-            }
-            .cabecera{
-    		    background:#4b5757;
-    			width:100%;
-    			height:45px;
-                font-weight: 600;
-    		}
-            .cabecera img, .cabecera p{
-                float: left;
-                margin: 8px 10px;
-    			height:32px;
-            }
-            .cabecera p{
-                color: #FFF;
-                font-size: 12px;
-                margin-top: 14px;
-                font-weight: bold;
-                height: 20px;
-            }
-            .cabecera-2 img, .cabecera-2 span{
-                float: left;
-            }
-            .cabecera-2 img{
-                padding-left: 50px;
-                padding-right: 10px;
-            }
-            .cabecera-2 img.circular{
-                width: 5px;
-                height: 5px;
-                padding-top: 5px;
-            }
-            .container{
-                height: 1900px;
-                /*height: 2070px;*/
-            }
-            .contenido-scroll{
-                width: 40%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .contenido-scroll p, .contenido-scroll img{
-                float: left;
-            }
-            .contenido-scroll img.prev-i{
-                position: absolute;
-                padding-top: 15px;
-                padding-left: 15px;
-                top: 100;
-                left: 0;
-            }
-            .contenido-scroll img.next-i{
-                position: absolute;
-                padding-top: 15px;
-                padding-right: 15px;
-                top: 100;
-                right: 0;
-            }
-            .contenido-scroll p{
-                color: #FFF;
-                line-height: 13px;
-                font-size: 12px;
-                text-align: center;
-                padding-top: 10px;
-            }
-            .titulo{
-                font-weight: 600;
-                /*font-size: 14px;*/
-                font-size: 12px;
-            }
-            .titulo-normal{
-                font-weight: normal;
-                font-size: 12px;
-            }
-            .titulo-2{
-                font-weight: bold;
-                /*font-size: 12px;*/
-                font-size: 10px;
-            }
-            .titulo-2 p{
-                float: left;
-            }
-            .titulo-3{
-                /*font-size: 11px;*/
-                font-size: 8px;
-                font-weight: bold;
-                line-height: 17px;
-            }
-            .titulo-4{
-                font-weight: normal;
-                /*font-size: 13px;*/
-                font-size: 8px;
-                line-height: 20px;
-            }
-            .titulo-5{
-                font-weight: 600;
-                font-size: 8px;
-                line-height: 15px;
-            }
-            .titulo-6{
-                font-size: 11px;
-                font-weight: 500;
-            }
-            .subtitulo{
-                font-size: 8px;
-                font-style: normal;
-            }
-            .subtitulo-numero{
-                font-size: 8px;
-                font-weight: bold;
-            }
-            .imagenes{
-                padding-top:10px;
-                width:70%;
+        .pie-pagina{
+            clear:both;
+			height:40px;
+			background:#4b5757;
+		}
+        .image{
+            width: 35%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .image img:nth-child(2){
+            padding-left: 10px;
+        }
+        .cabecera{
+		    background:#4b5757;
+			width:100%;
+			height:45px;
+            font-weight: 600;
+		}
+        .cabecera img, .cabecera p{
+            float: left;
+            margin: 8px 10px;
+			height:32px;
+        }
+        .cabecera p{
+            color: #FFF;
+            font-size: 12px;
+            margin-top: 14px;
+            font-weight: bold;
+            height: 20px;
+        }
+        .cabecera-2 img, .cabecera-2 span{
+            float: left;
+        }
+        .cabecera-2 img{
+            padding-left: 50px;
+            padding-right: 10px;
+        }
+        .cabecera-2 img.circular{
+            width: 5px;
+            height: 5px;
+            padding-top: 5px;
+        }
+        .container{
+            height: 1900px;
+            /*height: 2070px;*/
+        }
+        .contenido-scroll{
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contenido-scroll p, .contenido-scroll img{
+            float: left;
+        }
+        .contenido-scroll img.prev-i{
+            position: absolute;
+            padding-top: 15px;
+            padding-left: 15px;
+            top: 100;
+            left: 0;
+        }
+        .contenido-scroll img.next-i{
+            position: absolute;
+            padding-top: 15px;
+            padding-right: 15px;
+            top: 100;
+            right: 0;
+        }
+        .contenido-scroll p{
+            color: #FFF;
+            line-height: 13px;
+            font-size: 12px;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .titulo{
+            font-weight: 600;
+            /*font-size: 14px;*/
+            font-size: 12px;
+        }
+        .titulo-normal{
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .titulo-2{
+            font-weight: bold;
+            /*font-size: 12px;*/
+            font-size: 10px;
+        }
+        .titulo-2 p{
+            float: left;
+        }
+        .titulo-3{
+            /*font-size: 11px;*/
+            font-size: 8px;
+            font-weight: bold;
+            line-height: 17px;
+        }
+        .titulo-4{
+            font-weight: normal;
+            /*font-size: 13px;*/
+            font-size: 8px;
+            line-height: 20px;
+        }
+        .titulo-5{
+            font-weight: 600;
+            font-size: 8px;
+            line-height: 15px;
+        }
+        .titulo-6{
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .subtitulo{
+            font-size: 8px;
+            font-style: normal;
+        }
+        .subtitulo-numero{
+            font-size: 8px;
+            font-weight: bold;
+        }
+        .imagenes{
+            padding-top:10px;
+            width:70%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        .linea{
+            border-bottom: 1px solid #f4f5fa;
+            margin-top: -1px;
+            width: 180px;
+            position: absolute;
+        }
+        .mapa-mundial img{
+            width:100%;
+            height: 200px;
+        }
+
+        .resultado{
+            clear: both;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .space-img-letter{
+            padding-left: 10px;
+            padding-top: 20px;
+        }
+        .space-img-letter-2{
+            padding-right: 20px;
+        }
+        .space-image{
+            padding-left: 50px;
+        }
+        .scroll{
+            width: 100%;
+            height: 38px;
+            background: #485050;
+        }
+        .tabla-2-img img{
+            width: 100%;
+            height: 40px;
+            padding-top: 20px;
+        }
+        .tabla-2 button{
+            color: #3a3a3b;
+            padding: 12px 30px;
+            border-radius: 3px;
+            border: none;
+            background-color: #f4f5fa;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        table.tabla-1 tr td:nth-child(1){
+            width: 30%;
+            height: 50px;
+        }
+        table.tabla-2 tr td:nth-child(1){
+            height: 50px;
+        }
+        .image-1{
+            width: 100%;
+        }
+        .image-1 img{
+            width: 98%;
+            height: 20px;
+        }
+        .image-2{
+            width: 100%;
+        }
+        .image-2 img{
+            width: 98%;
+            height: 20px;
+        }
+
+
+
+
+
+
+
+
+
+
+        .barra{
+          width:60px;
+          /*height:320px;*/
+          height: 20px;
+          margin-left:auto;
+          margin-right:auto;
+          position:relative;
+        }
+        .barra-normal, .barra-color{
+          height:5px;
+          position:absolute;
+          top:10px;
+          left:0px;
+          border-radius:5px;
+        }
+        .barra-normal{
+          width:60px;
+          background-color:#e5e8ef;
+          z-index:1;
+        }
+        .barra-color{
+          /*width:200px;*/
+          background-color:#475656;
+          z-index:2;
+        }
+        .numero{
+          position:absolute;
+          font-size:8px;
+          font-weight: bold;
+          z-index:4;
+        }
+        /*si barra-color avanza 115 entonces el ciculo avanza -15px es decir 100*/
+        .circulo{
+          width:10px;
+          height:10px;
+          background-color:#e5e8ef;
+          border-radius:50%;
+          position:absolute;
+          top:7px;
+          left:-5px;
+          z-index:3;
+        }
+        .fecha-impresion{
+            float: right;
+            font-size: 12px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+        }
+        .input .slider-wrapper {
                 margin-left:auto;
                 margin-right:auto;
+                position:relative;
+                width:80px;
+                height: 20px;
             }
-            .linea{
-                border-bottom: 1px solid #f4f5fa;
-                margin-top: -1px;
-                width: 180px;
+            .input .slider-ebar, .input .slider-fill, .input .slider-thumb {
                 position: absolute;
+                background: #e5e8ef;
+                width: 80px;
+                height: 5px;
+                top:10px;
+                border-radius: 30px;
             }
-            .mapa-mundial img{
-                width:100%;
-                height: 200px;
+            .input .slider-ebar {
+                z-index: 0;
             }
-
-            .resultado{
-                clear: both;
-                width: 90%;
-                margin-left: auto;
-                margin-right: auto;
+            .input .slider-fill {
+                background: #475656;
+                width: 0;
+                z-index: 1;
             }
-            .space-img-letter{
-                padding-left: 10px;
-                padding-top: 20px;
+            .input .slider-thumb {
+                width: 10px;
+                height: 10px;
+                left: -5px;
+                top: 7px;
+                z-index: 2;
             }
-            .space-img-letter-2{
-                padding-right: 20px;
-            }
-            .space-image{
-                padding-left: 50px;
-            }
-            .scroll{
-                width: 100%;
-                height: 38px;
-                background: #485050;
-            }
-            .tabla-2-img img{
-                width: 100%;
-                height: 40px;
-                padding-top: 20px;
-            }
-            .tabla-2 button{
-                color: #3a3a3b;
-                padding: 12px 30px;
-                border-radius: 3px;
-                border: none;
-                background-color: #f4f5fa;
-                font-weight: 600;
+            .input .text-result {
+                width: 80px;
+                text-align: center;
                 font-size: 12px;
             }
-            table.tabla-1 tr td:nth-child(1){
-                width: 30%;
-                height: 50px;
-            }
-            table.tabla-2 tr td:nth-child(1){
-                height: 50px;
-            }
-            .image-1{
-                width: 100%;
-            }
-            .image-1 img{
-                width: 98%;
-                height: 20px;
-            }
-            .image-2{
-                width: 100%;
-            }
-            .image-2 img{
-                width: 98%;
-                height: 20px;
-            }
 
-
-
-
-
-
-
-
-
-
-            .barra{
-              width:60px;
-              /*height:320px;*/
-              height: 20px;
-              margin-left:auto;
-              margin-right:auto;
-              position:relative;
-            }
-            .barra-normal, .barra-color{
-              height:5px;
-              position:absolute;
-              top:10px;
-              left:0px;
-              border-radius:5px;
-            }
-            .barra-normal{
-              width:60px;
-              background-color:#e5e8ef;
-              z-index:1;
-            }
-            .barra-color{
-              /*width:200px;*/
-              background-color:#475656;
-              z-index:2;
-            }
-            .numero{
-              position:absolute;
-              font-size:8px;
-              font-weight: bold;
-              z-index:4;
-            }
-            /*si barra-color avanza 115 entonces el ciculo avanza -15px es decir 100*/
-            .circulo{
-              width:10px;
-              height:10px;
-              background-color:#e5e8ef;
-              border-radius:50%;
-              position:absolute;
-              top:7px;
-              left:-5px;
-              z-index:3;
-            }
-            .fecha-impresion{
-                float: right;
-                font-size: 12px;
-                padding-right: 20px;
-                padding-bottom: 5px;
-            }
-
-        </style>
+    </style>
 
     </head>
     <body>
