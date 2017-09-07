@@ -187,6 +187,12 @@ function formatCSVData(resData, data, fields) {
         }
     }
 }
+function getFormattedHTML(htmlTxt) {
+    var prefix = htmlTxt.slice(htmlTxt.indexOf(0), htmlTxt.indexOf('>') + 1);
+    var suffix = htmlTxt.slice(htmlTxt.lastIndexOf('<'), htmlTxt.lastIndexOf('>') + 1);
+    htmlTxt = htmlTxt.replace(prefix, '').replace(suffix, '').trim();
+    return htmlTxt;
+}
 function setCSVDirectories() {
     var dir = __dirname + '/data/viewer_csv';
     dir = path.resolve(dir);
@@ -198,8 +204,6 @@ function setCSVDirectories() {
 function setHTMLHelpers(data) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
-        var data1 = options.fn(data);
-        console.log(data1);
         var inputs1 = data['country1'].inputs;
         var inputs2 = data['country2'].inputs;
         var template = '';
@@ -226,8 +230,8 @@ function setHTMLHelpers(data) {
                 template += '<tr>';
                 template += '<td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;">';
                 template += '<span class="titulo">' + inputsTitle(inKey) + '</span>';
-                template += '<span class="titulo-normal" style="padding-left: 20px">{{country1.name}}</span>';
-                template += '<span class="titulo-normal" style="padding-left: 50px">{{country2.name}}</span>';
+                template += '<span class="titulo-normal" style="padding-left: 20px">' + data['country1'].name + '</span>';
+                template += '<span class="titulo-normal" style="padding-left: 50px">' + data['country2'].name + '</span>';
                 template += '</td>';
                 template += '</tr>';
                 inputType1 = inputs1[inKey];
@@ -270,17 +274,9 @@ function setHTMLHelpers(data) {
     var compiledHTML = template(data);
     var fullTPath = viewerDir + techFile;
     var techHtml = fs.readFileSync(fullTPath, 'utf8');
-    console.log('/--------------------COMPILED HTML---------------------------------/');
-    console.log(compiledHTML);
-    console.log('/--------------------TECH HTML BEFORE---------------------------------/');
-    console.log(techHtml);
-    techHtml = techHtml.split('[[INPUT_SLIDERS]]').join(compiledHTML);
-    console.log('/--------------------TECH HTML AFTER---------------------------------/');
-    console.log(techHtml);
+    var onlyHTML = getFormattedHTML(compiledHTML);
+    techHtml = techHtml.split('[[INPUT_SLIDERS]]').join(onlyHTML);
     fs.writeFileSync(fullTPath, techHtml);
-    techHtml = fs.readFileSync(fullTPath, 'utf8');
-    console.log('/--------------------TECH HTML FINAL---------------------------------/');
-    console.log(techHtml);
 }
 function setPDFDirectories() {
     var dir = __dirname + '/data/viewer_pdf_template';
