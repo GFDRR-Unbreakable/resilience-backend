@@ -204,11 +204,11 @@ function getHTMLHelperProcess(data) {
         var data = this;
         switch (data.map.type) {
             case 'socio':
-                return data['country1']['outputs']['resilience']['label'] + ' : ' + data['country1']['outputs']['resilience']['value'] + '%';
+                return data['country1']['outputs']['resilience']['label'] + ' : ' + data['country1']['name'] + ' ' + data['country1']['outputs']['resilience']['value'] + '%';
             case 'asset':
-                return data['country1']['outputs']['risk_to_assets']['label'] + ' : ' + data['country1']['outputs']['risk_to_assets']['value'] + '% of GPD per Year';
+                return data['country1']['outputs']['risk_to_assets']['label'] + ' : ' + data['country1']['name'] + ' ' + data['country1']['outputs']['risk_to_assets']['value'] + '% of GPD per Year';
             case 'well':
-                return data['country1']['outputs']['risk']['label'] + ' : ' + data['country1']['outputs']['risk']['value'] + '% of GPD per Year';
+                return data['country1']['outputs']['risk']['label'] + ' : ' + data['country1']['name'] + ' ' + data['country1']['outputs']['risk']['value'] + '% of GPD per Year';
         }
     });
     var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
