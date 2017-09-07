@@ -17,14 +17,18 @@ module.exports = {
     },
     createPDFFile: function (req, res, next) {
         var rData = req.body;
+        var inputD = null;
         setPDFDirectories();
         if (rData.page === 'tech') {
-            setHTMLHelpers(rData);
+            inputD = getHTMLHelperProcess(rData);
         }
         var file = rData.page === 'tech' ? 'technical_map_template.html' : 'viewer_template.html';
         var compiledHTML = compilePDFTemplate(file)(rData);
+        if (inputD) {
+            compiledHTML = compiledHTML.split('[[INPUT_SLIDERS]]').join(inputD);
+        }
         var reportDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
-        var reportFile = '/viewer_report.html';
+        var reportFile =  rData.page === 'tech' ? '/technical_map_report_tmp.html' : '/viewer_report_tmp.html';
         var fullPath = reportDir + reportFile;
         fs.writeFile(fullPath, compiledHTML, function (err) {
             if (err) {
@@ -188,7 +192,7 @@ function formatCSVData(resData, data, fields) {
     }
 }
 function getFormattedHTML(htmlTxt) {
-    var prefix = htmlTxt.slice(htmlTxt.indexOf(0), htmlTxt.indexOf('>') + 1);
+    var prefix = htmlTxt.slice(0, htmlTxt.indexOf('>') + 1);
     var suffix = htmlTxt.slice(htmlTxt.lastIndexOf('<'), htmlTxt.lastIndexOf('>') + 1);
     htmlTxt = htmlTxt.replace(prefix, '').replace(suffix, '').trim();
     return htmlTxt;
@@ -201,7 +205,7 @@ function setCSVDirectories() {
     console.log(files);
     process.env.VIEWER_CSV_DIRECTORY = dir;
 }
-function setHTMLHelpers(data) {
+function getHTMLHelperProcess(data) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
         var inputs1 = data['country1'].inputs;
@@ -236,13 +240,13 @@ function setHTMLHelpers(data) {
                 template += '</tr>';
                 inputType1 = inputs1[inKey];
                 inputType2 = inputs2[inKey];
-                template += '<tr>';
                 for (type in inputType1) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
+                        template += '<tr>';
                         values = getSliderDrawingValues(inputType1[type]);
                         template += '<td class="titulo">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
-                        template += '<p class="text-result">' + inputType1[type].value + '</p>';
+                        template += '<p class="text-result">' + (+inputType1[type].value).toFixed(6) + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
                         template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
@@ -258,25 +262,20 @@ function setHTMLHelpers(data) {
                         template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
                         template += '</div>';
                         template += '</td>';
+                        template += '</tr>';
                     }
                 }
-                template += '</tr>';
             }
         }
         return template;
     });
     var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
     var helperFile = '/input_helper.html';
-    var techFile = '/technical_map_template.html';
     var fullHPath = viewerDir + helperFile;
     var helperHtml = fs.readFileSync(fullHPath, 'utf8');
     var template = Handlebars.compile(helperHtml);
     var compiledHTML = template(data);
-    var fullTPath = viewerDir + techFile;
-    var techHtml = fs.readFileSync(fullTPath, 'utf8');
-    var onlyHTML = getFormattedHTML(compiledHTML);
-    techHtml = techHtml.split('[[INPUT_SLIDERS]]').join(onlyHTML);
-    fs.writeFileSync(fullTPath, techHtml);
+    return getFormattedHTML(compiledHTML);
 }
 function setPDFDirectories() {
     var dir = __dirname + '/data/viewer_pdf_template';
