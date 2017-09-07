@@ -161,7 +161,7 @@ function getHTMLHelperProcess(data) {
         for (var inKey in inputs1) {
             if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
-                template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"><span class="titulo">' + inputsTitle(inKey) + '</span></td>';
+                template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"><span class="titulo-4">' + inputsTitle(inKey) + '</span></td>';
                 template += '<td><p class="titulo-normal" style="text-align:center;">' + data['country1'].name + '</p></td>';
                 template += '<td><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
                 template += '</tr>';
@@ -171,7 +171,7 @@ function getHTMLHelperProcess(data) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
                         template += '<tr>';
                         values = getSliderDrawingValues(inputType1[type]);
-                        template += '<td class="titulo">' + inputType1[type].label + '</td>';
+                        template += '<td class="subtitulo">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
                         template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
                         template += '<div class="slider-wrapper">';
@@ -211,7 +211,7 @@ function getReportDate() {
 }
 function getSliderDrawingValues(data) {
     var max = data.max;
-    var MAX_BAR_WIDTH = 80;
+    var MAX_BAR_WIDTH = 60;
     var min = data.min;
     var currentVal = data.value;
     var diffMaxMin = max - min;
