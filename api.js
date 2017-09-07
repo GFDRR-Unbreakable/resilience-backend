@@ -6,19 +6,31 @@ var json2csv = require('json2csv');
 var selfPath = __dirname;
 
 module.exports = {
-    getOutputData: function (req, res, next) {
-        var csvFile = selfPath + '/data/df2.csv';
-        fs.readFile(csvFile, function (err, data) {
-            if (err) return handleError(res, err);
-            res.setHeader('Content-Type', 'text/csv');
-            res.writeHead(200);
-            res.end(data);
+    createCSVFile: function (req, res, next) {
+        var resData = req.body;
+        setCSVDirectories();
+        var data = [];
+        var fields = [];
+        formatCSVData(resData, data, fields);
+        var csvDir = process.env.VIEWER_CSV_DIRECTORY;
+        var csvFileName = '/viewer_report.csv';
+        var fullPath = csvDir + csvFileName;
+        var csv = json2csv({data: data, fields: fields});
+        console.log("Data generated: ", data);
+        fs.writeFile(fullPath, csv, function (err) {
+            if (err) {
+                handleError(res, err);
+            }
+            var csvFile = fs.readFileSync(fullPath, 'utf8');
+            res.header('Content-Type', 'text/csv');
+            res.send(csvFile);
         });
     },
     createPDFFile: function (req, res, next) {
         var rData = req.body;
         var inputD = null;
         setPDFDirectories();
+        rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
             inputD = getHTMLHelperProcess(rData);
         }
@@ -56,78 +68,16 @@ module.exports = {
             });
         });
     },
-    createCSVFile: function (req, res, next) {
-        var resData = req.body;
-        setCSVDirectories();
-        var data = [];
-        var fields = [];
-        formatCSVData(resData, data, fields);
-        var csvDir = process.env.VIEWER_CSV_DIRECTORY;
-        var csvFileName = '/viewer_report.csv';
-        var fullPath = csvDir + csvFileName;
-        var csv = json2csv({data: data, fields: fields});
-        console.log("Data generated: ", data);
-        fs.writeFile(fullPath, csv, function (err) {
-            if (err) {
-                handleError(res, err);
-            }
-            var csvFile = fs.readFileSync(fullPath, 'utf8');
-            res.header('Content-Type', 'text/csv');
-            res.send(csvFile);
+    getOutputData: function (req, res, next) {
+        var csvFile = selfPath + '/data/df2.csv';
+        fs.readFile(csvFile, function (err, data) {
+            if (err) return handleError(res, err);
+            res.setHeader('Content-Type', 'text/csv');
+            res.writeHead(200);
+            res.end(data);
         });
     }
 };
-
-function outputFN() {
-    function porcentajePixel(min, max, centro) {
-        var totalCalcular, centroPorcentaje, barra_color, circulo, numero, avancePX;
-        var idColor = "", idFigura = "", idNumber = "";
-        /*=== validamos los datos que ingresen ===*/
-        min = min || 0;
-        max = max || 320;
-        centro = centro || 0;
-
-        for (var i = 1; i <= 10; i++) {
-            idColor = "color" + i;
-            idFigura = "figura" + i;
-            idNumber = "number" + i;
-            barra_color = document.getElementById(idColor);
-            circulo = document.getElementById(idFigura);
-            numero = document.getElementById(idNumber);
-            if (max > min && centro <= max && centro >= min) {
-                totalCalcular = max - min;
-                /*=== aqui 100 es en porcentaje ===*/
-                centroPorcentaje = ((centro - min) * 100) / totalCalcular;
-                centroPorcentaje = Math.round(centroPorcentaje);
-                avancePX = (centroPorcentaje * 80) / 100;
-                barra_color.style.width = avancePX + "px";
-                /*=== El -10 significa el radio del circulo ===*/
-                avancePX = avancePX - 10;
-                circulo.style.left = avancePX + "px";
-                /*=== El +20 es 10 del radio y un margind igual 10 para que se vea separado ===*/
-                avancePX = avancePX + 20;
-                numero.style.left = avancePX + "px";
-                numero.innerHTML = centroPorcentaje + '%';
-
-                console.log("Minimo: " + min, "Maximo: " + max, "Centro: " + centro);
-                console.log("Total sobre cual calcular el porcentaje: " + totalCalcular);
-                console.log(centro, "Es: " + centroPorcentaje + "%");
-            }
-            else {
-                console.log("No Es Posible Calcular El Porcentaje");
-            }
-
-        }
-
-    }
-
-    //Recive como datos min, max, numeroCentro
-    var min = Math.round(Math.random() * 100);
-    var max = Math.round(Math.random() * 100);
-    var centro = Math.round(Math.random() * 100);
-    porcentajePixel(min, max, centro);
-}
-
 
 function compilePDFTemplate(file) {
     var filePath = process.env.VIEWER_TEMPLATE_DIRECTORY;
@@ -135,19 +85,6 @@ function compilePDFTemplate(file) {
     filePath = path.resolve(filePath);
     var template = fs.readFileSync(filePath, 'utf8');
     return Handlebars.compile(template);
-}
-function getSliderDrawingValues(data) {
-    var max = data.max;
-    var MAX_BAR_WIDTH = 80;
-    var min = data.min;
-    var currentVal = data.value;
-    var diffMaxMin = max - min;
-    var percentage = ((currentVal - min) * 100) / diffMaxMin;
-    var pixels = (percentage * MAX_BAR_WIDTH) / 100;
-    return {
-        percentage: percentage,
-        pixels: pixels
-    };
 }
 function formatCSVData(resData, data, fields) {
     for (var key in resData) {
@@ -197,14 +134,6 @@ function getFormattedHTML(htmlTxt) {
     htmlTxt = htmlTxt.replace(prefix, '').replace(suffix, '').trim();
     return htmlTxt;
 }
-function setCSVDirectories() {
-    var dir = __dirname + '/data/viewer_csv';
-    dir = path.resolve(dir);
-    var files = fs.readdirSync(dir);
-    console.log('- - - - Access CSV files - - - -');
-    console.log(files);
-    process.env.VIEWER_CSV_DIRECTORY = dir;
-}
 function getHTMLHelperProcess(data) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
@@ -246,7 +175,7 @@ function getHTMLHelperProcess(data) {
                         values = getSliderDrawingValues(inputType1[type]);
                         template += '<td class="titulo">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
-                        template += '<p class="text-result">' + (+inputType1[type].value).toFixed(6) + '</p>';
+                        template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
                         template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
@@ -255,7 +184,7 @@ function getHTMLHelperProcess(data) {
                         template += '</td>';
                         values = getSliderDrawingValues(inputType2[type]);
                         template += '<td colspan="2" style="border-right: 1px solid #f4f5fa;">';
-                        template += '<p class="text-result">' + inputType2[type].value + '</p>';
+                        template += '<p class="text-result">' + (+inputType2[type].value).toFixed(3) + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
                         template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
@@ -276,6 +205,81 @@ function getHTMLHelperProcess(data) {
     var template = Handlebars.compile(helperHtml);
     var compiledHTML = template(data);
     return getFormattedHTML(compiledHTML);
+}
+function getReportDate() {
+    var date = new Date();
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+}
+function getSliderDrawingValues(data) {
+    var max = data.max;
+    var MAX_BAR_WIDTH = 80;
+    var min = data.min;
+    var currentVal = data.value;
+    var diffMaxMin = max - min;
+    var percentage = ((currentVal - min) * 100) / diffMaxMin;
+    var pixels = (percentage * MAX_BAR_WIDTH) / 100;
+    return {
+        percentage: percentage,
+        pixels: pixels
+    };
+}
+function outputFN() {
+    function porcentajePixel(min, max, centro) {
+        var totalCalcular, centroPorcentaje, barra_color, circulo, numero, avancePX;
+        var idColor = "", idFigura = "", idNumber = "";
+        /*=== validamos los datos que ingresen ===*/
+        min = min || 0;
+        max = max || 320;
+        centro = centro || 0;
+
+        for (var i = 1; i <= 10; i++) {
+            idColor = "color" + i;
+            idFigura = "figura" + i;
+            idNumber = "number" + i;
+            barra_color = document.getElementById(idColor);
+            circulo = document.getElementById(idFigura);
+            numero = document.getElementById(idNumber);
+            if (max > min && centro <= max && centro >= min) {
+                totalCalcular = max - min;
+                /*=== aqui 100 es en porcentaje ===*/
+                centroPorcentaje = ((centro - min) * 100) / totalCalcular;
+                centroPorcentaje = Math.round(centroPorcentaje);
+                avancePX = (centroPorcentaje * 80) / 100;
+                barra_color.style.width = avancePX + "px";
+                /*=== El -10 significa el radio del circulo ===*/
+                avancePX = avancePX - 10;
+                circulo.style.left = avancePX + "px";
+                /*=== El +20 es 10 del radio y un margind igual 10 para que se vea separado ===*/
+                avancePX = avancePX + 20;
+                numero.style.left = avancePX + "px";
+                numero.innerHTML = centroPorcentaje + '%';
+
+                console.log("Minimo: " + min, "Maximo: " + max, "Centro: " + centro);
+                console.log("Total sobre cual calcular el porcentaje: " + totalCalcular);
+                console.log(centro, "Es: " + centroPorcentaje + "%");
+            }
+            else {
+                console.log("No Es Posible Calcular El Porcentaje");
+            }
+
+        }
+
+    }
+
+    //Recive como datos min, max, numeroCentro
+    var min = Math.round(Math.random() * 100);
+    var max = Math.round(Math.random() * 100);
+    var centro = Math.round(Math.random() * 100);
+    porcentajePixel(min, max, centro);
+}
+function setCSVDirectories() {
+    var dir = __dirname + '/data/viewer_csv';
+    dir = path.resolve(dir);
+    var files = fs.readdirSync(dir);
+    console.log('- - - - Access CSV files - - - -');
+    console.log(files);
+    process.env.VIEWER_CSV_DIRECTORY = dir;
 }
 function setPDFDirectories() {
     var dir = __dirname + '/data/viewer_pdf_template';

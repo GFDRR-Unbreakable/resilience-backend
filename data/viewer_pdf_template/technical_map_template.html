@@ -312,14 +312,14 @@
                 <div class="contenido-scroll">
                     <img class="prev-i" width="10px" height="10px" src="images/prev-icon.png" alt="">
                     <p>
-                        SOCIO-ECONOMIC CPACITY : {{country1.name}} {{country1.outputs.resilience.value}}%
+                        SOCIO-ECONOMIC CAPACITY : {{country1.name}} {{country1.outputs.resilience.value}}%
                     </p>
                     <img class="next-i" width="10px" height="10px" src="images/next-icon.png" alt="">
                 </div>
             </div>
 
             <div class="mapa-mundial">
-                <img src="{{map.image}}" alt="">
+                <img src="{{map.chart}}" alt="">
             </div>
 
 
@@ -342,66 +342,66 @@
                     <tr>
                         <td>
                             <button type="button" name="button">
-                                <p>Country 1</p>
+                                <p>{{country1.name}}</p>
                             </button>
                         </td>
                         <td><div class="linea"></div></td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.risk_to_assets.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO ASSETS</span><br>
-                            <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country1.outputs.risk_to_assets.value}}%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <!--<span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.resilience.chart}}" alt=""></td>
                         <td  class="space-img-letter">
                             <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country1.outputs.resilience.value}}%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.risk.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO WELL-BEING</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country1.outputs.risk.value}}%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <!-- PAIS -->
                     <tr>
                         <td style="padding-top:20px;">
                             <button type="button" name="button">
-                                <p>Country 2</p>
+                                <p>{{country2.name}}</p>
                             </button>
                         </td>
                         <td><div class="linea"></div></td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country2.outputs.risk_to_assets.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO ASSETS</span><br>
-                            <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country2.outputs.risk_to_assets.value}}%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <!--<span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country2.outputs.resilience.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country2.outputs.resilience.value}}%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country2.outputs.risk.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO WELL-BEING</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country2.outputs.risk.value}}%</span><span class="titulo-5"> OF POPULATION</span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
 
@@ -413,7 +413,7 @@
 
         <div class="fecha-impresion">
             <p>
-                Report printed on 2 August, 2017
+                Report printed on {{reportDate}}
             </p>
         </div>
 
