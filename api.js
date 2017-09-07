@@ -28,16 +28,20 @@ module.exports = {
     },
     createPDFFile: function (req, res, next) {
         var rData = req.body;
-        var inputD = null;
+        var inputComp = null;
+        var mapTypeComp = null;
         setPDFDirectories();
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
-            inputD = getHTMLHelperProcess(rData);
+            var helper = getHTMLHelperProcess(rData);
+            inputComp = helper.input;
+            mapTypeComp = helper.mapType;
         }
         var file = rData.page === 'tech' ? 'technical_map_template.html' : 'viewer_template.html';
         var compiledHTML = compilePDFTemplate(file)(rData);
-        if (inputD) {
-            compiledHTML = compiledHTML.split('[[INPUT_SLIDERS]]').join(inputD);
+        if (inputComp && mapTypeComp) {
+            compiledHTML = compiledHTML.split('[[INPUT_SLIDERS]]').join(inputComp);
+            compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
         }
         var reportDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
         var reportFile =  rData.page === 'tech' ? '/technical_map_report_tmp.html' : '/viewer_report_tmp.html';
@@ -196,13 +200,32 @@ function getHTMLHelperProcess(data) {
         }
         return template;
     });
+    Handlebars.registerHelper('mapType', function () {
+        var data = this;
+        switch (data.map.type) {
+            case 'socio':
+                return data['country1']['outputs']['resilience']['label'] + ' : ' + data['country1']['outputs']['resilience']['value'] + '%';
+            case 'asset':
+                return data['country1']['outputs']['risk_to_assets']['label'] + ' : ' + data['country1']['outputs']['risk_to_assets']['value'] + '% of GPD per Year';
+            case 'well':
+                return data['country1']['outputs']['risk']['label'] + ' : ' + data['country1']['outputs']['risk']['value'] + '% of GPD per Year';
+        }
+    });
     var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
-    var helperFile = '/input_helper.html';
-    var fullHPath = viewerDir + helperFile;
-    var helperHtml = fs.readFileSync(fullHPath, 'utf8');
-    var template = Handlebars.compile(helperHtml);
-    var compiledHTML = template(data);
-    return getFormattedHTML(compiledHTML);
+    var inHelperFile = '/input_helper.html';
+    var mapHelperFile = '/map_type_helper.html';
+    var fullHPath = viewerDir + inHelperFile;
+    var fullMPath = viewerDir + mapHelperFile;
+    var inHelperHtml = fs.readFileSync(fullHPath, 'utf8');
+    var inTemplate = Handlebars.compile(inHelperHtml);
+    var inCompiledHTML = inTemplate(data);
+    var mapHelperHtml = fs.readFileSync(fullMPath, 'utf8');
+    var mapTemplate = Handlebars.compile(mapHelperHtml);
+    var mapCompiledHTML = mapTemplate(data);
+    return {
+        mapType: getFormattedHTML(mapCompiledHTML),
+        input: getFormattedHTML(inCompiledHTML)
+    };
 }
 function getReportDate() {
     var date = new Date();
