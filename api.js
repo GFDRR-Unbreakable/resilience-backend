@@ -197,12 +197,16 @@ function getTechHTMLHelperProcess(data) {
                     }
                 }
                 if (count === 0) {
+                    template += '<tr>';
+                    template += '<td>';
                     template += '<br>';
                     template += '<br>';
                     template += '<br>';
                     template += '<br>';
                     template += '<br>';
                     template += '<br>';
+                    template += '</td>';
+                    template += '</tr>';
                 }
                 count++;
             }
