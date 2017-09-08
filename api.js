@@ -164,9 +164,9 @@ function getTechHTMLHelperProcess(data) {
         for (var inKey in inputs1) {
             if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
-                template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"><span class="titulo-4">' + inputsTitle(inKey) + '</span></td>';
+                template += '<td colspan="2" style=""><span style="font-weight: bold; font-size: 8px;">' + inputsTitle(inKey) + '</span></td>';
                 template += '<td><p class="titulo-normal" style="text-align:center;">' + data['country1'].name + '</p></td>';
-                template += '<td><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
+                template += '<td><p class="titulo-normal" style="text-align:center; border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;">' + data['country2'].name + '</p></td>';
                 template += '</tr>';
                 inputType1 = inputs1[inKey];
                 inputType2 = inputs2[inKey];
@@ -174,7 +174,7 @@ function getTechHTMLHelperProcess(data) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
                         template += '<tr>';
                         values = getSliderDrawingValues(inputType1[type]);
-                        template += '<td style="font-size:5px;">' + inputType1[type].label + '</td>';
+                        template += '<td style="font-size:6px;">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
                         template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
                         template += '<div class="slider-wrapper">';
