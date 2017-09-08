@@ -219,9 +219,7 @@
             <div class="scroll">
                 <div class="contenido-scroll">
                     <img class="prev-i" width="10px" height="10px" src="images/prev-icon.png" alt="">
-                    <p>
-                        SOCIO-ECONOMIC CPACITY : MALAWI 71,9%
-                    </p>
+                    [[MAP_TYPE]]
                     <img class="next-i" width="10px" height="10px" src="images/next-icon.png" alt="">
                 </div>
             </div>
@@ -241,7 +239,7 @@
                     <tr class="titulo-2">
                         <td colspan="5" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;">
                             <p>Hazard Selection : &nbsp;&nbsp;</p>
-                            <p>Flood, Earthqueke, Tsunamis,<br>and Extreme Wind</p>
+                            <p>Flood, Earthquake, Tsunamis,<br>and Extreme Wind</p>
                         </td>
                     </tr>
                     <tr>
@@ -250,42 +248,42 @@
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo space-img-letter-2">Share of social protection / remittances to poor people (% of poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputSoc.gamma_SP_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero">{{country1.inputs.inputSoc.gamma_SP_cat_info__poor.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputSoc.gamma_SP_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputSoc.gamma_SP_cat_info__poor.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Total social protection spending and remittances (US$,PPP)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputSoc.macro_tau_tax.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputSoc.macro_tau_tax.value}} </td>
+                        <td> <img src="{{country2.inputs.inputSoc.macro_tau_tax.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputSoc.macro_tau_tax.value}} </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Ability to access post-disaster financial resources (% of population)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputSoc.macro_borrow_abi.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero">{{country1.inputs.inputSoc.macro_borrow_abi.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputSoc.macro_borrow_abi.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputSoc.macro_borrow_abi.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Readiness to scale-up social protection (% increase in SP total payout post-disaster)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputSoc.macro_prepare_scaleup.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputSoc.macro_prepare_scaleup.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputSoc.macro_prepare_scaleup.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputSoc.macro_prepare_scaleup.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Time to recover and reconstruct (years)</td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country1.inputs.inputSoc.macro_T_rebuild_K.chart}}" alt=""> </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> {{country1.inputs.inputSoc.macro_T_rebuild_K.value} </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country2.inputs.inputSoc.macro_T_rebuild_K.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputSoc.macro_T_rebuild_K.value}} </td>
                     </tr>
 
                     <tr> <td colspan="5" style="border-right: 1px solid #f4f5fa" class="fuente-oscura"></td> </tr>
@@ -301,35 +299,35 @@
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Financial inclusion, poor people (% of poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputEco.axfin_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputEco.axfin_cat_info__poor.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputEco.axfin_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputEco.axfin_cat_info__poor.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Financial inclusion, non-poor people (% of non-poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputEco.axfin_cat_info__nonpoor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputEco.axfin_cat_info__nonpoor.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputEco.axfin_cat_info__nonpoor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputEco.axfin_cat_info__nonpoor.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Wealth, poor people (US$, PPP)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputEco.k_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputEco.k_cat_info__poor.value}} </td>
+                        <td> <img src="{{country2.inputs.inputEco.k_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputEco.k_cat_info__poor.value}} </td>
                     </tr>
 
                     <!-- grafico -->
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Wealth, non-poor people (US$, PPP)</td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country1.inputs.inputEco.k_cat_info__nonpoor.chart}}" alt=""> </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> {{country1.inputs.inputEco.k_cat_info__nonpoor.value}} </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country2.inputs.inputEco.k_cat_info__nonpoor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputEco.k_cat_info__nonpoor.value}} </td>
                     </tr>
 
                     <!-- Vulnerability -->
@@ -339,26 +337,26 @@
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Asset vulnerability, poor people (% destruction of exposed assets of poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputVul.v_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputVul.v_cat_info__poor.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputVul.v_cat_info__poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputVul.v_cat_info__poor.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Asset vulnerability, non-poor people (% destruction of exposed assets of non-poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputVul.v_cat_info__nonpoor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputVul.v_cat_info__nonpoor.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputVul.v_cat_info__nonpoor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputVul.v_cat_info__nonpoor.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Access to early warning (% of population)</td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country1.inputs.inputVul.shew_for_hazard_ratio.chart}}" alt=""> </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> {{country1.inputs.inputVul.shew_for_hazard_ratio.value}}% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country2.inputs.inputVul.shew_for_hazard_ratio.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputVul.shew_for_hazard_ratio.value}}% </td>
                     </tr>
 
                     <!-- Exposure -->
@@ -368,42 +366,42 @@
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Exposure to riverine and coastal floods, poor (% of total assets of poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputExp.hazard_ratio_flood_poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputExp.hazard_ratio_flood_poor.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputExp.hazard_ratio_flood_poor.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputExp.hazard_ratio_flood_poor.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Exposure to riverine and coastal floods, non-poor (% of total assets of non-poor)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputExp.hazard_ratio_fa__flood.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputExp.hazard_ratio_fa__flood.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputExp.hazard_ratio_fa__flood.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputExp.hazard_ratio_fa__flood.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Exposure to earthquakes (% of total assets)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputExp.hazard_ratio_fa__earthquake.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputExp.hazard_ratio_fa__earthquake.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputExp.hazard_ratio_fa__earthquake.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputExp.hazard_ratio_fa__earthquake.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td class="subtitulo">Exposure to tsunamis (% of total assets)</td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero"> 40% </td>
-                        <td> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td> <img src="{{country1.inputs.inputExp.hazard_ratio_fa__tsunami.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero"> {{country1.inputs.inputExp.hazard_ratio_fa__tsunami.value}}% </td>
+                        <td> <img src="{{country2.inputs.inputExp.hazard_ratio_fa__tsunami.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputExp.hazard_ratio_fa__tsunami.value}}% </td>
                     </tr>
                     <!-- grafico -->
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo">Exposure to windstorms (% of total assets)</td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> 40% </td>
-                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="images/grafico-1.png" alt=""> </td>
-                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> 40% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country1.inputs.inputExp.hazard_ratio_fa__wind.chart}}" alt=""> </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;" class="subtitulo-numero"> {{country1.inputs.inputExp.hazard_ratio_fa__wind.value}}% </td>
+                        <td style="border-bottom: 1px solid #f4f5fa;"> <img src="{{country2.inputs.inputExp.hazard_ratio_fa__wind.chart}}" alt=""> </td>
+                        <td class="subtitulo-numero" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"> {{country2.inputs.inputExp.hazard_ratio_fa__wind.value}}% </td>
                     </tr>
 
                 </table>
@@ -424,66 +422,66 @@
                     <tr>
                         <td>
                             <button type="button" name="button">
-                                <p>Country 1</p>
+                                <p>{{country1.name}}</p>
                             </button>
                         </td>
                         <td><div class="linea"></div></td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.risk_to_assets.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO ASSETS</span><br>
-                            <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country1.outputs.risk_to_assets.value}}%</span><span class="titulo-5"> OF GDP PER YEAR</span><br>
+                            <!--<span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.resilience.chart}}" alt=""></td>
                         <td  class="space-img-letter">
                             <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country1.outputs.resilience.value}}% </span><span class="titulo-5"></span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.risk.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO WELL-BEING</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country1.outputs.risk.value}}% </span><span class="titulo-5"> OF GDP PER YEAR</span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <!-- PAIS -->
                     <tr>
                         <td style="padding-top:20px;">
                             <button type="button" name="button">
-                                <p>Country 2</p>
+                                <p>{{country2.name}}</p>
                             </button>
                         </td>
                         <td><div class="linea"></div></td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country2.outputs.risk_to_assets.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO ASSETS</span><br>
-                            <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country2.outputs.risk_to_assets.value}}%</span><span class="titulo-5"> OF GDP PER YEAR</span><br>
+                            <!--<span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country2.outputs.resilience.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country2.outputs.resilience.value}}%</span><span class="titulo-5"></span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="images/grafica-3.png" alt=""></td>
+                        <td class="tabla-2-img"><img src="{{country2.outputs.risk.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO WELL-BEING</span><br>
-                            <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                            <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                            <span class="titulo-2">{{country2.outputs.risk.value}}% </span><span class="titulo-5"> OF GDP PER YEAR</span><br>
+                            <!--<span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>-->
                         </td>
                     </tr>
 
@@ -495,7 +493,7 @@
 
         <div class="fecha-impresion">
             <p>
-                Report printed on 2 August, 2017
+                Report printed on {{reportDate}}
             </p>
         </div>
 
