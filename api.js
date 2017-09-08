@@ -199,13 +199,7 @@ function getTechHTMLHelperProcess(data) {
                 if (count === 1) {
                     template += '<tr>';
                     template += '<td>';
-                    template += '<br>';
-                    template += '<br>';
-                    template += '<br>';
-                    template += '<br>';
-                    template += '<br>';
-                    template += '<br>';
-                    template += '<br>';
+                    template += '<div class="empty-ctn"></div>';
                     template += '</td>';
                     template += '</tr>';
                 }
