@@ -196,9 +196,10 @@ function getTechHTMLHelperProcess(data) {
                         template += '</tr>';
                     }
                 }
-                if (count === 0) {
+                if (count === 1) {
                     template += '<tr>';
                     template += '<td>';
+                    template += '<br>';
                     template += '<br>';
                     template += '<br>';
                     template += '<br>';
