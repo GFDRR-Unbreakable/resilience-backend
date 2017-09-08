@@ -1,7 +1,8 @@
 .git/
 node_modules/
 .idea/
-
+data/viewer_pdf_template/technical_map_report_tmp.html
+data/viewer_pdf_template/viewer_report_tmp.html
 data/viewer_csv/viewer_report.csv
 data/model/model.log
 data/model_inputs.csv

@@ -243,7 +243,7 @@ function getReportDate() {
 }
 function getSliderDrawingValues(data) {
     var max = data.max;
-    var MAX_BAR_WIDTH = 40;
+    var MAX_BAR_WIDTH = 50;
     var min = data.min;
     var currentVal = data.value;
     var diffMaxMin = max - min;
