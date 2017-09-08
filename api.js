@@ -26,22 +26,21 @@ module.exports = {
             res.send(csvFile);
         });
     },
-    createPDFFile: function (req, res, next) {
+    createViewerPDFFile: function (req, res, next) {
         var rData = req.body;
         var inputComp = null;
         var mapTypeComp = null;
         setPDFDirectories();
+        mapTypeComp = getViewerHTMLHelperProcess(rData);
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
-            var helper = getHTMLHelperProcess(rData);
-            inputComp = helper.input;
-            mapTypeComp = helper.mapType;
+            inputComp = getTechHTMLHelperProcess(rData);
         }
         var file = rData.page === 'tech' ? 'technical_map_template.html' : 'viewer_template.html';
         var compiledHTML = compilePDFTemplate(file)(rData);
-        if (inputComp && mapTypeComp) {
+        compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
+        if (inputComp) {
             compiledHTML = compiledHTML.split('[[INPUT_SLIDERS]]').join(inputComp);
-            compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
         }
         var reportDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
         var reportFile =  rData.page === 'tech' ? '/technical_map_report_tmp.html' : '/viewer_report_tmp.html';
@@ -138,7 +137,7 @@ function getFormattedHTML(htmlTxt) {
     htmlTxt = htmlTxt.replace(prefix, '').replace(suffix, '').trim();
     return htmlTxt;
 }
-function getHTMLHelperProcess(data) {
+function getTechHTMLHelperProcess(data) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
         var inputs1 = data['country1'].inputs;
@@ -200,6 +199,15 @@ function getHTMLHelperProcess(data) {
         }
         return template;
     });
+    var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
+    var inHelperFile = '/input_helper.html';
+    var fullHPath = viewerDir + inHelperFile;
+    var inHelperHtml = fs.readFileSync(fullHPath, 'utf8');
+    var inTemplate = Handlebars.compile(inHelperHtml);
+    var inCompiledHTML = inTemplate(data);
+    return getFormattedHTML(inCompiledHTML);
+}
+function getViewerHTMLHelperProcess(data) {
     Handlebars.registerHelper('mapType', function () {
         var data = this;
         switch (data.map.type) {
@@ -212,20 +220,12 @@ function getHTMLHelperProcess(data) {
         }
     });
     var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
-    var inHelperFile = '/input_helper.html';
     var mapHelperFile = '/map_type_helper.html';
-    var fullHPath = viewerDir + inHelperFile;
     var fullMPath = viewerDir + mapHelperFile;
-    var inHelperHtml = fs.readFileSync(fullHPath, 'utf8');
-    var inTemplate = Handlebars.compile(inHelperHtml);
-    var inCompiledHTML = inTemplate(data);
     var mapHelperHtml = fs.readFileSync(fullMPath, 'utf8');
     var mapTemplate = Handlebars.compile(mapHelperHtml);
     var mapCompiledHTML = mapTemplate(data);
-    return {
-        mapType: getFormattedHTML(mapCompiledHTML),
-        input: getFormattedHTML(inCompiledHTML)
-    };
+    return getFormattedHTML(mapCompiledHTML)
 }
 function getReportDate() {
     var date = new Date();

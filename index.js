@@ -16,7 +16,7 @@ server.use(cors.actual);
 server.use(restify.plugins.bodyParser({maxBodySize: 104857600}));
 
 server.get('/api/output_data', apiFns.getOutputData);
-server.post('/api/pdf', apiFns.createPDFFile);
+server.post('/api/pdf', apiFns.createViewerPDFFile);
 server.post('/api/csv', apiFns.createCSVFile);
 
 
