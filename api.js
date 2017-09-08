@@ -171,7 +171,7 @@ function getHTMLHelperProcess(data) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
                         template += '<tr>';
                         values = getSliderDrawingValues(inputType1[type]);
-                        template += '<td class="subtitulo">' + inputType1[type].label + '</td>';
+                        template += '<td style="font-size:5px;">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
                         template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
                         template += '<div class="slider-wrapper">';
@@ -211,7 +211,7 @@ function getReportDate() {
 }
 function getSliderDrawingValues(data) {
     var max = data.max;
-    var MAX_BAR_WIDTH = 60;
+    var MAX_BAR_WIDTH = 40;
     var min = data.min;
     var currentVal = data.value;
     var diffMaxMin = max - min;
