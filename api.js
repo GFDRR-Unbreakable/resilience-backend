@@ -161,6 +161,7 @@ function getTechHTMLHelperProcess(data) {
         var inputType2;
         var values;
         var type;
+        var count = 0;
         for (var inKey in inputs1) {
             if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
@@ -195,6 +196,15 @@ function getTechHTMLHelperProcess(data) {
                         template += '</tr>';
                     }
                 }
+                if (count === 0) {
+                    template += '<br>';
+                    template += '<br>';
+                    template += '<br>';
+                    template += '<br>';
+                    template += '<br>';
+                    template += '<br>';
+                }
+                count++;
             }
         }
         return template;
