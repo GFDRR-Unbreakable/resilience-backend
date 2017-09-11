@@ -35,20 +35,6 @@
             font-weight: normal;
             font-style: normal;
         }
-
-        .pie-pagina{
-            clear:both;
-			height:35px;
-			background:#4b5757;
-		}
-        .image{
-            width: 35%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .image img:nth-child(2){
-            padding-left: 10px;
-        }
         .cabecera-2 span{
             font-size:8px;
             font-weight:700;
@@ -85,46 +71,77 @@
             top: 100;
             right: 0;
         }
-        .titulo{
-            font-weight: 600;
-            font-size: 8px;
+        .fecha-impresion{
+            float: right;
+            font-size: 10px !important;
+            padding-right: 20px;
+            padding-bottom: 5px;
         }
-        .titulo-normal{
-            font-size: 8px;
+        .input .slider-wrapper {
+            width:50px;
+            height: 13px;
+            margin-left:auto;
+            margin-right:auto;
+            position:relative;
         }
-        .titulo-2{
-            font-weight: bold;
+        .input .slider-ebar, .input .slider-fill {
+            height:3px;
+            position:absolute;
+            top:7px;
+            left:0px;
+            border-radius:30px;
+        }
+        .input .slider-ebar {
+                /*z-index: 0;*/
+            width:50px;
+            background-color:#e5e8ef;
+            z-index:1;
+        }
+        .input .slider-fill {
+            width: 0px;
+            background-color:#475656;
+            z-index:2;
+        }
+        .input .slider-thumb {
+            width:8px;
+            height:8px;
+            background-color:#e5e8ef;
+            border-radius:50%;
+            position:absolute;
+            top:5px;
+            left:-4px;
+            z-index:3;
+        }
+        .input .text-result {
+            width: 80px;
+            text-align: center;
             font-size: 6px;
         }
-        .titulo-2 p{
-            float: left;
+        .input .empty-ctn {
+            width: 100%;
+            height: 130px;
         }
-        .titulo-3{
-            /*font-size: 11px;*/
-            font-size: 8px;
-            font-weight: bold;
-            line-height: 17px;
+        .image{
+            width: 35%;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .titulo-4{
-            font-size: 8px;
-            font-size: 400;
+        .image img:nth-child(2){
+            padding-left: 10px;
         }
-        .titulo-5{
-            font-weight: 600;
-            font-size: 8px;
-            line-height: 15px;
+        .image-1{
+            width: 100%;
         }
-        .titulo-6{
-            font-size: 7px;
-            font-weight: 500;
+        .image-1 img{
+            width: 98%;
+            height: 20px;
         }
-        .subtitulo{
-            font-size: 10px;
-            font-style: normal;
+        .image-2{
+            width: 100%;
         }
-        .subtitulo-numero{
-            font-size: 8px;
-            font-weight: bold;
+        .image-2 img{
+            width: 98%;
+            height: 20px;
         }
         .imagenes{
             padding-top:10px;
@@ -142,7 +159,11 @@
             width:100%;
             height: 150px;
         }
-
+        .pie-pagina{
+            clear:both;
+    		height:35px;
+    		background:#4b5757;
+    	}
         .result{
             clear: both;
             width: 94%;
@@ -158,6 +179,38 @@
         }
         .space-image{
             padding-left: 50px;
+        }
+        .subtitulo-numero{
+            font-size: 8px;
+            font-weight: bold;
+        }
+        .titulo{
+            font-weight: 600;
+            font-size: 8px;
+        }
+        .titulo-2{
+            font-weight: bold;
+            font-size: 6px;
+        }
+        .titulo-2 p{
+            float: left;
+        }
+        .titulo-3{
+            font-size: 8px;
+            font-weight: bold;
+            line-height: 17px;
+        }
+        .titulo-4{
+            font-size: 8px;
+        }
+        .titulo-5{
+            font-weight: 600;
+            font-size: 8px;
+            line-height: 15px;
+        }
+        .titulo-6{
+            font-size: 7px;
+            font-weight: 500;
         }
         .tabla-2-img img{
             width: 100%;
@@ -180,20 +233,7 @@
         table.tabla-2 tr td:nth-child(1){
             height: 25px;
         }
-        .image-1{
-            width: 100%;
-        }
-        .image-1 img{
-            width: 98%;
-            height: 20px;
-        }
-        .image-2{
-            width: 100%;
-        }
-        .image-2 img{
-            width: 98%;
-            height: 20px;
-        }
+
 
 
 
@@ -229,91 +269,6 @@
           font-weight: bold;
           z-index:4;
         }
-        /*si barra-color avanza 115 entonces el ciculo avanza -15px es decir 100*/
-        .circulo{
-          width:10px;
-          height:10px;
-          background-color:#e5e8ef;
-          border-radius:50%;
-          position:absolute;
-          top:7px;
-          left:-5px;
-          z-index:3;
-        }
-        .fecha-impresion{
-            float: right;
-            font-size: 10px !important;
-            padding-right: 20px;
-            padding-bottom: 5px;
-        }
-        .input .slider-wrapper {
-                /*margin-left:auto;
-                margin-right:auto;
-                position:relative;
-                width:60px;
-                height: 20px;*/
-                width:50px;
-                height: 13px;
-                margin-left:auto;
-                margin-right:auto;
-                position:relative;
-            }
-            /*.input .slider-ebar, .input .slider-fill, .input .slider-thumb {
-                position: absolute;
-                background: #e5e8ef;
-                width: 60px;
-                height: 5px;
-                top:10px;
-                border-radius: 30px;
-            }*/
-            .input .slider-ebar, .input .slider-fill {
-                height:3px;
-                position:absolute;
-                top:7px;
-                left:0px;
-                border-radius:30px;
-            }
-            .input .slider-ebar {
-                /*z-index: 0;*/
-                width:50px;
-                background-color:#e5e8ef;
-                z-index:1;
-            }
-            .input .slider-fill {
-                /*background: #475656;
-                width: 0;
-                z-index: 1;*/
-                width: 0px;
-                background-color:#475656;
-                z-index:2;
-            }
-            .input .slider-thumb {
-                /*width: 10px;
-                height: 10px;
-                left: -5px;
-                top: 7px;
-                z-index: 2;*/
-
-                width:8px;
-                height:8px;
-                background-color:#e5e8ef;
-                border-radius:50%;
-                position:absolute;
-                top:5px;
-                left:-4px;
-                z-index:3;
-            }
-            .input .text-result {
-                width: 80px;
-                text-align: center;
-                font-size: 6px;
-            }
-            .input .empty-ctn {
-                width: 100%;
-                /*background: transparent;*/
-                height: 130px;
-            }
-
     </style>
 
     </head>
