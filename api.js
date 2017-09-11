@@ -193,7 +193,7 @@ function getTechHTMLHelperProcess(data) {
                 template += '<tr>';
                 var colSpan = inKey === 'inputSoc' ? '1' : '5';
                 var borderR = inKey !== 'inputSoc' ? 'border-right: 1px solid #f4f5fa' : '';
-                template += '<td colspan="' + colSpan + '" style="border-bottom: 1px solid #f4f5fa; ' + borderR +'"><span style="font-weight: bold; font-size: 8px;">' + inputsTitle(inKey) + ' <i class="mdi mdi-information-outline"></i></span></td>';
+                template += '<td colspan="' + colSpan + '"style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa ' + borderR +'"><span style="font-weight: bold; font-size: 8px;">' + inputsTitle(inKey) + ' <i class="mdi mdi-information-outline"></i></span></td>';
                 if (inKey === 'inputSoc') {
                     template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa;"><p class="titulo-normal" style="text-align:center;">' + data['country1'].name + '</p></td>';
                     template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
