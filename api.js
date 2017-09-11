@@ -29,9 +29,11 @@ module.exports = {
     createViewerPDFFile: function (req, res, next) {
         var rData = req.body;
         var inputComp = null;
-        var mapTypeComp = null;
         setPDFDirectories();
-        mapTypeComp = getViewerHTMLHelperProcess(rData);
+        if (rData.page === 'viewer') {
+            formatChartNumValues(rData);
+        }
+        var mapTypeComp = getViewerHTMLHelperProcess(rData);
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
             inputComp = getTechHTMLHelperProcess(rData);
@@ -88,6 +90,28 @@ function compilePDFTemplate(file) {
     filePath = path.resolve(filePath);
     var template = fs.readFileSync(filePath, 'utf8');
     return Handlebars.compile(template);
+}
+function formatChartNumValues(data) {
+    var outputs1 = data['country1']['outputs'];
+    var outputs2 = data['country2']['outputs'];
+    var inputs1 = data['country1']['inputs'];
+    var inputs2 = data['country2']['inputs'];
+    for (var key in outputs1) {
+        if (outputs1.hasOwnProperty(key) && outputs2.hasOwnProperty(key)) {
+            outputs1[key].value = (+outputs1[key].value).toFixed(3);
+            outputs2[key].value = (+outputs2[key].value).toFixed(3);
+        }
+    }
+    for (var inKey in inputs1) {
+        if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
+            for (var inType in inputs1[inKey]) {
+                if (inputs1[inKey].hasOwnProperty(inType) && inputs2[inKey].hasOwnProperty(inType)) {
+                    inputs1[inKey][inType].value = (+inputs1[inKey][inType].value).toFixed(3);
+                    inputs2[inKey][inType].value = (+inputs2[inKey][inType].value).toFixed(3);
+                }
+            }
+        }
+    }
 }
 function formatCSVData(resData, data, fields) {
     for (var key in resData) {
@@ -257,55 +281,6 @@ function getSliderDrawingValues(data) {
         percentage: percentage,
         pixels: pixels
     };
-}
-function outputFN() {
-    function porcentajePixel(min, max, centro) {
-        var totalCalcular, centroPorcentaje, barra_color, circulo, numero, avancePX;
-        var idColor = "", idFigura = "", idNumber = "";
-        /*=== validamos los datos que ingresen ===*/
-        min = min || 0;
-        max = max || 320;
-        centro = centro || 0;
-
-        for (var i = 1; i <= 10; i++) {
-            idColor = "color" + i;
-            idFigura = "figura" + i;
-            idNumber = "number" + i;
-            barra_color = document.getElementById(idColor);
-            circulo = document.getElementById(idFigura);
-            numero = document.getElementById(idNumber);
-            if (max > min && centro <= max && centro >= min) {
-                totalCalcular = max - min;
-                /*=== aqui 100 es en porcentaje ===*/
-                centroPorcentaje = ((centro - min) * 100) / totalCalcular;
-                centroPorcentaje = Math.round(centroPorcentaje);
-                avancePX = (centroPorcentaje * 80) / 100;
-                barra_color.style.width = avancePX + "px";
-                /*=== El -10 significa el radio del circulo ===*/
-                avancePX = avancePX - 10;
-                circulo.style.left = avancePX + "px";
-                /*=== El +20 es 10 del radio y un margind igual 10 para que se vea separado ===*/
-                avancePX = avancePX + 20;
-                numero.style.left = avancePX + "px";
-                numero.innerHTML = centroPorcentaje + '%';
-
-                console.log("Minimo: " + min, "Maximo: " + max, "Centro: " + centro);
-                console.log("Total sobre cual calcular el porcentaje: " + totalCalcular);
-                console.log(centro, "Es: " + centroPorcentaje + "%");
-            }
-            else {
-                console.log("No Es Posible Calcular El Porcentaje");
-            }
-
-        }
-
-    }
-
-    //Recive como datos min, max, numeroCentro
-    var min = Math.round(Math.random() * 100);
-    var max = Math.round(Math.random() * 100);
-    var centro = Math.round(Math.random() * 100);
-    porcentajePixel(min, max, centro);
 }
 function setCSVDirectories() {
     var dir = __dirname + '/data/viewer_csv';
