@@ -253,18 +253,18 @@ function getHazardSelHTMLHelperProcess(data) {
         // Flood, Earthquake, Tsunamis, and Extreme Wind
         var selectedHazards = data['selectedHazards'];
         if (selectedHazards['hazard1']) {
-            txt += 'Flood ,';
+            txt += 'Flood|';
         }
         if (selectedHazards['hazard2']) {
-            txt += 'Earthquake ,';
+            txt += 'Earthquake|';
         }
         if (selectedHazards['hazard3']) {
-            txt += 'Tsunamis ,';
+            txt += 'Tsunamis|';
         }
         if (selectedHazards['hazard4']) {
-            txt += 'Extreme Wind ,';
+            txt += 'Extreme Wind|';
         }
-        var txtArr = txt.split(',').filter(function (val) { return val.trim().length; });
+        var txtArr = txt.split('|').filter(function (val) { return val.trim().length; });
         if (txtArr.length) {
             switch (txtArr.length) {
                 case 1:
