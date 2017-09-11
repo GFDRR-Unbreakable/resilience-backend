@@ -70,6 +70,10 @@
                 top: 100;
                 right: 0;
             }
+            .empty-ctn {
+                width: 100%;
+                height: 130px;
+            }
             .fecha-impresion{
                 color: #485050;
                 float: right;
@@ -94,7 +98,13 @@
             .linea{
                 border-bottom: 1px solid #f4f5fa;
                 margin-top: -1px;
-                width: 120px;
+                width: 200px;
+                position: absolute;
+            }
+            .linea2{
+                border-bottom: 1px solid #f4f5fa;
+                margin-top: 30px;
+                width: 200px;
                 position: absolute;
             }
             .map img{
@@ -174,14 +184,13 @@
                 height: 33px;
             }
             table.tabla-1 img{
-                width: 70%;
-                height:25px;
+                width: 60%;
+                height:23px;
             }
             table.tabla-1 .subtitulo-numero{
                 font-size: 6px;
-                display: block;
             }
-            table.tabla-1 img, table.tabla-1 .subtitulo-numero{
+            table.tabla-1 img{
                 float: left;
             }
             table.tabla-2 tr td:nth-child(1){
@@ -214,7 +223,7 @@
 
             <div class="resultado">
 
-                <table class="tabla-1" style="float:left;" width="52%">
+                <table class="tabla-1" style="float:left; border-right:1px solid #f4f5fa;" width="52%">
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;" colspan="5">
                             <p style="font-size:8px; font-weight:700;">
@@ -351,6 +360,14 @@
                             <span class="subtitulo-numero"> {{country2.inputs.inputEco.k_cat_info__nonpoor.value}}</span>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <div class="empty-ctn">
+                            </div>
+                        </td>
+                    </tr>
+
                     <!-- Vulnerability -->
                     <tr>
                         <td colspan="5" style="font-weight: bold; font-size: 8px; border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa">Vulnerability <i class="mdi mdi-information-outline"></i></td>
@@ -510,7 +527,7 @@
                                 <p>{{country2.name}}</p>
                             </button>
                         </td>
-                        <td><div class="linea"></div></td>
+                        <td><div class="linea2"></div></td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="{{country2.outputs.risk_to_assets.chart}}" alt=""></td>
