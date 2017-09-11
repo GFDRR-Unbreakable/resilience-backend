@@ -97,14 +97,9 @@
             }
             .linea{
                 border-bottom: 1px solid #f4f5fa;
-                margin-top: -1px;
-                width: 200px;
-                position: absolute;
-            }
-            .linea2{
-                border-bottom: 1px solid #f4f5fa;
-                margin-top: 30px;
-                width: 200px;
+                margin-top: 3px;
+                width: 100%;
+                left: 0px;
                 position: absolute;
             }
             .map img{
@@ -254,6 +249,7 @@
                         </td>
                     </tr>
                     <!-- grafico -->
+
                     <tr>
                         <td  style="font-size:6px;">Total social protection spending and remittances (US$,PPP)</td>
                         <td colspan="2">
@@ -489,12 +485,13 @@
                     </tr>
                     <!-- PAIS -->
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <button type="button" name="button">
-                                <p>{{country1.name}}</p>
+                                <p>
+                                    {{country1.name}}<span class="linea"></span>
+                                </p>
                             </button>
                         </td>
-                        <td><div class="linea"></div></td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="{{country1.outputs.risk_to_assets.chart}}" alt=""></td>
@@ -522,12 +519,13 @@
                     </tr>
                     <!-- PAIS -->
                     <tr>
-                        <td style="padding-top:23px;">
+                        <td colspan="2" style="padding-top:23px;">
                             <button type="button" name="button">
-                                <p>{{country2.name}}</p>
+                                <p>
+                                    {{country2.name}}<span class="linea"></span>
+                                </p>
                             </button>
                         </td>
-                        <td><div class="linea2"></div></td>
                     </tr>
                     <tr>
                         <td class="tabla-2-img"><img src="{{country2.outputs.risk_to_assets.chart}}" alt=""></td>
