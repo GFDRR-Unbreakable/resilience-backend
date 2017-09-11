@@ -134,6 +134,9 @@
                 color: #485050;
                 font-size: 8px;
             }
+            .titulo-normal{
+                font-size: 8px;
+            }
             .titulo-2{
                 color: #485050;
                 font-weight: bold;
@@ -218,7 +221,7 @@
 
             <div class="resultado">
 
-                <table class="tabla-1" style="float:left;" width="52%">
+                <table class="tabla-1" style="float:left; border-right:1px solid #f4f5fa;" width="52%">
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa;" colspan="5">
                             <p style="font-size:8px; font-weight:700;">
@@ -233,7 +236,13 @@
                     </tr>
                     <!-- Social Protection -->
                     <tr>
-                        <td colspan="5" style="font-weight: bold; font-size: 8px; border-bottom: 1px solid #f4f5fa;">Social Protection <i class="mdi mdi-information-outline"></i></td>
+                        <td style="font-weight: bold; font-size: 8px; border-bottom: 1px solid #f4f5fa;">Social Protection <i class="mdi mdi-information-outline"></i></td>
+                        <td colspan="2">
+                            <p class="titulo-normal" style="text-align:center;">{{country1.name}}</p>
+                        </td>
+                        <td colspan="2">
+                            <p class="titulo-normal" style="text-align:center;">{{country2.name}}</p>
+                        </td>
                     </tr>
 
                     <!-- grafico -->
