@@ -34,6 +34,7 @@ module.exports = {
             formatChartNumValues(rData);
         }
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
+        var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
             inputComp = getTechHTMLHelperProcess(rData);
@@ -41,6 +42,7 @@ module.exports = {
         var file = rData.page === 'tech' ? 'technical_map_template.html' : 'viewer_template.html';
         var compiledHTML = compilePDFTemplate(file)(rData);
         compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
+        compiledHTML = compiledHTML.split('[[HAZARD_SELECTION]]').join(hazardSelComp);
         if (inputComp) {
             compiledHTML = compiledHTML.split('[[INPUT_SLIDERS]]').join(inputComp);
         }
@@ -243,6 +245,55 @@ function getTechHTMLHelperProcess(data) {
     var inTemplate = Handlebars.compile(inHelperHtml);
     var inCompiledHTML = inTemplate(data);
     return getFormattedHTML(inCompiledHTML);
+}
+function getHazardSelHTMLHelperProcess(data) {
+    Handlebars.registerHelper('hazardType', function () {
+        var data = this;
+        var txt = '';
+        // Flood, Earthquake, Tsunamis, and Extreme Wind
+        var selectedHazards = data['selectedHazards'];
+        if (selectedHazards['hazard1']) {
+            txt += 'Flood ,';
+        }
+        if (selectedHazards['hazard2']) {
+            txt += 'Earthquake ,';
+        }
+        if (selectedHazards['hazard3']) {
+            txt += 'Tsunamis ,';
+        }
+        if (selectedHazards['hazard4']) {
+            txt += 'Extreme Wind ,';
+        }
+        var txtArr = txt.split(',').filter(function (val) { return val.trim().length; });
+        if (txtArr.length) {
+            switch (txtArr.length) {
+                case 1:
+                    txt = txtArr[0];
+                    break;
+                case 2:
+                    txt = txtArr[0] + ' and ' + txtArr[1];
+                    break;
+                case 3:
+                    txt = txtArr[0] + ', ' + txtArr[1] +' and ' + txtArr[2];
+                    break;
+                case 4:
+                    txt = txtArr[0] + ', ' + txtArr[1] + ', ' + txtArr[2] +' and ' + txtArr[3];
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            txt = '-';
+        }
+        return txt;
+    });
+    var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
+    var hazardFile = '/hazard_sel_helper.html';
+    var fullHPath = viewerDir + hazardFile;
+    var hHelperHtml = fs.readFileSync(fullHPath, 'utf8');
+    var hTemplate = Handlebars.compile(hHelperHtml);
+    var hCompiledHTML = hTemplate(data);
+    return getFormattedHTML(hCompiledHTML);
 }
 function getViewerHTMLHelperProcess(data) {
     Handlebars.registerHelper('mapType', function () {
