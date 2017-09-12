@@ -34,6 +34,9 @@
                 font-weight: normal;
                 font-style: normal;
             }
+            .cabecera-2{
+                height: 33px;
+            }
             .cabecera-2 span{
                 font-size:8px;
                 font-weight:700;
@@ -467,12 +470,12 @@
                     </tr>
                     <!-- grafico -->
                     <tr>
-                        <td  style="font-size:6px;">Exposure to windstorms (% of total assets)</td>
-                        <td colspan="2">
+                        <td  style="font-size:6px; border-bottom:1px solid #f4f5fa;">Exposure to windstorms (% of total assets)</td>
+                        <td colspan="2" style="border-bottom:1px solid #f4f5fa;">
                             <img src="{{country1.inputs.inputExp.hazard_ratio_fa__wind.chart}}" alt="">
                             <span class="subtitulo-numero">{{country1.inputs.inputExp.hazard_ratio_fa__wind.value}}%</span>
                         </td>
-                        <td colspan="2">
+                        <td colspan="2" style="border-bottom:1px solid #f4f5fa;">
                             <img src="{{country2.inputs.inputExp.hazard_ratio_fa__wind.chart}}" alt="">
                             <span class="subtitulo-numero">{{country2.inputs.inputExp.hazard_ratio_fa__wind.value}}%</span>
                         </td>
@@ -503,7 +506,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="{{country1.outputs.risk_to_assets.chart}}" alt=""></td>
+                        <td><img src="{{country1.outputs.risk_to_assets.chart}}" alt="" width="100%" height="30px" style="padding-top:10px;"></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO ASSETS</span><br>
                             <span class="titulo-5">{{country1.outputs.risk_to_assets.value}}%</span><span class="titulo-2"> OF GDP PER YEAR</span><br>
@@ -511,7 +514,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="{{country1.outputs.resilience.chart}}" alt=""></td>
+                        <td><img src="{{country1.outputs.resilience.chart}}" alt="" width="100%" height="30px" style="padding-top:10px;"></td>
                         <td  class="space-img-letter">
                             <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
                             <span class="titulo-5">{{country1.outputs.resilience.value}}% </span><span class="titulo-2"></span><br>
@@ -519,7 +522,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="tabla-2-img"><img src="{{country1.outputs.risk.chart}}" alt=""></td>
+                        <td><img src="{{country1.outputs.risk.chart}}" alt="" width="100%" height="30px" style="padding-top:10px;"></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO WELL-BEING</span><br>
                             <span class="titulo-5">{{country1.outputs.risk.value}}% </span><span class="titulo-2"> OF GDP PER YEAR</span><br>
@@ -528,7 +531,7 @@
                     </tr>
                     <!-- PAIS -->
                     <tr>
-                        <td colspan="2" style="padding-top:23px;">
+                        <td colspan="2" style="padding-top:18px;">
                             <button type="button" name="button">
                                 <p>
                                     {{country2.name}}<span class="linea"></span>

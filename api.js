@@ -192,11 +192,11 @@ function getTechHTMLHelperProcess(data) {
             if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
                 var colSpan = inKey === 'inputSoc' ? '1' : '5';
-                var borderR = inKey !== 'inputSoc' ? 'border-right: 1px solid #f4f5fa' : '';
-                template += '<td colspan="' + colSpan + '"style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa ' + borderR +'"><span style="font-weight: bold; font-size: 8px;">' + inputsTitle(inKey) + ' <i class="mdi mdi-information-outline"></i></span></td>';
+                var borderR = inKey !== 'inputSoc' ? '' : '';
+                template += '<td colspan="' + colSpan + '"style="border-bottom: 1px solid #f4f5fa;' + borderR +'"><span style="font-weight: bold; font-size: 8px;">' + inputsTitle(inKey) + ' <i class="mdi mdi-information-outline"></i></span></td>';
                 if (inKey === 'inputSoc') {
                     template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa;"><p class="titulo-normal" style="text-align:center;">' + data['country1'].name + '</p></td>';
-                    template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa; border-right: 1px solid #f4f5fa;"><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
+                    template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa;"><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
                 }
                 template += '</tr>';
                 inputType1 = inputs1[inKey];
@@ -215,7 +215,7 @@ function getTechHTMLHelperProcess(data) {
                         template += '</div>';
                         template += '</td>';
                         values = getSliderDrawingValues(inputType2[type]);
-                        template += '<td colspan="2" style="border-right: 1px solid #f4f5fa;">';
+                        template += '<td colspan="2">';
                         template += '<p class="text-result">' + (+inputType2[type].value).toFixed(3) + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
