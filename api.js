@@ -212,31 +212,41 @@ function getTechHTMLHelperProcess(data) {
                 for (type in inputType1) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
                         template += '<tr>';
+                        if (data['country1'].name === 'Global') {
+                            values = getSliderDrawingValuesByPercentage(inputType1[type])
+                        } else {
+                            values = getSliderDrawingValuesByValue(inputType1[type]);
+                        }
                         // values = getSliderDrawingValues(inputType1[type]);
-                        pixelValue = getSliderPorcentageValue(inputType1[type]);
+                        // pixelValue = getSliderPorcentageValue(inputType1[type]);
                         template += '<td style="font-size:6px;">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
                         // template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
                         template += '<p class="text-result">' + inputType1[type].value.label + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
-                        // template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
-                        template += '<div class="slider-fill" style="width: ' + (+inputType1[type].value.value) + '% "></div>';
-                        // template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
-                        template += '<div class="slider-thumb" style="left: ' + pixelValue + 'px"></div>';
+                        template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
+                        // template += '<div class="slider-fill" style="width: ' + (+inputType1[type].value.value) + '% "></div>';
+                        template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
+                        // template += '<div class="slider-thumb" style="left: ' + (pixelValue - 5) + 'px"></div>';
                         template += '</div>';
                         template += '</td>';
+                        if (data['country2'].name === 'Global') {
+                            values = getSliderDrawingValuesByPercentage(inputType2[type])
+                        } else {
+                            values = getSliderDrawingValuesByValue(inputType2[type]);
+                        }
                         // values = getSliderDrawingValues(inputType2[type]);
-                        pixelValue = getSliderPorcentageValue(inputType2[type]);
+                        // pixelValue = getSliderPorcentageValue(inputType2[type]);
                         template += '<td colspan="2">';
                         // template += '<p class="text-result">' + (+inputType2[type].value).toFixed(3) + '</p>';
                         template += '<p class="text-result">' + inputType2[type].value.label + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
-                        // template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
-                        template += '<div class="slider-fill" style="width: ' + (+inputType1[type].value.value) + '% "></div>';
-                        // template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
-                        template += '<div class="slider-thumb" style="left: ' + (pixelValue - 5) + 'px"></div>';
+                        template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
+                        // template += '<div class="slider-fill" style="width: ' + (+inputType1[type].value.value) + '% "></div>';
+                        template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
+                        // template += '<div class="slider-thumb" style="left: ' + (pixelValue - 5) + 'px"></div>';
                         template += '</div>';
                         template += '</td>';
                         template += '</tr>';
@@ -336,11 +346,11 @@ function getReportDate() {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
 }
-function getSliderDrawingValues(data) {
+function getSliderDrawingValuesByValue(data) {
     var max = data.max;
     var MAX_BAR_WIDTH = 50;
     var min = data.min;
-    var currentVal = data.value;
+    var currentVal = data.value.value;
     var diffMaxMin = max - min;
     var percentage = ((currentVal - min) * 100) / diffMaxMin;
     var pixels = (percentage * MAX_BAR_WIDTH) / 100;
@@ -349,10 +359,14 @@ function getSliderDrawingValues(data) {
         pixels: pixels
     };
 }
-function getSliderPorcentageValue(data) {
+function getSliderDrawingValuesByPercentage(data) {
     var MAX_BAR_WIDTH = 50;
     var percentage = data.value.value;
-    return (percentage * MAX_BAR_WIDTH) / 100;
+    var pixels = (percentage * MAX_BAR_WIDTH) / 100;
+    return {
+        percentage: percentage,
+        pixels: pixels
+    }
 }
 function setCSVDirectories() {
     var dir = __dirname + '/data/viewer_csv';
