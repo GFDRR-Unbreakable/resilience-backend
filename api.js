@@ -30,9 +30,9 @@ module.exports = {
         var rData = req.body;
         var inputComp = null;
         setPDFDirectories();
-        if (rData.page === 'viewer') {
-            formatChartNumValues(rData);
-        }
+        // if (rData.page === 'viewer') {
+        formatChartNumValues(rData);
+        // }
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
         var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
         rData.reportDate = getReportDate();
@@ -98,19 +98,26 @@ function formatChartNumValues(data) {
     var outputs2 = data['country2']['outputs'];
     var inputs1 = data['country1']['inputs'];
     var inputs2 = data['country2']['inputs'];
+    var formatDollarValue = function(dollar) {
+        var aThousand = 1000;
+        dollar = +dollar;
+        if (dollar >= aThousand) {
+            if (dollar % aThousand === 0) {
+                dollar /= aThousand;
+                dollar += ',000';
+            } else {
+                dollar /= aThousand;
+                dollar = dollar.toFixed(3);
+                dollar = dollar.toString().replace('.', ',');
+            }
+        }
+        return '$' + dollar;
+    }; 
     for (var key in outputs1) {
         if (outputs1.hasOwnProperty(key) && outputs2.hasOwnProperty(key)) {
-            outputs1[key].value = (+outputs1[key].value).toFixed(3);
-            outputs2[key].value = (+outputs2[key].value).toFixed(3);
-        }
-    }
-    for (var inKey in inputs1) {
-        if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
-            for (var inType in inputs1[inKey]) {
-                if (inputs1[inKey].hasOwnProperty(inType) && inputs2[inKey].hasOwnProperty(inType)) {
-                    inputs1[inKey][inType].value = (+inputs1[inKey][inType].value).toFixed(3);
-                    inputs2[inKey][inType].value = (+inputs2[inKey][inType].value).toFixed(3);
-                }
+            if (key.indexOf('risk') >= 0) {
+               outputs1[key].value.dollarGDP = formatDollarValue(outputs1[key].value.dollarGDP); 
+               outputs2[key].value.dollarGDP = formatDollarValue(outputs2[key].value.dollarGDP); 
             }
         }
     }
@@ -188,6 +195,7 @@ function getTechHTMLHelperProcess(data) {
         var values;
         var type;
         var count = 0;
+        var pixelValue;
         for (var inKey in inputs1) {
             if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
@@ -204,23 +212,31 @@ function getTechHTMLHelperProcess(data) {
                 for (type in inputType1) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
                         template += '<tr>';
-                        values = getSliderDrawingValues(inputType1[type]);
+                        // values = getSliderDrawingValues(inputType1[type]);
+                        pixelValue = getSliderPorcentageValue(inputType1[type]);
                         template += '<td style="font-size:6px;">' + inputType1[type].label + '</td>';
                         template += '<td colspan="2">';
-                        template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
+                        // template += '<p class="text-result">' + (+inputType1[type].value).toFixed(3) + '</p>';
+                        template += '<p class="text-result">' + inputType1[type].value.label + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
-                        template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
-                        template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
+                        // template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
+                        template += '<div class="slider-fill" style="width: ' + (+inputType1[type].value.value) + '% "></div>';
+                        // template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
+                        template += '<div class="slider-thumb" style="left: ' + pixelValue + 'px"></div>';
                         template += '</div>';
                         template += '</td>';
-                        values = getSliderDrawingValues(inputType2[type]);
+                        // values = getSliderDrawingValues(inputType2[type]);
+                        pixelValue = getSliderPorcentageValue(inputType2[type]);
                         template += '<td colspan="2">';
-                        template += '<p class="text-result">' + (+inputType2[type].value).toFixed(3) + '</p>';
+                        // template += '<p class="text-result">' + (+inputType2[type].value).toFixed(3) + '</p>';
+                        template += '<p class="text-result">' + inputType2[type].value.label + '</p>';
                         template += '<div class="slider-wrapper">';
                         template += '<div class="slider-ebar"></div>';
-                        template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
-                        template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
+                        // template += '<div class="slider-fill" style="width: ' + values.percentage + '% "></div>';
+                        template += '<div class="slider-fill" style="width: ' + (+inputType1[type].value.value) + '% "></div>';
+                        // template += '<div class="slider-thumb" style="left: ' + (values.pixels - 5) + 'px"></div>';
+                        template += '<div class="slider-thumb" style="left: ' + (pixelValue - 5) + 'px"></div>';
                         template += '</div>';
                         template += '</td>';
                         template += '</tr>';
@@ -332,6 +348,11 @@ function getSliderDrawingValues(data) {
         percentage: percentage,
         pixels: pixels
     };
+}
+function getSliderPorcentageValue(data) {
+    var MAX_BAR_WIDTH = 50;
+    var percentage = data.value.value;
+    return (percentage * MAX_BAR_WIDTH) / 100;
 }
 function setCSVDirectories() {
     var dir = __dirname + '/data/viewer_csv';
