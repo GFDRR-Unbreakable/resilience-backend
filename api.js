@@ -26,13 +26,23 @@ module.exports = {
             res.send(csvFile);
         });
     },
+    createScorecardPDFFile: function (req, res, next) {
+        var rData = req.body;
+        setPDFDirectories(true);
+        formatChartNumValues(rData);
+        rData.reportDate = getReportDate();
+        var file = rData.page === 'policyList' ? 'policy_list_template.html' : 'policy_scenario_template.html';
+        var compiledHTML = compilePDFTemplate(file, true)(rData);
+        var reportDir = process.env.SCORECARD_TEMPLATE_DIRECTORY;
+        var reportFile =  rData.page === 'policyList' ? '/policy_list_report_tmp.html' : '/policy_scenario_report_tmp.html';
+        var fullPath = reportDir + reportFile;
+        setPDFResponseConf(res, fullPath, compiledHTML);
+    },
     createViewerPDFFile: function (req, res, next) {
         var rData = req.body;
         var inputComp = null;
-        setPDFDirectories();
-        // if (rData.page === 'viewer') {
+        setPDFDirectories(false);
         formatChartNumValues(rData);
-        // }
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
         var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
         rData.reportDate = getReportDate();
@@ -40,7 +50,7 @@ module.exports = {
             inputComp = getTechHTMLHelperProcess(rData);
         }
         var file = rData.page === 'tech' ? 'technical_map_template.html' : 'viewer_template.html';
-        var compiledHTML = compilePDFTemplate(file)(rData);
+        var compiledHTML = compilePDFTemplate(file, false)(rData);
         compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
         compiledHTML = compiledHTML.split('[[HAZARD_SELECTION]]').join(hazardSelComp);
         if (inputComp) {
@@ -49,31 +59,7 @@ module.exports = {
         var reportDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
         var reportFile =  rData.page === 'tech' ? '/technical_map_report_tmp.html' : '/viewer_report_tmp.html';
         var fullPath = reportDir + reportFile;
-        fs.writeFile(fullPath, compiledHTML, function (err) {
-            if (err) {
-                handleError(res, err);
-            }
-            var html = fs.readFileSync(fullPath, 'utf8');
-            var phantomJSPath = path.resolve('node_modules/phantomjs-prebuilt/bin/phantomjs');
-            var options = {
-                phantomPath: phantomJSPath,
-                format: 'Letter'
-            };
-            console.log('Starting creating pdf...');
-            htmlPdf.create(html, options).toBuffer(function (err, buffer) {
-                if (err) {
-                    handleError(res, err);
-                }
-                console.log('Finishing creating pdf...');
-                fs.unlinkSync(fullPath);
-                var data = [];
-                data.push(buffer);
-                var pdfContent = Buffer.concat(data).toString('base64');
-                res.header("Access-Control-Allow-Headers", "X-Requested-With");
-                res.header('Content-Type', 'application/pdf');
-                res.send(pdfContent);
-            });
-        });
+        setPDFResponseConf(res, fullPath, compiledHTML);
     },
     getOutputData: function (req, res, next) {
         var csvFile = selfPath + '/data/df2.csv';
@@ -86,8 +72,13 @@ module.exports = {
     }
 };
 
-function compilePDFTemplate(file) {
-    var filePath = process.env.VIEWER_TEMPLATE_DIRECTORY;
+function compilePDFTemplate(file, isScorecard) {
+    var filePath;
+    if (isScorecard) {
+        filePath = process.env.SCORECARD_TEMPLATE_DIRECTORY;
+    } else {
+        filePath = process.env.VIEWER_TEMPLATE_DIRECTORY;
+    }
     filePath += '/' + file;
     filePath = path.resolve(filePath);
     var template = fs.readFileSync(filePath, 'utf8');
@@ -96,8 +87,6 @@ function compilePDFTemplate(file) {
 function formatChartNumValues(data) {
     var outputs1 = data['country1']['outputs'];
     var outputs2 = data['country2']['outputs'];
-    var inputs1 = data['country1']['inputs'];
-    var inputs2 = data['country2']['inputs'];
     var formatDollarValue = function(dollar) {
         var aThousand = 1000;
         dollar = +dollar;
@@ -376,13 +365,51 @@ function setCSVDirectories() {
     console.log(files);
     process.env.VIEWER_CSV_DIRECTORY = dir;
 }
-function setPDFDirectories() {
-    var dir = __dirname + '/data/viewer_pdf_template';
-    dir = path.resolve(dir);
-    var files = fs.readdirSync(dir);
-    console.log('- - - - Access PDF Template files - - - -');
-    console.log(files);
-    process.env.VIEWER_TEMPLATE_DIRECTORY = dir;
+function setPDFDirectories(isScorecard) {
+    var dir;
+    var files;
+    if (isScorecard) {
+        dir = __dirname + '/data/policy_pdf_template';
+        dir = path.resolve(dir);
+        files = fs.readdirSync(dir);
+        console.log('- - - - Access PDF Template files - - - -');
+        console.log(files);
+        process.env.SCORECARD_TEMPLATE_DIRECTORY = dir;
+    } else {
+        dir = __dirname + '/data/viewer_pdf_template';
+        dir = path.resolve(dir);
+        files = fs.readdirSync(dir);
+        console.log('- - - - Access PDF Template files - - - -');
+        console.log(files);
+        process.env.VIEWER_TEMPLATE_DIRECTORY = dir;
+    }
+}
+function setPDFResponseConf(res, fullPath, compiledHTML) {
+    fs.writeFile(fullPath, compiledHTML, function (err) {
+        if (err) {
+            handleError(res, err);
+        }
+        var html = fs.readFileSync(fullPath, 'utf8');
+        var phantomJSPath = path.resolve('node_modules/phantomjs-prebuilt/bin/phantomjs');
+        var options = {
+            phantomPath: phantomJSPath,
+            format: 'Letter'
+        };
+        console.log('Starting creating pdf...');
+        htmlPdf.create(html, options).toBuffer(function (err, buffer) {
+            if (err) {
+                handleError(res, err);
+            }
+            console.log('Finishing creating pdf...');
+            fs.unlinkSync(fullPath);
+            var data = [];
+            data.push(buffer);
+            var pdfContent = Buffer.concat(data).toString('base64');
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            res.header('Content-Type', 'application/pdf');
+            res.send(pdfContent);
+        });
+    });
 }
 
 function handleError(res, err) {

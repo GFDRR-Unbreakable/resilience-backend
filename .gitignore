@@ -4,6 +4,8 @@ node_modules/
 data/viewer_pdf_template/technical_map_report_tmp.html
 data/viewer_pdf_template/viewer_report_tmp.html
 data/viewer_csv/viewer_report.csv
+#data/policy_pdf_template/policy_list_report_tmp.html
+#data/policy_pdf_template/policy_scenario_report_tmp.html
 data/model/model.log
 data/model_inputs.csv
 data/__pycache__/

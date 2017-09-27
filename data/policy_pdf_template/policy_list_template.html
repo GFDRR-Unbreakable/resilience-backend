@@ -10,7 +10,7 @@
     </head>
     <body>
 
-    <style media="print">
+    <style>
         *{
             margin: 0px;
             padding: 0px;
@@ -188,7 +188,7 @@
 
         <div class="cabecera">
             <img src="images/ulogo.png" alt="">
-            <p>Policy Priority List : Malawi and Zimbabwe</p>
+            <p>Policy Priority List : {{country1.name}} and {{country2.name}}</p>
         </div>
 
         <div class="datos-tabla">
@@ -197,9 +197,9 @@
 
                 <tr>
                     <td colspan="3">
-                        <span class="titulo">Country 1</span><br>
-                        <span class="titulo-2">GDP: $21.843 billon</span><br>
-                        <span class="titulo-2">Population (2013 estimate): 16.407.000</span>
+                        <span class="titulo">{{country1.name}}</span><br>
+                        <span class="titulo-2">GDP: ${{country1.gdp}} USD</span><br>
+                        <span class="titulo-2">Population (2013 estimate): {{country1.population}}</span>
                     </td>
                 </tr>
                 <tr><td colspan="3" height="10px"> </td></tr>
@@ -216,35 +216,34 @@
                 <tr>
                     <td>
                         <div class="image-1">
-                            <img src="images/grafica-3.png" alt="">
+                            <img src="{{country1.outputs.risk_to_assets.chart}}" alt="">
                         </div>
                     </td>
                     <td>
                         <div class="image-1">
-                            <img src="images/grafica-3.png" alt="">
+                            <img src="{{country1.outputs.resilience.chart}}" alt="">
                         </div>
                     </td>
                     <td>
                         <div class="image-1">
-                            <img src="images/grafica-3.png" alt="">
+                            <img src="{{country1.outputs.risk.chart}}" alt="">
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span class="titulo-3">RISK TO ASSETS</span><br>
-                        <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
-                        <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
+                        <span class="titulo-2">{{country1.outputs.risk_to_assets.value.valueGDP}}%</span><span class="titulo-5"> % GDP PER YEAR</span><br>
+                        <span class="titulo-2">{{country1.outputs.risk_to_assets.value.dollarGDP}}</span><span class="titulo-5"> MILLION</span>
                     </td>
                     <td>
                         <span class="titulo-3">SOCIO-ECONOMIC CAPACITY</span><br>
-                        <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                        <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                        <span class="titulo-2">{{country1.outputs.resilience.value}}% </span><br>
                     </td>
                     <td>
                         <span class="titulo-3">RISK TO WELL-BEING</span><br>
-                        <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                        <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                        <span class="titulo-2">{{country1.outputs.risk.value.valueGDP}}%</span><span class="titulo-5"> % GDP PER YEAR</span><br>
+                        <span class="titulo-2">{{country1.outputs.risk.value.dollarGDP}}</span><span class="titulo-5"> MILLION</span>
                     </td>
                 </tr>
                 <tr><td height="5px"> </td></tr>
@@ -265,12 +264,14 @@
                 <tr><td height="15px"> </td></tr>
                 <tr>
                     <td class="titulo-3">POLICIES</td>
-                    <td colspan="2" class="titulo-2" style="text-align:center;">U$$, millons per year</td>
+                    <!--<td colspan="2" class="titulo-2" style="text-align:center;">U$$, millons per year</td>-->
                 </tr>
                 <tr><td height="5px"> </td></tr>
                 <tr>
-                    <td></td>
-                    <td colspan="2" class="titulo-2" >
+                    <td>
+                        <img src="{{country2.scorecard.chart}}">
+                    </td>
+                    <!-- <td colspan="2" class="titulo-2" >
                         <div class="numeros" style="float: left; width: 100%;">
                             <span style="margin-right:4%; float: left;">-5</span>
                             <span style="margin-left:4%; margin-right:4%; float: left;">0</span>
@@ -281,9 +282,9 @@
                             <span style="margin-left:4%; margin-right:4%; float: left;">25</span>
                             <span style="margin-left:6%; float: left;">30</span>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td></td>
                     <td> <div class="linea"></div> </td>
                 </tr>
@@ -403,7 +404,7 @@
                 <tr>
                     <td></td>
                     <td colspan="2" class="titulo-2" style="text-align:center;">U$$, millons per year</td>
-                </tr>
+                </tr> -->
 
             </table>
 
@@ -411,9 +412,9 @@
 
                 <tr>
                     <td colspan="3">
-                        <span class="titulo">Country 1</span><br>
-                        <span class="titulo-2">GDP: $21.843 billon</span><br>
-                        <span class="titulo-2">Population (2013 estimate): 16.407.000</span>
+                        <span class="titulo">{{country2.name}}</span><br>
+                        <span class="titulo-2">GDP: ${{country2.gdp}} USD</span><br>
+                        <span class="titulo-2">Population (2013 estimate): {{country2.population}}</span>
                     </td>
                 </tr>
                 <tr><td colspan="3" height="10px"> </td></tr>
@@ -430,35 +431,34 @@
                 <tr>
                     <td>
                         <div class="image-1">
-                            <img src="images/grafica-3.png" alt="">
+                            <img src="{{country2.outputs.risk_to_assets.chart}}" alt="">
                         </div>
                     </td>
                     <td>
                         <div class="image-1">
-                            <img src="images/grafica-3.png" alt="">
+                            <img src="{{country2.outputs.resilience.chart}}" alt="">
                         </div>
                     </td>
                     <td>
                         <div class="image-1">
-                            <img src="images/grafica-3.png" alt="">
+                            <img src="{{country2.outputs.risk.chart}}" alt="">
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <span class="titulo-3">RISK TO ASSETS</span><br>
-                        <span class="titulo-2">0.019%</span><span class="titulo-5"> OF POPULATION</span><br>
-                        <span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>
+                        <span class="titulo-2">{{country2.outputs.risk_to_assets.value.valueGDP}}%</span><span class="titulo-5"> % GDP PER YEAR</span><br>
+                        <span class="titulo-2">{{country2.outputs.risk_to_assets.value.dollarGDP}}</span><span class="titulo-5"> MILLION</span>
                     </td>
                     <td>
                         <span class="titulo-3">SOCIO-ECONOMIC CAPACITY</span><br>
-                        <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                        <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                        <span class="titulo-2">{{country2.outputs.resilience.value}}% </span><br>
                     </td>
                     <td>
                         <span class="titulo-3">RISK TO WELL-BEING</span><br>
-                        <span class="titulo-2">71.19% </span><span class="titulo-5"> OF POPULATION</span><br>
-                        <span class="titulo-2">$ 43,32 </span><span class="titulo-5"> MILLON</span>
+                        <span class="titulo-2">{{country2.outputs.risk.value.valueGDP}}% </span><span class="titulo-5"> OF GDP PER YEAR</span><br>
+                        <span class="titulo-2">{{country2.outputs.risk.value.dollarGDP}}</span><span class="titulo-5"> MILLION</span>
                     </td>
                 </tr>
                 <tr><td height="5px"> </td></tr>
@@ -469,22 +469,24 @@
                 <tr>
                     <td colspan="3">
                         <img class="circular" src="images/punto-2.png" alt="">
-                        <span class="titulo-3">Avoloided well-being losses</span>
+                        <span class="titulo-3">Avoided well-being losses</span>
                         <img class="circular" style="padding-left:5px;" src="images/flechas.png" alt="">
                         <img class="circular" style="padding-left:12px;" src="images/punto.png" alt="">
-                        <span class="titulo-3">Avoloided asset losses</span>
+                        <span class="titulo-3">Avoided asset losses</span>
                         <img class="circular" style="padding-left:5px;" src="images/flechas.png" alt="">
                     </td>
                 </tr>
                 <tr><td height="15px"> </td></tr>
                 <tr>
                     <td class="titulo-3">POLICIES</td>
-                    <td colspan="2" class="titulo-2" style="text-align:center;">U$$, millons per year</td>
+                    <!--<td colspan="2" class="titulo-2" style="text-align:center;">U$$, millons per year</td>-->
                 </tr>
                 <tr><td height="5px"> </td></tr>
                 <tr>
-                    <td></td>
-                    <td colspan="2" class="titulo-2" >
+                    <td>
+                        <img src="{{country2.scorecard.chart}}">
+                    </td>
+                    <!-- <td colspan="2" class="titulo-2" >
                         <div class="numeros" style="float: left; width: 100%;">
                             <span style="margin-right:4%; float: left;">-5</span>
                             <span style="margin-left:4%; margin-right:4%; float: left;">0</span>
@@ -495,9 +497,9 @@
                             <span style="margin-left:4%; margin-right:4%; float: left;">25</span>
                             <span style="margin-left:6%; float: left;">30</span>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td></td>
                     <td> <div class="linea"></div> </td>
                 </tr>
@@ -617,7 +619,7 @@
                 <tr>
                     <td></td>
                     <td colspan="2" class="titulo-2" style="text-align:center;">U$$, millons per year</td>
-                </tr>
+                </tr> -->
 
             </table>
 
@@ -626,7 +628,7 @@
 
         <div class="fecha-impresion">
             <p>
-                Report printed on 2 August, 2017
+                Report printed on {{reportDate}}
             </p>
         </div>
 
