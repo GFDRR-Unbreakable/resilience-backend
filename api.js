@@ -97,7 +97,7 @@ function formatChartNumValues(data) {
             } else {
                 dollar /= aThousand;
                 dollar = dollar.toFixed(3);
-                dollar = dollar.toString().replace('.', ',');
+                dollar = dollar.replace('.', ',');
             }
         }
         return '$' + dollar;
@@ -313,13 +313,14 @@ function getHazardSelHTMLHelperProcess(data) {
 function getViewerHTMLHelperProcess(data) {
     Handlebars.registerHelper('mapType', function () {
         var data = this;
+        var output = data['country1']['outputs'];
         switch (data.map.type) {
             case 'socio':
-                return data['country1']['outputs']['resilience']['label'] + ' : ' + data['country1']['name'] + ' ' + data['country1']['outputs']['resilience']['value'] + '%';
+                return output['resilience']['label'] + ' : ' + data['country1']['name'] + ' ' + output['resilience']['value'] + '%';
             case 'asset':
-                return data['country1']['outputs']['risk_to_assets']['label'] + ' : ' + data['country1']['name'] + ' ' + data['country1']['outputs']['risk_to_assets']['value'] + '% of GPD per Year';
+                return output['risk_to_assets']['label'] + ' : ' + data['country1']['name'] + ' $' + output['risk_to_assets']['value']['dollarGDP'] + ' ' + output['risk_to_assets']['value']['valueGDP'] + '% of GPD per Year';
             case 'well':
-                return data['country1']['outputs']['risk']['label'] + ' : ' + data['country1']['name'] + ' ' + data['country1']['outputs']['risk']['value'] + '% of GPD per Year';
+                return output['risk']['label'] + ' : ' + data['country1']['name'] + ' $' + output['risk']['value']['dollarGDP'] + ' ' + output['risk']['value']['valueGDP'] + '% of GPD per Year';
         }
     });
     var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
