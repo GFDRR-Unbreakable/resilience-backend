@@ -28,6 +28,7 @@ module.exports = {
     },
     createScorecardPDFFile: function (req, res, next) {
         var rData = req.body;
+        console.log('Request body', JSON.stringify(rData));
         setPDFDirectories(true);
         formatChartNumValues(rData);
         rData.reportDate = getReportDate();
