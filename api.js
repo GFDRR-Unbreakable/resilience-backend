@@ -147,7 +147,7 @@ function formatCSVData(resData, data, fields) {
                 if (out.hasOwnProperty(outp)) {
                     var label = out[outp].label;
                     var label2;
-                    if (outK === 'resilience') {
+                    if (outp === 'resilience') {
                         label += ' - Pcnt';
                         objData[label] = out[outp].value + '%';
                     } else {
