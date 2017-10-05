@@ -175,9 +175,7 @@
 /*Nuevos estilos para la tabla*/
         .table-data{
             clear: both;
-            width: 98%;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
         }
         .title-one{
             font-weight: bold;
@@ -191,7 +189,7 @@
             font-size: 7px;
         }
         .subtitle-one{
-            font-size: 6px;
+            font-size: 5px;
         }
         .subtitle-two{
             font-size: 7px;
@@ -204,6 +202,9 @@
         .divider{
             height: 5px;
         }
+        .histogram img, .histogram span{
+            float: left;
+        }
 
     </style>
 
@@ -215,7 +216,7 @@
 
             <div class="table-data">
 
-                <table class="table-one" style="float:left; padding-left:50px;" width="45%">
+                <table class="table-one" style="float:left; margin-left:20px;" width="49%">
 
                     <tr>
                         <td colspan="3">
@@ -231,8 +232,8 @@
                     </tr>
 
                     <tr>
-                        <td colspan="3">
-                            <img style="width:20px; height:10px; margin-top:5px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAALCAIAAAD0nuopAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQkIyMEJDODhDRkYxMUU3QTFDM0U1OUQxMzZENzhBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQkIyMEJDOThDRkYxMUU3QTFDM0U1OUQxMzZENzhBQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCQjIwQkM2OENGRjExRTdBMUMzRTU5RDEzNkQ3OEFCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCQjIwQkM3OENGRjExRTdBMUMzRTU5RDEzNkQ3OEFCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+XK/sUQAAARVJREFUeNpi/P//PwNlgImgCqAdv37/JtOIP3//dsxZxmTtx67n7JRaMnvtlkNnL/79+w9NGSNWjwA1r9i+r2nO8ttXbjAwMjIwMTLAdIqrKGzrazDSUsNnxJXb98Iq2q5fvAZypJT4/JJsEy2NjfuPnL95e9PZiz8fP2Pg4jwwp8fezBDdiGev3ly/93Dr4ZP9C1Yy/PzNKyc9vSjT3tiAmZkZbvrPX79K+qav3bTDzNL4xKJJjEAHQowIyK/duOsgw+8/UIXMjEnhgdUpsZwcHFhDd93egwkBbjxcnAhXMFr6MLx+xyDIb6ymZKGlnhrsra4ghz+a2NhYmJgYEUZ8+vyFg4OdjZWVvHTBSI+kRRAABBgAoPx8FluZT9IAAAAASUVORK5CYII=" alt="">
+                        <td colspan="3" class="histogram">
+                            <img style="width:15px; height:8px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAALCAIAAAD0nuopAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQkIyMEJDODhDRkYxMUU3QTFDM0U1OUQxMzZENzhBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQkIyMEJDOThDRkYxMUU3QTFDM0U1OUQxMzZENzhBQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCQjIwQkM2OENGRjExRTdBMUMzRTU5RDEzNkQ3OEFCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCQjIwQkM3OENGRjExRTdBMUMzRTU5RDEzNkQ3OEFCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+XK/sUQAAARVJREFUeNpi/P//PwNlgImgCqAdv37/JtOIP3//dsxZxmTtx67n7JRaMnvtlkNnL/79+w9NGSNWjwA1r9i+r2nO8ttXbjAwMjIwMTLAdIqrKGzrazDSUsNnxJXb98Iq2q5fvAZypJT4/JJsEy2NjfuPnL95e9PZiz8fP2Pg4jwwp8fezBDdiGev3ly/93Dr4ZP9C1Yy/PzNKyc9vSjT3tiAmZkZbvrPX79K+qav3bTDzNL4xKJJjEAHQowIyK/duOsgw+8/UIXMjEnhgdUpsZwcHFhDd93egwkBbjxcnAhXMFr6MLx+xyDIb6ymZKGlnhrsra4ghz+a2NhYmJgYEUZ8+vyFg4OdjZWVvHTBSI+kRRAABBgAoPx8FluZT9IAAAAASUVORK5CYII=" alt="">
                             <span class="subtitle">Global Histogram</span>
                         </td>
                     </tr>
@@ -298,7 +299,7 @@
 
                 </table>
 
-                <table class="table-two" style="float:left; padding-left:25px;" width="45%">
+                <table class="table-two" style="float:left; margin-left:10px;" width="49%">
 
                     <tr>
                         <td colspan="3">
