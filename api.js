@@ -123,7 +123,7 @@ function formatCSVData(resData, data, fields) {
                     if (out.hasOwnProperty(outK)) {
                         var label = out[outK].label;
                         if (outK === 'resilience') {
-                            label += '%';
+                            label += ' - Pcnt';
                             fields.push(label);                        
                         } else {
                             fields.push(label + ' - US, Millions');
@@ -148,10 +148,10 @@ function formatCSVData(resData, data, fields) {
                     var label = out[outp].label;
                     var label2;
                     if (outK === 'resilience') {
-                        label += '%';
+                        label += ' - Pcnt';
                         objData[label] = out[outp].value + '%';
                     } else {
-                        label2 += ' - US, Millions';
+                        label2 = label + ' - US, Millions';
                         objData[label] = out[outp].value['valueGDP'] + '%';
                         objData[label2] = '$' + out[outp].value['dollarGDP'];
                     }
