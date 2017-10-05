@@ -121,7 +121,14 @@ function formatCSVData(resData, data, fields) {
                 fields.push('name');
                 for (var outK in out) {
                     if (out.hasOwnProperty(outK)) {
-                        fields.push(out[outK].label);
+                        var label = out[outK].label;
+                        if (outK === 'resilience') {
+                            label += '%';
+                            fields.push(label);                        
+                        } else {
+                            fields.push(label + ' - US, Millions');
+                            fields.push(label);
+                        }
                     }
                 }
                 for (var inK in inD) {
@@ -138,14 +145,24 @@ function formatCSVData(resData, data, fields) {
             objData['name'] = resData[key]['name'];
             for (var outp in out) {
                 if (out.hasOwnProperty(outp)) {
-                    objData[out[outp].label] = out[outp].value;
+                    var label = out[outp].label;
+                    var label2;
+                    if (outK === 'resilience') {
+                        label += '%';
+                        objData[label] = out[outp].value + '%';
+                    } else {
+                        label2 += ' - US, Millions';
+                        objData[label] = out[outp].value['valueGDP'] + '%';
+                        objData[label2] = '$' + out[outp].value['dollarGDP'];
+                    }
+                    
                 }
             }
             for (var inp in inD) {
                 if (inD.hasOwnProperty(inp)) {
                     for (var inoKe in inD[inp]) {
                         if (inD[inp].hasOwnProperty(inoKe)) {
-                            objData[inD[inp][inoKe].label] = inD[inp][inoKe].value;
+                            objData[inD[inp][inoKe].label] = inD[inp][inoKe].value['label'];
                         }
                     }
                 }
