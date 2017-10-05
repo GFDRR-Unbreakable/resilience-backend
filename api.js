@@ -336,9 +336,9 @@ function getViewerHTMLHelperProcess(data) {
             case 'socio':
                 return output['resilience']['label'] + ' : ' + data['country1']['name'] + ' ' + output['resilience']['value'] + '%';
             case 'asset':
-                return output['risk_to_assets']['label'] + ' : ' + data['country1']['name'] + ' $' + output['risk_to_assets']['value']['dollarGDP'] + ' ' + output['risk_to_assets']['value']['valueGDP'] + '% of GPD per Year';
+                return output['risk_to_assets']['label'] + ' : ' + data['country1']['name'] + ' ' + output['risk_to_assets']['value']['dollarGDP'] + ' ' + output['risk_to_assets']['value']['valueGDP'] + '% of GPD per Year';
             case 'well':
-                return output['risk']['label'] + ' : ' + data['country1']['name'] + ' $' + output['risk']['value']['dollarGDP'] + ' ' + output['risk']['value']['valueGDP'] + '% of GPD per Year';
+                return output['risk']['label'] + ' : ' + data['country1']['name'] + ' ' + output['risk']['value']['dollarGDP'] + ' ' + output['risk']['value']['valueGDP'] + '% of GPD per Year';
         }
     });
     var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
