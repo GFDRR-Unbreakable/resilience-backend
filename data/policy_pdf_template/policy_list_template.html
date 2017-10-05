@@ -50,7 +50,7 @@
             height: 20px;
         }
         .container{
-            height: 1000px;
+            height: 800px;
         }
         .datos-tabla{
             clear: both;
@@ -209,6 +209,8 @@
         }
         .image-cirular img{
             padding-top: 3px;
+            padding-left: 20px;
+            padding-right: 10px;
         }
         .image-cirular{
             margin: 10px 0px;
@@ -225,7 +227,7 @@
 
             <div class="table-data">
 
-                <table class="table-one" style="float:left; padding-left:10px; padding-right:20px;" width="49%">
+                <table class="table-one" style="float:left; padding-left:30px; padding-right:10px;" width="49%">
 
                     <tr>
                         <td colspan="3">
@@ -267,17 +269,26 @@
 
                     <tr>
                         <td>
-                            <span class="title-one">RISK TO ASSETS</span><br>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center;">RISK TO ASSETS</p>
+                        </td>
+                        <td>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center;">SOCIO-ECONOMIC CAPACITY</p>
+                        </td>
+                        <td>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center;">RISK TO WELL-BEING</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
                             <span class="title-two">{{country1.outputs.risk_to_assets.value.valueGDP}}%</span><span class="subtitle-two"> % GDP PER YEAR</span><br>
                             <span class="title-two">{{country1.outputs.risk_to_assets.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                         <td>
-                            <p style="font-weight: 600; font-size: 7px; text-align:center;">SOCIO-ECONOMIC CAPACITY</p>
                             <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <p class="title-two" style="text-align:center;">{{country1.outputs.resilience.value}}% </p>
                         </td>
                         <td>
-                            <p style="font-weight: 600; font-size: 7px; text-align:center;">RISK TO WELL-BEING</p><br>
                             <span class="title-two">{{country1.outputs.risk.value.valueGDP}}%</span><span class="subtitle-two"> % GDP PER YEAR</span><br>
                             <span class="title-two">{{country1.outputs.risk.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
@@ -351,21 +362,31 @@
 
                     <tr>
                         <td>
-                            <span class="title-one">RISK TO ASSETS</span><br>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center;">RISK TO ASSETS</p>
+                        </td>
+                        <td>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center;">SOCIO-ECONOMIC CAPACITY</p>
+                        </td>
+                        <td>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center;">RISK TO WELL-BEING</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
                             <span class="title-two">{{country2.outputs.risk_to_assets.value.valueGDP}}%</span><span class="subtitle-two"> % GDP PER YEAR</span><br>
                             <span class="title-two">{{country2.outputs.risk_to_assets.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                         <td>
-                            <p style="font-weight: 600; font-size: 7px; text-align:center;">SOCIO-ECONOMIC CAPACITY</p>
                             <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <p class="title-two" style="text-align:center;">{{country2.outputs.resilience.value}}% </p>
                         </td>
                         <td>
-                            <p style="font-weight: 600; font-size: 7px; text-align:center;">RISK TO WELL-BEING</p><br>
                             <span class="title-two">{{country2.outputs.risk.value.valueGDP}}%</span><span class="subtitle-two"> % GDP PER YEAR</span><br>
                             <span class="title-two">{{country2.outputs.risk.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                     </tr>
+
                     <tr>
                         <td colspan="3" class="title-one">RESILIENCE FACTORS</td>
                     </tr>
