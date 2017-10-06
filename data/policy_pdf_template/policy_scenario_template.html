@@ -56,24 +56,26 @@
 			height:45px;
             font-weight: 600;
 		}
+        .cabecera img{
+            margin: 8px 10px;
+        }
         .cabecera img, .cabecera p{
             float: left;
-            margin: 8px 10px;
 			height:32px;
         }
         .cabecera p{
             color: #FFF;
-            font-size: 14px;
-            margin-top: 12px;
+            font-size: 12px;
+            margin-top: 10px;
             font-weight: bold;
-            height: 20px;
+            height: 30px;
         }
         .datos-tabla{
             clear: both;
             width: 96%;
             margin-left: auto;
             margin-right: auto;
-            height: 855px;
+            /*height: 855px;*/
             /*height: 950px;*/
             margin-top: 20px;
         }
@@ -168,10 +170,8 @@
             font-size: 10px;
         }
         .titulo-3{
-            /*font-size: 11px;*/
             font-size: 8px;
-            font-weight: bold;
-            line-height: 17px;
+            font-weight: 600;
         }
         .titulo-4{
             font-weight: normal;
@@ -216,12 +216,12 @@
         </div>
 
         <div class="datos-tabla">
-            <table class="table-1" style="float:left;" width="49%">
+            <table class="table-1" style="float:left;" width="48%">
 
                 <tr>
                     <td colspan="3" class="titulo-3">Absolute Terms</td>
                 </tr>
-                <tr><td height="10px"> </td></tr>
+                <tr><td height="5px"> </td></tr>
                 <tr>
                     <td colspan="3">
                         <img class="circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUMwMzc1OEM4RjRCMTFFNzg1QzFEOEI2NzZDNUNEQjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUMwMzc1OEI4RjRCMTFFNzg1QzFEOEI2NzZDNUNEQjEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNCQ0MxQTJDOENGRTExRTc4Q0ZDQzkzMDhDMjE2M0RGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNCQ0MxQTJEOENGRTExRTc4Q0ZDQzkzMDhDMjE2M0RGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+xnvH9QAAAqpJREFUeNrcmjtMFFEUhs9OQYEr2QIsSBDQRCKNZKMFJZLQUZllIZoQO2i0oiKhkFDRaCOSGENIFITQSEcBJYWA2qirkWdiASQSQyi2WPiPcyZMkIGd3TuPe//kK3fO+WbndR8Jer1OilIH2sBd0AQaQDW4AhLgEOyDTZADK2AJ7KgonihT5DroBd2gucRjfAXTYBJshS1yBwyCB8BS9I8WwBwYAV/8/thvE9fABPgEMgolnF4ycuwJqRWISEau7V655oNKQmrkpKYykQrwEsyAFIWXlNQckx7KEkmCedBP0aVPekiWKlIJFkAHRZ8O6aXSr0iFnIVWik+4lw9el5mXyHNwn+KXdvCiWJFsxPdEMfdM92UiteAVxT9j0qunyGjIj9hyHs2jXiJp0EP6pEd6/k9kKOA3dhBfAENnRepBJ+kX7rnRLfJI8QdgWOGeH7tFHpK+yToiPLK7rbHILXDDiukb3G/aLBlj654WS/4a3dPEIjcNEPl3j9QYIJJikSoDRK5aZEhY5K8BHocssmeAyB8W+WWAyDqL/DBAJMciKwaIfGaRRQNElliE1ye+aSzx07lHOG81FnnvHlixSEFDCe75jVtkk+wpUt3CPW/QmXH6MDjWSIJ7feb+RHGyCqY0EuFe184T4QyAAw0kDqRX8hL5TfGewHbSL716inB4qTjOE9nj0iNdJsJ5GtM3Pvf0xGs8cl7yZE9HLsdIYll6yvsR4RzR6dpd1HHWMo8uGiFeOPKSszAe8T3RKb1QqSLOZcbLXV0hP5q5VlZq54sZsxebWbJ3/UwG/AVwLDW41oyfyQc/2SV7e0VaxFR+aBbkmGmpsevnx6q2OfEyWKkz+t/BO4pom5OXFG88u0f2fHID2RvPkq4Hh7PxjOcJPpK98WxbRfETAQYAp6R/xF4M7pUAAAAASUVORK5CYII=" alt="">
@@ -232,8 +232,8 @@
                 </tr>
                 <tr><td height="15px"> </td></tr>
                 <tr>
-                    <td colspan="3">
-                        <img src="{{charts.absolute}}">
+                    <td>
+                        <img src="{{charts.absolute}}" width="100%">
                     </td>
                 </tr>
                 <!-- <tr><td height="5px"> </td></tr>
@@ -379,12 +379,12 @@
 
             </table>
 
-            <table class="table-2" style="float:right;" width="49%">
+            <table class="table-2" style="float:right;" width="48%">
 
                 <tr>
                     <td colspan="3" class="titulo-3">Relative Terms</td>
                 </tr>
-                <tr><td height="10px"> </td></tr>
+                <tr><td height="5px"> </td></tr>
                 <tr>
                     <td colspan="3">
                         <img class="circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUMwMzc1OEM4RjRCMTFFNzg1QzFEOEI2NzZDNUNEQjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUMwMzc1OEI4RjRCMTFFNzg1QzFEOEI2NzZDNUNEQjEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNCQ0MxQTJDOENGRTExRTc4Q0ZDQzkzMDhDMjE2M0RGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNCQ0MxQTJEOENGRTExRTc4Q0ZDQzkzMDhDMjE2M0RGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+xnvH9QAAAqpJREFUeNrcmjtMFFEUhs9OQYEr2QIsSBDQRCKNZKMFJZLQUZllIZoQO2i0oiKhkFDRaCOSGENIFITQSEcBJYWA2qirkWdiASQSQyi2WPiPcyZMkIGd3TuPe//kK3fO+WbndR8Jer1OilIH2sBd0AQaQDW4AhLgEOyDTZADK2AJ7KgonihT5DroBd2gucRjfAXTYBJshS1yBwyCB8BS9I8WwBwYAV/8/thvE9fABPgEMgolnF4ycuwJqRWISEau7V655oNKQmrkpKYykQrwEsyAFIWXlNQckx7KEkmCedBP0aVPekiWKlIJFkAHRZ8O6aXSr0iFnIVWik+4lw9el5mXyHNwn+KXdvCiWJFsxPdEMfdM92UiteAVxT9j0qunyGjIj9hyHs2jXiJp0EP6pEd6/k9kKOA3dhBfAENnRepBJ+kX7rnRLfJI8QdgWOGeH7tFHpK+yToiPLK7rbHILXDDiukb3G/aLBlj654WS/4a3dPEIjcNEPl3j9QYIJJikSoDRK5aZEhY5K8BHocssmeAyB8W+WWAyDqL/DBAJMciKwaIfGaRRQNElliE1ye+aSzx07lHOG81FnnvHlixSEFDCe75jVtkk+wpUt3CPW/QmXH6MDjWSIJ7feb+RHGyCqY0EuFe184T4QyAAw0kDqRX8hL5TfGewHbSL716inB4qTjOE9nj0iNdJsJ5GtM3Pvf0xGs8cl7yZE9HLsdIYll6yvsR4RzR6dpd1HHWMo8uGiFeOPKSszAe8T3RKb1QqSLOZcbLXV0hP5q5VlZq54sZsxebWbJ3/UwG/AVwLDW41oyfyQc/2SV7e0VaxFR+aBbkmGmpsevnx6q2OfEyWKkz+t/BO4pom5OXFG88u0f2fHID2RvPkq4Hh7PxjOcJPpK98WxbRfETAQYAp6R/xF4M7pUAAAAASUVORK5CYII=" alt="">
@@ -395,8 +395,8 @@
                 </tr>
                 <tr><td height="15px"> </td></tr>
                 <tr>
-                    <td colspan="3">
-                        <img src="{{charts.relative}}">
+                    <td>
+                        <img src="{{charts.relative}}" width="100%">
                     </td>
                 </tr>
                 <!-- <tr>
