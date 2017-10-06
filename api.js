@@ -43,21 +43,24 @@ module.exports = {
     },
     createViewerPDFFile: function (req, res, next) {
         var rData = req.body;
-        var inputComp = null;
+        var inputComp1 = null;
+        var inputComp2 = null;
         setPDFDirectories(false);
         formatChartNumValues(rData);
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
         var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
-            inputComp = getTechHTMLHelperProcess(rData);
+            inputComp1 = getTechHTMLHelperProcess(rData, true);
+            inputComp2 = getTechHTMLHelperProcess(rData, false);
         }
         var file = rData.page === 'tech' ? 'technical_map_template.html' : 'viewer_template.html';
         var compiledHTML = compilePDFTemplate(file, false)(rData);
         compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
         compiledHTML = compiledHTML.split('[[HAZARD_SELECTION]]').join(hazardSelComp);
-        if (inputComp) {
-            compiledHTML = compiledHTML.split('[[INPUT_SLIDERS]]').join(inputComp);
+        if (inputComp1 && inputComp2) {
+            compiledHTML = compiledHTML.split('[[INPUT_SLIDERS_1]]').join(inputComp1);
+            compiledHTML = compiledHTML.split('[[INPUT_SLIDERS_2]]').join(inputComp2);
         }
         var reportDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
         var reportFile =  rData.page === 'tech' ? '/technical_map_report_tmp.html' : '/viewer_report_tmp.html';
@@ -179,7 +182,7 @@ function getFormattedHTML(htmlTxt) {
     htmlTxt = htmlTxt.replace(prefix, '').replace(suffix, '').trim();
     return htmlTxt;
 }
-function getTechHTMLHelperProcess(data) {
+function getTechHTMLHelperProcess(data, isFirstInput) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
         var inputs1 = data['country1'].inputs;
@@ -204,9 +207,22 @@ function getTechHTMLHelperProcess(data) {
         var values;
         var type;
         var count = 0;
-        var pixelValue;
-        for (var inKey in inputs1) {
-            if (inputs1.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
+        var filteredInputs = {};
+        for (var inputKey in inputs1) {
+            if (inputs1.hasOwnProperty(inputKey) && inputs2.hasOwnProperty(inputKey)) {
+                if (isFirstInput) {
+                    if (inputKey === 'inputSoc' || inputKey === 'inputEco') {
+                        filteredInputs[inputKey] = inputs1[inputKey];
+                    }
+                } else {
+                    if (inputKey === 'inputExp' || inputKey === 'inputVul') {
+                        filteredInputs[inputKey] = inputs1[inputKey];
+                    }
+                }
+            }
+        }
+        for (var inKey in filteredInputs) {
+            if (filteredInputs.hasOwnProperty(inKey) && inputs2.hasOwnProperty(inKey)) {
                 template += '<tr>';
                 var colSpan = inKey === 'inputSoc' ? '1' : '5';
                 var borderR = inKey !== 'inputSoc' ? '' : '';
@@ -216,7 +232,7 @@ function getTechHTMLHelperProcess(data) {
                     template += '<td colspan="2" style="border-bottom: 1px solid #f4f5fa;"><p class="titulo-normal" style="text-align:center;">' + data['country2'].name + '</p></td>';
                 }
                 template += '</tr>';
-                inputType1 = inputs1[inKey];
+                inputType1 = filteredInputs[inKey];
                 inputType2 = inputs2[inKey];
                 for (type in inputType1) {
                     if (inputType1.hasOwnProperty(type) && inputType2.hasOwnProperty(type)) {
@@ -261,7 +277,7 @@ function getTechHTMLHelperProcess(data) {
                         template += '</tr>';
                     }
                 }
-                if (count === 1) {
+                if (isFirstInput && count === 1) {
                     template += '<tr>';
                     template += '<td>';
                     template += '<div class="empty-ctn"></div>';
