@@ -50,7 +50,7 @@
             height: 20px;
         }
         .container{
-            height: 500px;
+            height: 200px;
         }
         .datos-tabla{
             clear: both;
@@ -210,8 +210,7 @@
         }
         .image-cirular img{
             padding-top: 2px;
-            padding-left: 20px;
-            padding-right: 10px;
+            padding-right: 5px;
         }
         .image-cirular{
             padding: 10px 0px;
@@ -228,7 +227,7 @@
 
             <div class="table-data">
 
-                <table class="table-one" style="float:left; padding-left:30px; padding-right:20px;" width="48%">
+                <table class="table-one" style="float:left; padding-left:25px; padding-right:15px;" width="48%">
 
                     <tr>
                         <td colspan="3">
@@ -242,6 +241,7 @@
                     <tr>
                         <td colspan="3" class="title-one">RESULTS</td>
                     </tr>
+                    <tr><td colspan="3" class="divider"></td></tr>
 
                     <tr>
                         <td colspan="3" class="histogram">
@@ -249,6 +249,7 @@
                             <span class="subtitle">Global Histogram</span>
                         </td>
                     </tr>
+                    <tr><td colspan="3" class="divider"></td></tr>
 
                     <tr>
                         <td>
@@ -283,13 +284,23 @@
                     <tr>
                         <td>
                             <span class="title-two">{{country1.outputs.risk_to_assets.value.valueGDP}}%</span><span class="subtitle-two"> GDP PER YEAR</span><br>
-                            <span class="title-two">{{country1.outputs.risk_to_assets.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                         <td>
                             <p class="title-two" style="text-align:center;">{{country1.outputs.resilience.value}}% </p>
                         </td>
                         <td>
                             <span class="title-two">{{country1.outputs.risk.value.valueGDP}}%</span><span class="subtitle-two"> GDP PER YEAR</span><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <span class="title-two">{{country1.outputs.risk_to_assets.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
+                        </td>
+                        <td>
+                            <p class="title-two" style="text-align:center;">&nbsp;</p>
+                        </td>
+                        <td>
                             <span class="title-two">{{country1.outputs.risk.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                     </tr>
@@ -305,6 +316,8 @@
                             <span class="subtitle-two">Avoided well-being losses</span>
 
                             <img width="3px" height="3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0JDQzFBMkQ4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0JDQzFBMkM4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhjMGY5MTMzLWE0YjgtYTc0Mi1iYmEyLWQyOTI5NTYzMjE1ZiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7oD4s0AAADI0lEQVR42tTZMUwTURgH8NdX7nq99q5NG1qggMWQiAMVBaIG3WBz0UWNMpAQldFBXYwTiw46SqIxMSrRRRc32JREAkQoA2qIVITSltC01/ba3tE7P7CiFIJt6bWP/3hp7/vl3uv1vffpVFVFhScl/4yIo0J6LCFNpGSvlEGKguBGeoxoPWIoj4nu5A1dVraboRqKuL+uIFZKXgwITwKxwUQ636+YDKiGu1vD9zPUodKz4ulp39rtYGwEFRsn1+O2PzAb2krDkjKh+dWBlehbVIrUWi40Vz+m9Y59sUKxN3PBS+sZVMJU6dFR52sHd7EYlqpK30LXliLPkTZxWXuPOJ7qdHQBrIwS9/q7wgkv0jI2k8dTN6bH5rxYiiJOLTUKyTWkfXijvb1+EWM25zreOXYzy+3lMUGg0Iy/A4r+hwXzKSx+QWVMODH3NdS/FyskDGs3x/fIcuRFUHi1+9xKr/s/+VylfRcU9NY45V42VNXlPq351euVMkGgNAByBzGWmgoI71FFAwBgbGP51m4iArLFwJvrgh+h+AcSWMBIygtZViD2DBETvzCU/SWOL+jiEikslkanm1QM60xyTBBRQkn5O46II4iwRBKjOJoeI40lSONYlCZJY4nSBE5KXtJYSWkWSxnSVEhWEM4oxLGAhBGRwXryYEDCsDcnLRSwjLSHNJaRbsUs3UEai6U7scXQRRqLp09iK9tDGstq6sYM1WCmiRpBZKQOb7wenJZ75LCc3K3s6tTJ9ZHDqrUMZFlGyu0wnyXBBAwj1fR35+O2PySB5bY/2rYh45iOGv5cZU0A4Jj2A7LZh0stjpeVelRQesuEck5snPwVl7W3/CaX9SqU/vdK7mmgqkrTS8fKecRlY1va6mdyDlEPyCHlxiXMnqj32UyaL3igBBTaadqdtbk+NLe5JmDINZ1PUGLXY2ZUuXbBsIO7vMdn8myu3FiJvivRX9755uqh/TZXthJPffaF7+y3FWW7b2aO5/PhYhp3QWEw/0MeWD/V8po17nb6IuJoNP1RlCZT8ixszX9vg/+0OVthi2AxnNlsczYWcf9fAgwAmp5uZazMLqQAAAAASUVORK5CYII=" alt="">
+
+                            <span class="subtitle-two">Avoided asset losses</span>
                         </td>
                     </tr>
 
@@ -320,7 +333,7 @@
 
                 </table>
 
-                <table class="table-two" style="float:left;" width="46%">
+                <table class="table-two" style="float:left;" width="47%">
 
                     <tr>
                         <td colspan="3">
@@ -334,6 +347,7 @@
                     <tr>
                         <td colspan="3" class="title-one">RESULTS</td>
                     </tr>
+                    <tr><td colspan="3" class="divider"></td></tr>
 
                     <tr>
                         <td colspan="3" class="histogram">
@@ -341,6 +355,7 @@
                             <span class="subtitle">Global Histogram</span>
                         </td>
                     </tr>
+                    <tr><td colspan="3" class="divider"></td></tr>
 
                     <tr>
                         <td>
@@ -365,7 +380,7 @@
                             <p style="font-weight: 600; font-size: 7px;">RISK TO ASSETS</p>
                         </td>
                         <td>
-                            <p style="font-weight: 600; font-size: 7px; text-align:center;">SOCIO-ECONOMIC CAPACITY</p>
+                            <p style="font-weight: 600; font-size: 7px; text-align:center; padding-top:5px;">SOCIO-ECONOMIC CAPACITY</p>
                         </td>
                         <td>
                             <p style="font-weight: 600; font-size: 7px;">RISK TO WELL-BEING</p>
@@ -375,13 +390,23 @@
                     <tr>
                         <td>
                             <span class="title-two">{{country2.outputs.risk_to_assets.value.valueGDP}}%</span><span class="subtitle-two"> GDP PER YEAR</span><br>
-                            <span class="title-two">{{country2.outputs.risk_to_assets.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                         <td>
-                            <p class="title-two" style="text-align:center;">{{country2.outputs.resilience.value}}% </p>
+                            <p class="title-two" style="text-align:center;">{{country1.outputs.resilience.value}}% </p>
                         </td>
                         <td>
                             <span class="title-two">{{country2.outputs.risk.value.valueGDP}}%</span><span class="subtitle-two"> GDP PER YEAR</span><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <span class="title-two">{{country2.outputs.risk_to_assets.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
+                        </td>
+                        <td>
+                            <p class="title-two" style="text-align:center;">&nbsp;</p>
+                        </td>
+                        <td>
                             <span class="title-two">{{country2.outputs.risk.value.dollarGDP}}</span><span class="subtitle-two"> MILLION</span>
                         </td>
                     </tr>
@@ -397,6 +422,8 @@
                             <span class="subtitle-two">Avoided well-being losses</span>
 
                             <img width="3px" height="3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0JDQzFBMkQ4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0JDQzFBMkM4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhjMGY5MTMzLWE0YjgtYTc0Mi1iYmEyLWQyOTI5NTYzMjE1ZiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7oD4s0AAADI0lEQVR42tTZMUwTURgH8NdX7nq99q5NG1qggMWQiAMVBaIG3WBz0UWNMpAQldFBXYwTiw46SqIxMSrRRRc32JREAkQoA2qIVITSltC01/ba3tE7P7CiFIJt6bWP/3hp7/vl3uv1vffpVFVFhScl/4yIo0J6LCFNpGSvlEGKguBGeoxoPWIoj4nu5A1dVraboRqKuL+uIFZKXgwITwKxwUQ636+YDKiGu1vD9zPUodKz4ulp39rtYGwEFRsn1+O2PzAb2krDkjKh+dWBlehbVIrUWi40Vz+m9Y59sUKxN3PBS+sZVMJU6dFR52sHd7EYlqpK30LXliLPkTZxWXuPOJ7qdHQBrIwS9/q7wgkv0jI2k8dTN6bH5rxYiiJOLTUKyTWkfXijvb1+EWM25zreOXYzy+3lMUGg0Iy/A4r+hwXzKSx+QWVMODH3NdS/FyskDGs3x/fIcuRFUHi1+9xKr/s/+VylfRcU9NY45V42VNXlPq351euVMkGgNAByBzGWmgoI71FFAwBgbGP51m4iArLFwJvrgh+h+AcSWMBIygtZViD2DBETvzCU/SWOL+jiEikslkanm1QM60xyTBBRQkn5O46II4iwRBKjOJoeI40lSONYlCZJY4nSBE5KXtJYSWkWSxnSVEhWEM4oxLGAhBGRwXryYEDCsDcnLRSwjLSHNJaRbsUs3UEai6U7scXQRRqLp09iK9tDGstq6sYM1WCmiRpBZKQOb7wenJZ75LCc3K3s6tTJ9ZHDqrUMZFlGyu0wnyXBBAwj1fR35+O2PySB5bY/2rYh45iOGv5cZU0A4Jj2A7LZh0stjpeVelRQesuEck5snPwVl7W3/CaX9SqU/vdK7mmgqkrTS8fKecRlY1va6mdyDlEPyCHlxiXMnqj32UyaL3igBBTaadqdtbk+NLe5JmDINZ1PUGLXY2ZUuXbBsIO7vMdn8myu3FiJvivRX9755uqh/TZXthJPffaF7+y3FWW7b2aO5/PhYhp3QWEw/0MeWD/V8po17nb6IuJoNP1RlCZT8ixszX9vg/+0OVthi2AxnNlsczYWcf9fAgwAmp5uZazMLqQAAAAASUVORK5CYII=" alt="">
+
+                            <span class="subtitle-two">Avoided asset losses</span>
                         </td>
                     </tr>
 
