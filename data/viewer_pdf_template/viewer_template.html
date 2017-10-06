@@ -34,7 +34,13 @@
                 font-weight: normal;
                 font-style: normal;
             }
-            
+            /*.cabecera-2 p, .cabecera-2 img{
+                float: left;
+            }
+            .cabecera-2 img{
+                padding-left: 33px;
+                padding-right: 7px;
+            }*/
             .container{
                 height: 1530px;
             }
@@ -222,7 +228,7 @@
             <div class="resultado">
 
                 <!-- <table class="tabla-1" style="float:left; border-right:1px solid #f4f5fa;" width="52%"> -->
-                <table class="tabla-1" style="float:left; border-right:1px solid #f4f5fa;" width="48%">
+                <table class="tabla-1" style="float:left; solid #f4f5fa;" width="50%">
                     <tr>
                         <td style="border-bottom: 1px solid #f4f5fa;" colspan="5">
                             <p style="font-size:8px; font-weight:700;">
@@ -368,118 +374,13 @@
                         </td>
                     </tr>
 
-                    <!--Vulnerability
-                    <tr>
-                        <td colspan="5" style="font-weight: bold; font-size: 7px; border-bottom: 1px solid #f4f5fa;">Vulnerability <i class="mdi mdi-information-outline"></i></td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Asset vulnerability, poor people (% destruction of exposed assets of poor)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputVul.v_cat_info__poor.chart}}" alt="">
-                            <span class="subtitulo-numero"> {{country1.inputs.inputVul.v_cat_info__poor.value.label}}  </span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputVul.v_cat_info__poor.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputVul.v_cat_info__poor.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Asset vulnerability, non-poor people (% destruction of exposed assets of non-poor)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputVul.v_cat_info__nonpoor.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputVul.v_cat_info__nonpoor.value.label}} </span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputVul.v_cat_info__nonpoor.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputVul.v_cat_info__nonpoor.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Access to early warning (% of population)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputVul.shew_for_hazard_ratio.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputVul.shew_for_hazard_ratio.value.label}}</span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputVul.shew_for_hazard_ratio.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputVul.shew_for_hazard_ratio.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- Exposure -->
-                    <!--<tr>
-                        <td colspan="5" style="font-weight: bold; font-size: 7px; border-bottom: 1px solid #f4f5fa;">Exposure <i class="mdi mdi-information-outline"></i></td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Exposure to riverine and coastal floods, poor (% of total assets of poor)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputExp.hazard_ratio_flood_poor.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputExp.hazard_ratio_flood_poor.value.label}}</span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputExp.hazard_ratio_flood_poor.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputExp.hazard_ratio_flood_poor.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Exposure to riverine and coastal floods, non-poor (% of total assets of non-poor)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputExp.hazard_ratio_fa__flood.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputExp.hazard_ratio_fa__flood.value.label}}</span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputExp.hazard_ratio_fa__flood.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputExp.hazard_ratio_fa__flood.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Exposure to earthquakes (% of total assets)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputExp.hazard_ratio_fa__earthquake.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputExp.hazard_ratio_fa__earthquake.value.label}}</span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputExp.hazard_ratio_fa__earthquake.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputExp.hazard_ratio_fa__earthquake.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px;">Exposure to tsunamis (% of total assets)</td>
-                        <td colspan="2">
-                            <img src="{{country1.inputs.inputExp.hazard_ratio_fa__tsunami.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputExp.hazard_ratio_fa__tsunami.value.label}} </span>
-                        </td>
-                        <td colspan="2">
-                            <img src="{{country2.inputs.inputExp.hazard_ratio_fa__tsunami.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputExp.hazard_ratio_fa__tsunami.value.label}}</span>
-                        </td>
-                    </tr>-->
-                    <!-- grafico -->
-                    <!--<tr>
-                        <td  style="font-size:6px; border-bottom:1px solid #f4f5fa;">Exposure to windstorms (% of total assets)</td>
-                        <td colspan="2" style="border-bottom:1px solid #f4f5fa;">
-                            <img src="{{country1.inputs.inputExp.hazard_ratio_fa__wind.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country1.inputs.inputExp.hazard_ratio_fa__wind.value.label}}</span>
-                        </td>
-                        <td colspan="2" style="border-bottom:1px solid #f4f5fa;">
-                            <img src="{{country2.inputs.inputExp.hazard_ratio_fa__wind.chart}}" alt="">
-                            <span class="subtitulo-numero">{{country2.inputs.inputExp.hazard_ratio_fa__wind.value.label}}</span>
-                        </td>
-                    </tr>-->
-
                 </table>
                 <table class="tabla-1 second-section" style="float:left; padding-left:2px" width="50%">
                     <tr>
                         <td colspan="5">
                             <div class="cabecera-2">
                                 <p style="font-size:8px; font-weight:700;">RESULTS</p>
-                                <img class="circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0JDQzFBMkQ4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0JDQzFBMkM4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhjMGY5MTMzLWE0YjgtYTc0Mi1iYmEyLWQyOTI5NTYzMjE1ZiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7oD4s0AAADI0lEQVR42tTZMUwTURgH8NdX7nq99q5NG1qggMWQiAMVBaIG3WBz0UWNMpAQldFBXYwTiw46SqIxMSrRRRc32JREAkQoA2qIVITSltC01/ba3tE7P7CiFIJt6bWP/3hp7/vl3uv1vffpVFVFhScl/4yIo0J6LCFNpGSvlEGKguBGeoxoPWIoj4nu5A1dVraboRqKuL+uIFZKXgwITwKxwUQ636+YDKiGu1vD9zPUodKz4ulp39rtYGwEFRsn1+O2PzAb2krDkjKh+dWBlehbVIrUWi40Vz+m9Y59sUKxN3PBS+sZVMJU6dFR52sHd7EYlqpK30LXliLPkTZxWXuPOJ7qdHQBrIwS9/q7wgkv0jI2k8dTN6bH5rxYiiJOLTUKyTWkfXijvb1+EWM25zreOXYzy+3lMUGg0Iy/A4r+hwXzKSx+QWVMODH3NdS/FyskDGs3x/fIcuRFUHi1+9xKr/s/+VylfRcU9NY45V42VNXlPq351euVMkGgNAByBzGWmgoI71FFAwBgbGP51m4iArLFwJvrgh+h+AcSWMBIygtZViD2DBETvzCU/SWOL+jiEikslkanm1QM60xyTBBRQkn5O46II4iwRBKjOJoeI40lSONYlCZJY4nSBE5KXtJYSWkWSxnSVEhWEM4oxLGAhBGRwXryYEDCsDcnLRSwjLSHNJaRbsUs3UEai6U7scXQRRqLp09iK9tDGstq6sYM1WCmiRpBZKQOb7wenJZ75LCc3K3s6tTJ9ZHDqrUMZFlGyu0wnyXBBAwj1fR35+O2PySB5bY/2rYh45iOGv5cZU0A4Jj2A7LZh0stjpeVelRQesuEck5snPwVl7W3/CaX9SqU/vdK7mmgqkrTS8fKecRlY1va6mdyDlEPyCHlxiXMnqj32UyaL3igBBTaadqdtbk+NLe5JmDINZ1PUGLXY2ZUuXbBsIO7vMdn8myu3FiJvivRX9755uqh/TZXthJPffaF7+y3FWW7b2aO5/PhYhp3QWEw/0MeWD/V8po17nb6IuJoNP1RlCZT8ixszX9vg/+0OVthi2AxnNlsczYWcf9fAgwAmp5uZazMLqQAAAAASUVORK5CYII=" alt="">
+                                <img width="3px" height="3px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0JDQzFBMkQ4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0JDQzFBMkM4Q0ZFMTFFNzhDRkNDOTMwOEMyMTYzREYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhjMGY5MTMzLWE0YjgtYTc0Mi1iYmEyLWQyOTI5NTYzMjE1ZiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4YzBmOTEzMy1hNGI4LWE3NDItYmJhMi1kMjkyOTU2MzIxNWYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7oD4s0AAADI0lEQVR42tTZMUwTURgH8NdX7nq99q5NG1qggMWQiAMVBaIG3WBz0UWNMpAQldFBXYwTiw46SqIxMSrRRRc32JREAkQoA2qIVITSltC01/ba3tE7P7CiFIJt6bWP/3hp7/vl3uv1vffpVFVFhScl/4yIo0J6LCFNpGSvlEGKguBGeoxoPWIoj4nu5A1dVraboRqKuL+uIFZKXgwITwKxwUQ636+YDKiGu1vD9zPUodKz4ulp39rtYGwEFRsn1+O2PzAb2krDkjKh+dWBlehbVIrUWi40Vz+m9Y59sUKxN3PBS+sZVMJU6dFR52sHd7EYlqpK30LXliLPkTZxWXuPOJ7qdHQBrIwS9/q7wgkv0jI2k8dTN6bH5rxYiiJOLTUKyTWkfXijvb1+EWM25zreOXYzy+3lMUGg0Iy/A4r+hwXzKSx+QWVMODH3NdS/FyskDGs3x/fIcuRFUHi1+9xKr/s/+VylfRcU9NY45V42VNXlPq351euVMkGgNAByBzGWmgoI71FFAwBgbGP51m4iArLFwJvrgh+h+AcSWMBIygtZViD2DBETvzCU/SWOL+jiEikslkanm1QM60xyTBBRQkn5O46II4iwRBKjOJoeI40lSONYlCZJY4nSBE5KXtJYSWkWSxnSVEhWEM4oxLGAhBGRwXryYEDCsDcnLRSwjLSHNJaRbsUs3UEai6U7scXQRRqLp09iK9tDGstq6sYM1WCmiRpBZKQOb7wenJZ75LCc3K3s6tTJ9ZHDqrUMZFlGyu0wnyXBBAwj1fR35+O2PySB5bY/2rYh45iOGv5cZU0A4Jj2A7LZh0stjpeVelRQesuEck5snPwVl7W3/CaX9SqU/vdK7mmgqkrTS8fKecRlY1va6mdyDlEPyCHlxiXMnqj32UyaL3igBBTaadqdtbk+NLe5JmDINZ1PUGLXY2ZUuXbBsIO7vMdn8myu3FiJvivRX9755uqh/TZXthJPffaF7+y3FWW7b2aO5/PhYhp3QWEw/0MeWD/V8po17nb6IuJoNP1RlCZT8ixszX9vg/+0OVthi2AxnNlsczYWcf9fAgwAmp5uZazMLqQAAAAASUVORK5CYII=" alt="">
                                 <p style="font-size:8px; font-weight:700;">Country</p>
                                 <img class="global" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAALCAIAAAD0nuopAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQkIyMEJDODhDRkYxMUU3QTFDM0U1OUQxMzZENzhBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQkIyMEJDOThDRkYxMUU3QTFDM0U1OUQxMzZENzhBQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCQjIwQkM2OENGRjExRTdBMUMzRTU5RDEzNkQ3OEFCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCQjIwQkM3OENGRjExRTdBMUMzRTU5RDEzNkQ3OEFCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+XK/sUQAAARVJREFUeNpi/P//PwNlgImgCqAdv37/JtOIP3//dsxZxmTtx67n7JRaMnvtlkNnL/79+w9NGSNWjwA1r9i+r2nO8ttXbjAwMjIwMTLAdIqrKGzrazDSUsNnxJXb98Iq2q5fvAZypJT4/JJsEy2NjfuPnL95e9PZiz8fP2Pg4jwwp8fezBDdiGev3ly/93Dr4ZP9C1Yy/PzNKyc9vSjT3tiAmZkZbvrPX79K+qav3bTDzNL4xKJJjEAHQowIyK/duOsgw+8/UIXMjEnhgdUpsZwcHFhDd93egwkBbjxcnAhXMFr6MLx+xyDIb6ymZKGlnhrsra4ghz+a2NhYmJgYEUZ8+vyFg4OdjZWVvHTBSI+kRRAABBgAoPx8FluZT9IAAAAASUVORK5CYII=" alt="">
                                 <p style="font-size:8px; font-weight:700;">Global</p>
@@ -676,7 +577,7 @@
                                     <span class="titulo-2">{{country2.outputs.risk.value.dollarGDP}}</span><span class="titulo-5"> MILLION</span>
                                 </td>
                             </tr>
-        
+
                     </table>
             </div>
 
