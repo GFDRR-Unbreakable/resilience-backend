@@ -30,7 +30,9 @@ module.exports = {
         var rData = req.body;
         console.log('Request body', JSON.stringify(rData));
         setPDFDirectories(true);
-        formatChartNumValues(rData);
+        if (rData.page === 'policyList') {
+            formatChartNumValues(rData);
+        }
         rData.reportDate = getReportDate();
         var file = rData.page === 'policyList' ? 'policy_list_template.html' : 'policy_scenario_template.html';
         var compiledHTML = compilePDFTemplate(file, true)(rData);
