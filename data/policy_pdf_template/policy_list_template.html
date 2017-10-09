@@ -118,21 +118,6 @@
             .subtitle{
                 font-size: 7px;
             }
-            .images-solution{
-                clear: both;
-                width: 95%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .images-solution .left{
-                float: left;
-            }
-            .images-solution .right{
-                float: right;
-            }
-            .left img, .right img{
-                width: 40%;
-            }
             .fecha-impresion{
                 clear: both;
             }
@@ -158,6 +143,22 @@
             }
             .image img:nth-child(2){
                 padding-left: 10px;
+            }
+            .left-image{
+                position: absolute;
+                top: 40%;
+                left: 0px;
+            }
+            .right-image{
+                position: absolute;
+                top: 40%;
+                left: 50%;
+            }
+            .left-image img{
+                width: 35%;
+            }
+            .right-image img{
+                width: 35%;
             }
         </style>
 
@@ -389,14 +390,14 @@
 
             </div>
 
-            <div class="images-solution">
-                <div class="left">
+
+                <div class="left-image">
                     <img src="{{country1.scorecard.chart}}">
                 </div>
-                <div class="right">
+
+                <div class="right-image">
                     <img src="{{country2.scorecard.chart}}">
                 </div>
-            </div>
 
             <div class="fecha-impresion">
                 <p>
