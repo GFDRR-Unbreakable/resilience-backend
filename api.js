@@ -6,6 +6,13 @@ var json2csv = require('json2csv');
 var selfPath = __dirname;
 
 module.exports = {
+    /**
+     * This method gets called when the /api/csv enpoint is requested from the client side and it processes the requested data
+     * to build a CSV file and returns it as a response to the client.
+     * @param {Request} req - The request params of the endpoint.
+     * @param {Response} res - The response params of the endpoint.
+     * @param {Function} next - Middleware callback function which is invoked first every time the app receives a request.
+     */
     createCSVFile: function (req, res, next) {
         var resData = req.body;
         setCSVDirectories();
@@ -26,6 +33,13 @@ module.exports = {
             res.send(csvFile);
         });
     },
+    /**
+     * This method gets called when the /api/sc_pdf enpoint is requested from the client side and it processes the requested data
+     * to build a Scorecard-related data PDF file and returns it as a response to the client.
+     * @param {Request} req - The request params of the endpoint.
+     * @param {Response} res - The response params of the endpoint.
+     * @param {Function} next - Middleware callback function which is invoked first every time the app receives a request.
+     */
     createScorecardPDFFile: function (req, res, next) {
         var rData = req.body;
         console.log('Request body', JSON.stringify(rData));
@@ -41,6 +55,13 @@ module.exports = {
         var fullPath = reportDir + reportFile;
         setPDFResponseConf(res, fullPath, compiledHTML);
     },
+    /**
+     * This method gets called when the /api/pdf enpoint is requested from the client side and it processes the requested data
+     * to build a Viewer-TechMap-related data PDF file and returns it as a response to the client.
+     * @param {Request} req - The HTTP request params of the endpoint.
+     * @param {Response} res - The HTTP response params of the endpoint.
+     * @param {Function} next - Middleware callback function which is invoked first every time the app receives a request.
+     */
     createViewerPDFFile: function (req, res, next) {
         var rData = req.body;
         var inputComp1 = null;
@@ -67,6 +88,13 @@ module.exports = {
         var fullPath = reportDir + reportFile;
         setPDFResponseConf(res, fullPath, compiledHTML);
     },
+    /**
+     * This method gets called when the /api/output_data enpoint is requested from the client side and it processes the requested data
+     * to build a Output-related data CSV file and returns it as a response to the client.
+     * @param {Request} req - The HTTP request params of the endpoint.
+     * @param {Response} res - The HTTP response params of the endpoint.
+     * @param {Function} next - Middleware callback function which is invoked first every time the app receives a request.
+     */
     getOutputData: function (req, res, next) {
         var csvFile = selfPath + '/data/df2.csv';
         fs.readFile(csvFile, function (err, data) {
@@ -77,7 +105,11 @@ module.exports = {
         });
     }
 };
-
+/**
+ * Reads data PDF-related template files and returns a compiled HTML template so it can be executed immediately using Handlebars library.
+ * @param {String} file - PDF File name 
+ * @param {Boolean} isScorecard - Determines if the file comes from 'Scorecard' or 'Viewer' templates directory.
+ */
 function compilePDFTemplate(file, isScorecard) {
     var filePath;
     if (isScorecard) {
@@ -90,6 +122,10 @@ function compilePDFTemplate(file, isScorecard) {
     var template = fs.readFileSync(filePath, 'utf8');
     return Handlebars.compile(template);
 }
+/**
+ * Formats numeric 'output' numeric data to be set in HTML template and generate a PDF file. 
+ * @param {Object} data - Request body param
+ */
 function formatChartNumValues(data) {
     var outputs1 = data['country1']['outputs'];
     var outputs2 = data['country2']['outputs'];
@@ -117,6 +153,13 @@ function formatChartNumValues(data) {
         }
     }
 }
+/**
+ * Prepares CSV-required formatted data to generate a CSV file by passing the request body data and two empty arrays which are
+ * populated to be used for building the CSV file using the json2csv library.
+ * @param {Object} resData - Request body param data.
+ * @param {Array} data - Set of data to be used to generate the CSV file
+ * @param {Array} fields - Set of fields or header labels to be used to generate the CSV file.
+ */
 function formatCSVData(resData, data, fields) {
     for (var key in resData) {
         if (resData.hasOwnProperty(key)) {
@@ -176,12 +219,22 @@ function formatCSVData(resData, data, fields) {
         }
     }
 }
+/**
+ * Returns a formatted HTML string to be used to generate PDF file from a pre-compiled HTML template.
+ * @param {String} htmlTxt - HTML string generated from the Handlebars library.  
+ */
 function getFormattedHTML(htmlTxt) {
     var prefix = htmlTxt.slice(0, htmlTxt.indexOf('>') + 1);
     var suffix = htmlTxt.slice(htmlTxt.lastIndexOf('<'), htmlTxt.lastIndexOf('>') + 1);
     htmlTxt = htmlTxt.replace(prefix, '').replace(suffix, '').trim();
     return htmlTxt;
 }
+/**
+ * Returns a new preprocesed-custom HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
+ * This process grabs and builds input-related data passed from the request body data to display a slider-like html component.   
+ * @param {Object} data - Request body param data
+ * @param {Boolean} isFirstInput - Verifies if two of all four input factors are set to build the HTML template differently. 
+ */
 function getTechHTMLHelperProcess(data, isFirstInput) {
     Handlebars.registerHelper('input', function (options) {
         var data = this;
@@ -297,6 +350,11 @@ function getTechHTMLHelperProcess(data, isFirstInput) {
     var inCompiledHTML = inTemplate(data);
     return getFormattedHTML(inCompiledHTML);
 }
+/**
+ * Returns a new preprocesed-custom HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
+ * This process grabs and process hazard-related data passed from the request body data to display which 'Hazard' data have been selected in the app.
+ * @param {Object} data - Ruquest body param data
+ */
 function getHazardSelHTMLHelperProcess(data) {
     Handlebars.registerHelper('hazardType', function () {
         var data = this;
@@ -346,6 +404,11 @@ function getHazardSelHTMLHelperProcess(data) {
     var hCompiledHTML = hTemplate(data);
     return getFormattedHTML(hCompiledHTML);
 }
+/**
+ * Returns a new preprocesed-custom HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
+ * This process grabs and process map factor-indicator data passed from the request body data to display which map factor-indicator data has been selected in the app.
+ * @param {Object} data - Request body param data 
+ */
 function getViewerHTMLHelperProcess(data) {
     Handlebars.registerHelper('mapType', function () {
         var data = this;
@@ -367,11 +430,18 @@ function getViewerHTMLHelperProcess(data) {
     var mapCompiledHTML = mapTemplate(data);
     return getFormattedHTML(mapCompiledHTML)
 }
+/**
+ * Returns a formatted current date data to be included in a HTML-compiled template by then generate a PDF file.
+ */
 function getReportDate() {
     var date = new Date();
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
 }
+/**
+ * Returns the percentage and pixels the HTML elements will be filled/drawn in the compiled-HTML of the input-related data. 
+ * @param {Object} data - Data provided by one of the properties of the request body param which has the input-related min, max and current values.  
+ */
 function getSliderDrawingValuesByValue(data) {
     var max = data.max;
     var MAX_BAR_WIDTH = 50;
@@ -385,6 +455,10 @@ function getSliderDrawingValuesByValue(data) {
         pixels: pixels
     };
 }
+/**
+ * Returns the percentage and pixels the HTML elements will be filled/drawn in the compiled-HTML of the input-related data. 
+ * @param {Object} data - Data provided by one of the properties of the request body param which has only the input-related value.  
+ */
 function getSliderDrawingValuesByPercentage(data) {
     var MAX_BAR_WIDTH = 50;
     var percentage = data.value.value;
@@ -394,6 +468,9 @@ function getSliderDrawingValuesByPercentage(data) {
         pixels: pixels
     }
 }
+/**
+ * Saves the directory path for the CSV files in a Node.js global-variable to be used in its corresponding endpoint. 
+ */
 function setCSVDirectories() {
     var dir = __dirname + '/data/viewer_csv';
     dir = path.resolve(dir);
@@ -402,6 +479,9 @@ function setCSVDirectories() {
     console.log(files);
     process.env.VIEWER_CSV_DIRECTORY = dir;
 }
+/**
+ * Saves the directory path for the PDF files in a Node.js global-variable to be used in its corresponding endpoints. 
+ */
 function setPDFDirectories(isScorecard) {
     var dir;
     var files;
@@ -421,6 +501,12 @@ function setPDFDirectories(isScorecard) {
         process.env.VIEWER_TEMPLATE_DIRECTORY = dir;
     }
 }
+/**
+ * Reusable function which resolves the PDF-generated response data.
+ * @param {Response} res - The HTTP response. 
+ * @param {String} fullPath - Directory path which is used read the final-compiled HTML file and write it into another HTML file then creates a new PDF file and send it back to client as the response.
+ * @param {String} compiledHTML - Compiled-HTML string which is used to write it into the final-HTML template.
+ */
 function setPDFResponseConf(res, fullPath, compiledHTML) {
     fs.writeFile(fullPath, compiledHTML, function (err) {
         if (err) {
@@ -448,7 +534,11 @@ function setPDFResponseConf(res, fullPath, compiledHTML) {
         });
     });
 }
-
+/**
+ * Returns a response error if something went wrong during the execution of a enppoint.
+ * @param {Response} res - The HTTP response.
+ * @param {Error} err - Custom err notification message during the execution of an endpoint.
+ */
 function handleError(res, err) {
     return res.send(err);
 }
