@@ -107,7 +107,7 @@ module.exports = {
 };
 /**
  * Reads data PDF-related template files and returns a compiled HTML template so it can be executed immediately using Handlebars library.
- * @param {String} file - PDF File name 
+ * @param {String} file - PDF File name
  * @param {Boolean} isScorecard - Determines if the file comes from 'Scorecard' or 'Viewer' templates directory.
  */
 function compilePDFTemplate(file, isScorecard) {
@@ -123,7 +123,7 @@ function compilePDFTemplate(file, isScorecard) {
     return Handlebars.compile(template);
 }
 /**
- * Formats numeric 'output' numeric data to be set in HTML template and generate a PDF file. 
+ * Formats numeric 'output' numeric data to be set in HTML template and generate a PDF file.
  * @param {Object} data - Request body param
  */
 function formatChartNumValues(data) {
@@ -143,12 +143,12 @@ function formatChartNumValues(data) {
             }
         }
         return '$' + dollar;
-    }; 
+    };
     for (var key in outputs1) {
         if (outputs1.hasOwnProperty(key) && outputs2.hasOwnProperty(key)) {
             if (key.indexOf('risk') >= 0) {
-               outputs1[key].value.dollarGDP = formatDollarValue(outputs1[key].value.dollarGDP); 
-               outputs2[key].value.dollarGDP = formatDollarValue(outputs2[key].value.dollarGDP); 
+               outputs1[key].value.dollarGDP = formatDollarValue(outputs1[key].value.dollarGDP);
+               outputs2[key].value.dollarGDP = formatDollarValue(outputs2[key].value.dollarGDP);
             }
         }
     }
@@ -172,7 +172,7 @@ function formatCSVData(resData, data, fields) {
                         var label = out[outK].label;
                         if (outK === 'resilience') {
                             label += ' - Pcnt';
-                            fields.push(label);                        
+                            fields.push(label);
                         } else {
                             fields.push(label + ' - US, Millions');
                             fields.push(label);
@@ -203,7 +203,7 @@ function formatCSVData(resData, data, fields) {
                         objData[label] = out[outp].value['valueGDP'] + '%';
                         objData[label2] = '$' + out[outp].value['dollarGDP'];
                     }
-                    
+
                 }
             }
             for (var inp in inD) {
@@ -221,7 +221,7 @@ function formatCSVData(resData, data, fields) {
 }
 /**
  * Returns a formatted HTML string to be used to generate PDF file from a pre-compiled HTML template.
- * @param {String} htmlTxt - HTML string generated from the Handlebars library.  
+ * @param {String} htmlTxt - HTML string generated from the Handlebars library.
  */
 function getFormattedHTML(htmlTxt) {
     var prefix = htmlTxt.slice(0, htmlTxt.indexOf('>') + 1);
@@ -231,9 +231,9 @@ function getFormattedHTML(htmlTxt) {
 }
 /**
  * Returns a new preprocesed-custom HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
- * This process grabs and builds input-related data passed from the request body data to display a slider-like html component.   
+ * This process grabs and builds input-related data passed from the request body data to display a slider-like html component.
  * @param {Object} data - Request body param data
- * @param {Boolean} isFirstInput - Verifies if two of all four input factors are set to build the HTML template differently. 
+ * @param {Boolean} isFirstInput - Verifies if two of all four input factors are set to build the HTML template differently.
  */
 function getTechHTMLHelperProcess(data, isFirstInput) {
     Handlebars.registerHelper('input', function (options) {
@@ -407,7 +407,7 @@ function getHazardSelHTMLHelperProcess(data) {
 /**
  * Returns a new preprocesed-custom HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
  * This process grabs and process map factor-indicator data passed from the request body data to display which map factor-indicator data has been selected in the app.
- * @param {Object} data - Request body param data 
+ * @param {Object} data - Request body param data
  */
 function getViewerHTMLHelperProcess(data) {
     Handlebars.registerHelper('mapType', function () {
@@ -439,8 +439,8 @@ function getReportDate() {
     return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
 }
 /**
- * Returns the percentage and pixels the HTML elements will be filled/drawn in the compiled-HTML of the input-related data. 
- * @param {Object} data - Data provided by one of the properties of the request body param which has the input-related min, max and current values.  
+ * Returns the percentage and pixels the HTML elements will be filled/drawn in the compiled-HTML of the input-related data.
+ * @param {Object} data - Data provided by one of the properties of the request body param which has the input-related min, max and current values.
  */
 function getSliderDrawingValuesByValue(data) {
     var max = data.max;
@@ -456,8 +456,8 @@ function getSliderDrawingValuesByValue(data) {
     };
 }
 /**
- * Returns the percentage and pixels the HTML elements will be filled/drawn in the compiled-HTML of the input-related data. 
- * @param {Object} data - Data provided by one of the properties of the request body param which has only the input-related value.  
+ * Returns the percentage and pixels the HTML elements will be filled/drawn in the compiled-HTML of the input-related data.
+ * @param {Object} data - Data provided by one of the properties of the request body param which has only the input-related value.
  */
 function getSliderDrawingValuesByPercentage(data) {
     var MAX_BAR_WIDTH = 50;
@@ -469,7 +469,7 @@ function getSliderDrawingValuesByPercentage(data) {
     }
 }
 /**
- * Saves the directory path for the CSV files in a Node.js global-variable to be used in its corresponding endpoint. 
+ * Saves the directory path for the CSV files in a Node.js global-variable to be used in its corresponding endpoint.
  */
 function setCSVDirectories() {
     var dir = __dirname + '/data/viewer_csv';
@@ -480,7 +480,7 @@ function setCSVDirectories() {
     process.env.VIEWER_CSV_DIRECTORY = dir;
 }
 /**
- * Saves the directory path for the PDF files in a Node.js global-variable to be used in its corresponding endpoints. 
+ * Saves the directory path for the PDF files in a Node.js global-variable to be used in its corresponding endpoints.
  */
 function setPDFDirectories(isScorecard) {
     var dir;
@@ -503,7 +503,7 @@ function setPDFDirectories(isScorecard) {
 }
 /**
  * Reusable function which resolves the PDF-generated response data.
- * @param {Response} res - The HTTP response. 
+ * @param {Response} res - The HTTP response.
  * @param {String} fullPath - Directory path which is used read the final-compiled HTML file and write it into another HTML file then creates a new PDF file and send it back to client as the response.
  * @param {String} compiledHTML - Compiled-HTML string which is used to write it into the final-HTML template.
  */
