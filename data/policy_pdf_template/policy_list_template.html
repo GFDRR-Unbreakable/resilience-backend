@@ -173,7 +173,6 @@
             width: 100%;
         }
         .fecha-impresion{
-            clear: both;
             float: right;
             font-size: 8px;
             padding-right: 13px;
@@ -338,7 +337,7 @@
 
                     <tr>
                         <td colspan="3">
-                            <img src="{{country1.scorecard.chart}}" width="100%" height="380px">
+                            <img src="{{country1.scorecard.chart}}" width="100%" height="400px">
                         </td>
                     </tr>
 
@@ -444,7 +443,17 @@
 
                     <tr>
                         <td colspan="3">
-                            <img src="{{country2.scorecard.chart}}" width="100%" height="380px">
+                            <img src="{{country2.scorecard.chart}}" width="100%" height="400px">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <div class="fecha-impresion">
+                                <p>
+                                    Report printed on {{reportDate}}
+                                </p>
+                            </div>
                         </td>
                     </tr>
 
@@ -453,13 +462,6 @@
 
             </div>
 
-        </div>
-
-
-        <div class="fecha-impresion">
-            <p>
-                Report printed on {{reportDate}}
-            </p>
         </div>
 
 
