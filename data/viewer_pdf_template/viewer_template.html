@@ -231,6 +231,10 @@
             .result-porcent p{
                 font-size: 7px;
             }
+            .result-porcent .legend-color{
+                width: 13px;
+                height: 13px;
+            }
             .legend-content{
                 position: absolute;
                 top: 285px;
@@ -239,7 +243,7 @@
             .result-legend p{
                 float: left;
                 font-size: 7px;
-                background-color: #eaeaea;
+                background-color: #dbdddd;
                 border: 1px solid rgba(80,196,207, 0.5);
                 padding: 8px;
             }
@@ -631,27 +635,17 @@
         </div>
 
         <div class="map-porcent">
-            <div class="result-porcent">
-                <p>0&nbsp;&nbsp;-&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;%</p>
-                <p>20&nbsp;-&nbsp;40&nbsp;&nbsp;&nbsp;%</p>
-                <p>60&nbsp;-&nbsp;80&nbsp;&nbsp;&nbsp;%</p>
-                <p>80&nbsp;-&nbsp;100&nbsp;%</p>
-                <p>No data</p>
-            </div>
+            [[MAP_LEGEND]]
         </div>
 
         <div class="legend-content">
-            <div class="result-legend">
-                <p>Well-Being Losses (%)</p>
-                <p>Asset Losses (%)</p>
-                <p>Socio-Economic Capacity (%)</p>
-            </div>
+            [[MAP_SELECTED_LAYER]]
         </div>
 
-        <div class="country">
+        <!-- <div class="country">
             <p style="text-align:center; padding:5px 0px; background-color:#FFF; font-size:7px;">Country</p>
             <p style="text-align:center; padding:10px 0px; background-color:#eaeaea; font-size:7px;">Socio-Economic Capacity (%) <br> -</p>
-        </div>
+        </div> -->
 
     </body>
 </html>

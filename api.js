@@ -70,6 +70,8 @@ module.exports = {
         formatChartNumValues(rData);
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
         var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
+        var mapLegendComp = getMapLegendHTMLHelperProcess(rData.map.type);
+        var selectedMapLayerComp = getSelectedMapLayerHTMLHelperProcess(rData.map.type);
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
             inputComp1 = getTechHTMLHelperProcess(rData, true);
@@ -79,6 +81,8 @@ module.exports = {
         var compiledHTML = compilePDFTemplate(file, false)(rData);
         compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
         compiledHTML = compiledHTML.split('[[HAZARD_SELECTION]]').join(hazardSelComp);
+        compiledHTML = compiledHTML.split('[[MAP_LEGEND]]').join(mapLegendComp);
+        compiledHTML = compiledHTML.split('[[MAP_SELECTED_LAYER]]').join(selectedMapLayerComp);
         if (inputComp1 && inputComp2) {
             compiledHTML = compiledHTML.split('[[INPUT_SLIDERS_1]]').join(inputComp1);
             compiledHTML = compiledHTML.split('[[INPUT_SLIDERS_2]]').join(inputComp2);
@@ -230,7 +234,105 @@ function getFormattedHTML(htmlTxt) {
     return htmlTxt;
 }
 /**
- * Returns a new preprocesed-custom HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
+ * Returns map layer values to be displayed as map layer HTML buttons template given a selected map-layer.
+ */
+function getMapLayerValues() {
+    return [
+        {id: 'well-layer', label: 'Well-Being Losses (%)'},
+        {id: 'asset-layer', label: 'Asset Losses (%)'},
+        {id: 'socio-layer', label: 'Socio-Economic Capacity (%)'},
+    ];
+}
+/**
+ * Returns map legend values to be displayed in map legend HTML container template given a selected map-layer.
+ */
+function getMapLegendValues() {
+    var mapLegendData = {
+        asset: [
+            [0, 0.1, '#f1fbd5'],
+            [0.1, 0.25, '#e4f9aa'],
+            [0.25, 0.5, '#c3dd89'],
+            [0.5, 1, '#8b9d61'],
+            [1, 5, '#5c6642'],
+            // ['No data', '', '#f6f6f4']
+        ],
+        socio: [
+            [0, 20, '#faddcd'],
+            [20, 40, '#f5b79a'],
+            [40, 60, '#f89e6c'],
+            [60, 80, '#b8754e'],
+            [80, 100, '#784d35'],
+            // ['No data', '', '#f6f6f4']
+        ],
+        well: [
+            [0, 0.25, '#c1e7ed'],
+            [0.25, 0.5, '#82d0d6'],
+            [0.5, 0.75, '#50c4ce'],
+            [0.75, 1.5, '#358a91'],
+            [1.5, 10, '#1d4c4f'],
+            // ['No data', '', '#f6f6f4']
+        ]
+    };
+    return mapLegendData;
+}
+/**
+ * Returns a new custom-preprocesed HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
+ * This process grabs and displays selected map-layer passed from the request body data to display a selected map-layer html component.
+ * @param {String} layerType - Selected map-layer name
+ */
+function getSelectedMapLayerHTMLHelperProcess(layerType) {
+    var mapLayerValues = getMapLayerValues();
+    Handlebars.registerHelper('selectedMapLayer', function() {
+        var selectedMapLayer = this;
+        var template = '<div class="result-legend">';
+        mapLayerValues.forEach(function (val) {
+            var idOnly = val.id.split('-')[0];
+            if (idOnly === selectedMapLayer) {
+                template += '<p id="' + val.id + '" style="background-color: #ffffff;">' + val.label + '</p>';
+            } else {
+                template += '<p id="' + val.id + '">' + val.label + '</p>';
+            }
+        });
+        template += '</div>';
+        return template;
+    });
+    var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
+    var inHelperFile = '/selected_map_layer_helper.html';
+    var fullHPath = viewerDir + inHelperFile;
+    var inHelperHtml = fs.readFileSync(fullHPath, 'utf8');
+    var inTemplate = Handlebars.compile(inHelperHtml);
+    var inCompiledHTML = inTemplate(layerType);
+    return getFormattedHTML(inCompiledHTML);
+}
+/**
+ * Returns a new custom-preprocesed HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
+ * This process grabs and displays map-legend data passed from the request body data to display a map-legend html component.
+ * @param {String} layerType - Selected map-layer name
+ */
+function getMapLegendHTMLHelperProcess(layerType) {
+    var mapData = getMapLegendValues()[layerType];
+    Handlebars.registerHelper('legend', function (options) {
+        var dataArr = this;
+        var template = '<div class="result-porcent">';
+        dataArr.forEach(function (val) {
+            template += '<p><i class="legend-color" style="background-color: '+ val[2] +'"></i>' +
+                '&nbsp;' + val[0] + '&nbsp;-&nbsp;' + val[1] + '&nbsp;%' +
+                '</p>';
+        });
+        template += '<p><i class="legend-color" style=" background-color: #f6f6f4"></i>&nbsp;No Data</p>'
+        template += '</div>';        
+        return template;
+    });
+    var viewerDir = process.env.VIEWER_TEMPLATE_DIRECTORY;
+    var inHelperFile = '/map_legend_helper.html';
+    var fullHPath = viewerDir + inHelperFile;
+    var inHelperHtml = fs.readFileSync(fullHPath, 'utf8');
+    var inTemplate = Handlebars.compile(inHelperHtml);
+    var inCompiledHTML = inTemplate(mapData);
+    return getFormattedHTML(inCompiledHTML);
+}
+/**
+ * Returns a new custom-preprocesed HTML string to be included in the final pre-compiled HTML template by then generate a PDF file.
  * This process grabs and builds input-related data passed from the request body data to display a slider-like html component.
  * @param {Object} data - Request body param data
  * @param {Boolean} isFirstInput - Verifies if two of all four input factors are set to build the HTML template differently.
