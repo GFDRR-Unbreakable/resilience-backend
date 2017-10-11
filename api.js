@@ -285,9 +285,11 @@ function getSelectedMapLayerHTMLHelperProcess(layerType) {
     Handlebars.registerHelper('selectedMapLayer', function() {
         var selectedMapLayer = this;
         console.log(selectedMapLayer);
+        console.log(typeof selectedMapLayer);
         var template = '<div class="result-legend">';
         mapLayerValues.forEach(function (val) {
             var idOnly = val.id.split('-')[0];
+            console.log(idOnly,  ' - ', idOnly === selectedMapLayer);
             if (idOnly === selectedMapLayer) {
                 template += '<p id="' + val.id + '" style="background-color: #ffffff !important;">' + val.label + '</p>';
             } else {
