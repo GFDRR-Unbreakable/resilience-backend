@@ -288,7 +288,7 @@ function getSelectedMapLayerHTMLHelperProcess(layerType) {
         mapLayerValues.forEach(function (val) {
             var idOnly = val.id.split('-')[0];
             if (idOnly === selectedMapLayer) {
-                template += '<p id="' + val.id + '" style="background-color: #ffffff;">' + val.label + '</p>';
+                template += '<p id="' + val.id + '" style="background-color: #ffffff !important;">' + val.label + '</p>';
             } else {
                 template += '<p id="' + val.id + '">' + val.label + '</p>';
             }
@@ -315,11 +315,11 @@ function getMapLegendHTMLHelperProcess(layerType) {
         var dataArr = this;
         var template = '<div class="result-porcent">';
         dataArr.forEach(function (val) {
-            template += '<p><i class="legend-color" style="background-color: '+ val[2] +'"></i>' +
-                '&nbsp;' + val[0] + '&nbsp;-&nbsp;' + val[1] + '&nbsp;%' +
+            template += '<p><span class="legend-color" style="background-color: '+ val[2] +'"></span>' +
+                '&nbsp;' + val[0] + '&nbsp;&nbsp;-&nbsp;&nbsp;' + val[1] + '&nbsp;&nbsp;&nbsp;%' +
                 '</p>';
         });
-        template += '<p><i class="legend-color" style=" background-color: #f6f6f4"></i>&nbsp;No Data</p>'
+        template += '<p><span class="legend-color" style=" background-color: #f6f6f4"></span>&nbsp;No Data</p>'
         template += '</div>';        
         return template;
     });
