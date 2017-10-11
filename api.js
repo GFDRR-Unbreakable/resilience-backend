@@ -71,7 +71,7 @@ module.exports = {
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
         var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
         var mapLegendComp = getMapLegendHTMLHelperProcess(rData.map.type);
-        var selectedMapLayerComp = getSelectedMapLayerHTMLHelperProcess(rData.map.type);
+        // var selectedMapLayerComp = getSelectedMapLayerHTMLHelperProcess(rData.map.type);
         rData.reportDate = getReportDate();
         if (rData.page === 'tech') {
             inputComp1 = getTechHTMLHelperProcess(rData, true);
@@ -82,7 +82,7 @@ module.exports = {
         compiledHTML = compiledHTML.split('[[MAP_TYPE]]').join(mapTypeComp);
         compiledHTML = compiledHTML.split('[[HAZARD_SELECTION]]').join(hazardSelComp);
         compiledHTML = compiledHTML.split('[[MAP_LEGEND]]').join(mapLegendComp);
-        compiledHTML = compiledHTML.split('[[MAP_SELECTED_LAYER]]').join(selectedMapLayerComp);
+        // compiledHTML = compiledHTML.split('[[MAP_SELECTED_LAYER]]').join(selectedMapLayerComp);
         if (inputComp1 && inputComp2) {
             compiledHTML = compiledHTML.split('[[INPUT_SLIDERS_1]]').join(inputComp1);
             compiledHTML = compiledHTML.split('[[INPUT_SLIDERS_2]]').join(inputComp2);
