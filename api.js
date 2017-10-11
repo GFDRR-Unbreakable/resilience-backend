@@ -286,6 +286,8 @@ function getSelectedMapLayerHTMLHelperProcess(layerType) {
         var selectedMapLayer = this;
         console.log(selectedMapLayer);
         console.log(typeof selectedMapLayer);
+        console.log(Object.keys(selectedMapLayer));        
+        console.log(selectedMapLayer[0]);
         var template = '<div class="result-legend">';
         mapLayerValues.forEach(function (val) {
             var idOnly = val.id.split('-')[0];
