@@ -240,7 +240,7 @@ function getMapLayerValues() {
     return [
         {id: 'well-layer', label: 'Well-Being Losses (%)'},
         {id: 'asset-layer', label: 'Asset Losses (%)'},
-        {id: 'socio-layer', label: 'Socio-Economic Capacity (%)'},
+        {id: 'socio-layer', label: 'Socio-Economic Capacity (%)'}
     ];
 }
 /**
@@ -284,6 +284,7 @@ function getSelectedMapLayerHTMLHelperProcess(layerType) {
     var mapLayerValues = getMapLayerValues();
     Handlebars.registerHelper('selectedMapLayer', function() {
         var selectedMapLayer = this;
+        console.log(selectedMapLayer);
         var template = '<div class="result-legend">';
         mapLayerValues.forEach(function (val) {
             var idOnly = val.id.split('-')[0];
@@ -316,7 +317,7 @@ function getMapLegendHTMLHelperProcess(layerType) {
         var template = '<div class="result-porcent">';
         dataArr.forEach(function (val) {
             template += '<p><span class="legend-color" style="background-color: '+ val[2] +'"></span>' +
-                '&nbsp;' + val[0] + '&nbsp;&nbsp;-&nbsp;&nbsp;' + val[1] + '&nbsp;&nbsp;&nbsp;%' +
+                '&nbsp;' + val[0] + '&nbsp;-&nbsp;' + val[1] + '&nbsp;%' +
                 '</p>';
         });
         template += '<p><span class="legend-color" style=" background-color: #f6f6f4"></span>&nbsp;No Data</p>'
