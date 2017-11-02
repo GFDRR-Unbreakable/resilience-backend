@@ -434,11 +434,11 @@ function getTechHTMLHelperProcess(data, isFirstInput) {
                     }
                 }
                 if (isFirstInput && count === 1) {
-                    template += '<tr>';
-                    template += '<td>';
-                    template += '<div class="empty-ctn"></div>';
-                    template += '</td>';
-                    template += '</tr>';
+                    // template += '<tr>';
+                    // template += '<td>';
+                    // template += '<div class="empty-ctn"></div>';
+                    // template += '</td>';
+                    // template += '</tr>';
                 }
                 count++;
             }

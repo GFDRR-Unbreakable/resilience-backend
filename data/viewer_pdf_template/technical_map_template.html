@@ -19,10 +19,10 @@
         }
         .lineaSeparadora{
             border-left: 1px solid #f4f5fa;
-            height: 65%;
+            height: 85%;
             position: absolute;
             left: 49%;
-            top: 310px;
+            top: 80px;
         }
         @font-face {
             font-family: 'Lato';
@@ -55,7 +55,8 @@
             padding-top: 3px;
         }
         .container{
-            height: 1530px;            /*height: 2070px;*/
+            /*height: 1530px;*/            /*height: 2070px;*/
+            height: 740px;
         }
         .contenido-scroll p, .contenido-scroll img{
             float: left;
@@ -123,7 +124,7 @@
         }
         .input .empty-ctn {
             width: 100%;
-            height: 130px;
+            height: 0px;
         }
         .image{
             width: 35%;
@@ -331,31 +332,8 @@
                 <p style="color: #000; font-size:10px; padding-top:15px; font-weight:bold; height:13px; padding-left:7px; float:left; text-transform: uppercase;">Technical Map: {{country1.name}} and {{country2.name}}</p>
             </div>
 
-            <div style="width: 100%; height: 28px; background: #eaeaea; color:#7D8F8F;">
-                <!-- <div class="contenido-scroll" style="width: 100%;">
-                    <img class="prev-i" width="10px" height="10px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDM5ODg0MkRBREZGMTFFNzg4RjdBN0ZCNjVFQkQ3QzYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDM5ODg0MkNBREZGMTFFNzg4RjdBN0ZCNjVFQkQ3QzYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhGNTNBQjNEOEU4QjExRTdBNjVERjIzREU4ODRFNTYyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjhGNTNBQjNFOEU4QjExRTdBNjVERjIzREU4ODRFNTYyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+jkOFxAAAAz9JREFUeNrUmllIVGEUxz91KIhCfAgqWl56iSSih2jqIUqDigqKFrIVgqIwSguVgqIIKrBNiAxsMSqKKMqgnaKspoWefGklBF8yC3xohWn6H+ZcEJE5Z2bucjzwYxzv8d75e7/7/75zvilIpVJOing87gKOInAW3AXnex9MJBLiCQpd9FEAmsBKcA5sy+UkhQZEHAdre7yvB0f4534jhD70xj5+v5WH2ID+IGQPqM5wvALc1N6ZqITUgF1CDrnQRX41KWQzOKgQsQk0Wx1a68AxRd520Gj1YV8OTirG/G5w2Kr9LuQ5okjIoyG31+o8MhtcAjEhrwHU5XqRoIXMAFcV88EpnjucRSFTQAsYJOSRxW7Q2mzYQiaBO2CwkHcNrAbJfC8YhJBSFlEs5N1mJ0v6cVG/hYwF98FQIe8hWAz++nVhP4WMAY/AMCGPiosF4Kef/0G/hIwED/g1U7wBc8APv8ezH0JoGN3jYZUp2lhEdxDukq+QEr4T44S8D2AW+BqU1+cjpJjdaYKQ9xnMBF+CnHlzFXIAPAaThbwOvhMdQa+DYjn8zU5Qq8ijYVQOPoWxKs32jlB9vU+R9w2UgXdh1QjZCFnBHQ8putmd2sKs2LRC5oPTiqKIJrl54HXY9bNWyDJla4aG1PcouhlaIWuUtfYo8BRMtyokyYVPFfinmCSph1thUYgXR8ES8EvIG+jSncI6q0K8Yohm6i4hj4xhP3dOYhaFULwAcV5DSbEe3FBUi5GttT6CqeC5IncuL2mGWxTieHiVc6dEU8fTnRxvUYjjB3+pS+9pSDEatLp0m8icEMeWTFsEWxTNhBJe/q+yKMSLBm4qSPU4rRKaeSVtUgjFdbbnToU900q6yQ97DqpB95Id7b0il7YaaGdqiEUhjgsqmmueKXKp0f0EjLAoxPFKmOz5iiJ3IttzqUUhFL+5DDiUxeq5zKIQCuq003ZapcKeqTtzi0sHc0K8oFJ5kZM7jWTPZ5y88xuZEIoWp+tzkT3TXnyjVSEUr9jR3ioKulbLQiioAzlN+KC0J3/BuhDPnqkTebmPYzvACcvPSO/449I7Vz2/DVHP1aU6Ys5GpLi+b+eJsSbbE/wXYAA8A5VEpLpC/wAAAABJRU5ErkJggg==" alt="">
-
-                    <img class="next-i" width="10px" height="10px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0Q0RDQ2OERBREZGMTFFNzlGRThEMUUwRDhGNTEwMEUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0Q0RDQ2OENBREZGMTFFNzlGRThEMUUwRDhGNTEwMEUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZCN0NBQzE4OEU4QjExRTdCRTU0QzNFNkY0NDhEN0RFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZCN0NBQzE5OEU4QjExRTdCRTU0QzNFNkY0NDhEN0RFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+qGITPQAAAzVJREFUeNrUmm1ojWEYx+85J2rU+KBsKT4oSZKinEJLZF7GB29lWhN5zXyzxlJeVmpfsDBLWFiKJGI05i0d+SBvKeUDEh8Qm7e24fhf7VLSOee+npf7eS7/+n3Y2bXz7P8893Xd933dT0EmkzE2pVKpbB8vBEvAMvDTOFQ6nbbGJH1+92pwACRAD6gEGROj+vn4m23gEJsgLQf7QUGcRpIeTe8BG7P8bh34DGr+ByPHOR9yaTPoAvXah9Yl8MsSsyvHE1Nl5CTYIEjqvaBKe7I3CfKAkv4wWKS9ajUI8iDBT3C2ZiOkOtBoiekPzoBpmo2QNoFjlphCcB5M0myEkn4V3/V8KgIXwTitRgyvsSpAmyVuKLgMRmk1YnitRRXqpiWuBLSD4VqNkL6BBeCeJW4kuMpPSKURUieYCx5b4kbzkynSaoT0HswCzy1x4zlnCrUaIb0FM8FrS9xkcIHnG5VGSC/ADPDOEjcdnA6wwXNuhPSMn0ynJW4+T6wJrUZID0EZV7V8qgi6y3RthHQXlINuS9waLs0tfgxFYYTUwR2XXkHOVPKWWqURw4vHKiNrHVVzk0OlEVIrWG9kraPtvCNVaYTUzI0KiRq5EKg0QroFvgriKOmnajVSzsk/UDi81kq+NBmxCcqPfYLJjwrCSi7FRpMRGiK7hbnxnbcE7V4uEIWRAXxnlwpiP/Bc8sjrRVwbGQLOCTsptI+ZI1g1R57stBu8IzRBS5Mpfk24NDIR0OnMGEFsC+8su7Stfumfug6GCWJ3gBXcwAiksHPk75OsfOrl+eFIWBcOywiVV+oH1wpi6UBoMbgS5h0MwwjtuY+a/IdAf/SGh96DsMdzUCNUXs+CUkHsEzbxykV1CZLsI8BtoYkOXvw5MRHEyAQur2MFsSdM3znJJ5czrx8jZbwMLxbE1vPWtcc4llcjdIxATbVBlrgfXIrrTEQvEkiTncrrTrBVEPuFGw1tJkJJjTTz07CJ2qXzwP2od2vSoXVN0P14ClJxmPBi5JTpexEg13i/wavXlzH1ADwl+0GwJcvnrVzJPpoY5bVq0Xa14Z+f6e2gbhOz/CxR6M2HwZwLTUaJfgswAKKglYzFe7HSAAAAAElFTkSuQmCC" alt="">
-                </div> -->
-                [[MAP_TYPE]]
-            </div>
-
-            <div class="mapa-mundial">
-                <img src="{{map.chart}}" alt="">
-            </div>
-
-
-
-
             <div class="result">
                 <table class="tabla-1 input" style="float:left;" width="48%">
-                    <tr>
-                        <td style="border-bottom: 1px solid #f4f5fa;" colspan="5">
-                            <p style="font-size:8px; font-weight:700;">
-                                RESILIENCE FACTORS <i class="mdi mdi-information-outline"></i>
-                            </p>
-                        </td>
-                    </tr>
                     <tr style="font-size:7px; font-weight:bold;">
                         <td colspan="5" style="border-bottom: 1px solid #f4f5fa;">
                             <p>Hazard Selection : &nbsp;&nbsp;[[HAZARD_SELECTION]]</p>
@@ -374,9 +352,9 @@
                 </table>
             </div>
             <div class="result">
-                <table class="tabla-2" style="float:left; margin-left:1%;" width="49%">
+                <table class="tabla-2" style="float:left; margin-left:1%;" width="99%">
                     <tr>
-                        <td colspan="2">
+                        <td colspan="4">
                             <div class="cabecera-2">
                                 <p style="font-size:8px; font-weight:700;">RESULTS</p>
                                 <img class="circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0RUQ5NEY1N0FBRTcxMUU3OTc5QUU1NTU0MTM2QjRGNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0RUQ5NEY1OEFBRTcxMUU3OTc5QUU1NTU0MTM2QjRGNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjRFRDk0RjU1QUFFNzExRTc5NzlBRTU1NTQxMzZCNEY2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjRFRDk0RjU2QUFFNzExRTc5NzlBRTU1NTQxMzZCNEY2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+vI0jywAAAvdJREFUeNrsmd9r01AUx29uNpulP8lmN5pWbTf34MuedIgICspQcA+d/gc++awIIvos6KuI+BfIqjBhICobyFD0aS/CdK7a2doNW7q2i601t548NDRt16ZpktuB562kyfnk3HtOvudcplqtov4zjPrS+hRrwPCdkkzeF6Q3+eKSVH73u4wqf5FMlAssRoMDJ4ccZ3nHOY9r2s3zbNcvz3S7t+Dfy7nive3sy2wBEaJjPfCM4L7pF874XIxFWC+y+dnNLbRbMhJeJ7cYGr0geMzE+l76c2ojmcwVe9w0os+1EhEPcwdMwHqe2YmuJ5Esm7OfWTY2IUaHvcYzEZDvJraiawnTmMBkeW4tAY+tGosWXLgWTz36mbGoClwdEx5HRKbbaN1OpK1jAnuSzoKL7qL1LLMDobahcs5PHpob8erCgrw7srpu5n5qlwH429TRhtxsvYhQC2xiUjKAKO467i2omb3Xp64M3IHTdosIP/DqF4N1vBdzOsjUJLNXtJYgTvYzge2Wl+uWqBHrwXaWlpi5X+caN2iVRe0a22ngWpJJCyzQT4jQ09CkqgA0Y4GmoytKVQAN1iupRBdLBdBgfQTtS9VUAG0mVghdLBUANyghylg1gH3RJ7IsZZwagBZrkHbwagAajuNDDrpUKoAG6zzP0cVSATRY0JvTxVIBNFjTbh5hhl76MQpAMxbP4ov6mnErbEbwqEOUxtS77hdoYd2oc91SNH8GrdhfohkuLITG7A8VOGU69onBT3E7mx/R5/pxLNy5T1yJiIi1q+Kz+G0koGsGAT1ubCJoD9X8eDDMOfSORqLD3lvBg1YzgYvmAQTal4MkuOFhOHAn6LeCCR67FxPSOaSM/cpd/poycUj5dDxwZcTXLiI6R7rxUvn0RsqUkS7kXfMeN4ilDnNmN9MGvwFObiE0esncAXh9HtSOC/K6WnDMwDfY2uMCzYhFJh8K0ut8EXpOpb+ryHWHKyzoTNB0oJ9OuHmnDYcrNDqf/1jt7Z8AAwD/mEldeZOreAAAAABJRU5ErkJggg==" alt="">
@@ -395,33 +373,6 @@
                                 </p>
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td class="tabla-2-img"><img src="{{country1.outputs.risk_to_assets.chart}}" alt=""></td>
-                        <td class="space-img-letter">
-                            <span class="titulo-6">RISK TO ASSETS</span><br>
-                            <span class="titulo-5">{{country1.outputs.risk_to_assets.value.valueGDP}}%</span><span class="titulo-2"> OF GDP PER YEAR</span><br>
-                            <span class="titulo-2">{{country1.outputs.risk_to_assets.value.dollarGDP}} </span><span class="titulo-5"> MILLION</span>
-                            <!--<span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>-->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tabla-2-img"><img src="{{country1.outputs.resilience.chart}}" alt=""></td>
-                        <td  class="space-img-letter">
-                            <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
-                            <span class="titulo-5">{{country1.outputs.resilience.value}}%</span><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tabla-2-img"><img src="{{country1.outputs.risk.chart}}" alt=""></td>
-                        <td class="space-img-letter">
-                            <span class="titulo-6">RISK TO WELL-BEING</span><br>
-                            <span class="titulo-5">{{country1.outputs.risk.value.valueGDP}}% </span><span class="titulo-2"> OF GDP PER YEAR</span><br>
-                            <span class="titulo-2">{{country1.outputs.risk.value.dollarGDP}} </span><span class="titulo-5"> MILLION</span>
-                        </td>
-                    </tr>
-                    <!-- PAIS -->
-                    <tr>
                         <td colspan="2">
                             <button type="button" name="button">
                                 <p>
@@ -431,6 +382,13 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.risk_to_assets.chart}}" alt=""></td>
+                        <td class="space-img-letter">
+                            <span class="titulo-6">RISK TO ASSETS</span><br>
+                            <span class="titulo-5">{{country1.outputs.risk_to_assets.value.valueGDP}}%</span><span class="titulo-2"> OF GDP PER YEAR</span><br>
+                            <span class="titulo-2">{{country1.outputs.risk_to_assets.value.dollarGDP}} </span><span class="titulo-5"> MILLION</span>
+                            <!--<span class="titulo-2">$ 43,32</span><span class="titulo-5"> MILLON</span>-->
+                        </td>
                         <td class="tabla-2-img"><img src="{{country2.outputs.risk_to_assets.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO ASSETS</span><br>
@@ -439,6 +397,11 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.resilience.chart}}" alt=""></td>
+                        <td  class="space-img-letter">
+                            <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
+                            <span class="titulo-5">{{country1.outputs.resilience.value}}%</span><br>
+                        </td>
                         <td class="tabla-2-img"><img src="{{country2.outputs.resilience.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">SOCIO-ECONOMIC CAPACITY</span><br>
@@ -447,6 +410,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="tabla-2-img"><img src="{{country1.outputs.risk.chart}}" alt=""></td>
+                        <td class="space-img-letter">
+                            <span class="titulo-6">RISK TO WELL-BEING</span><br>
+                            <span class="titulo-5">{{country1.outputs.risk.value.valueGDP}}% </span><span class="titulo-2"> OF GDP PER YEAR</span><br>
+                            <span class="titulo-2">{{country1.outputs.risk.value.dollarGDP}} </span><span class="titulo-5"> MILLION</span>
+                        </td>
                         <td class="tabla-2-img"><img src="{{country2.outputs.risk.chart}}" alt=""></td>
                         <td class="space-img-letter">
                             <span class="titulo-6">RISK TO WELL-BEING</span><br>
@@ -454,6 +423,7 @@
                             <span class="titulo-2">{{country2.outputs.risk.value.dollarGDP}}</span><span class="titulo-5"> MILLION</span>
                         </td>
                     </tr>
+                    <!-- PAIS -->
 
                 </table>
 
@@ -474,10 +444,6 @@
             </div>
         </div>
 
-
-        <div class="map-porcent">
-            [[MAP_LEGEND]]
-        </div>
 
         <!-- <div class="legend-content">
             [[MAP_SELECTED_LAYER]]
