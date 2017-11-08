@@ -64,6 +64,7 @@ module.exports = {
      */
     createViewerPDFFile: function (req, res, next) {
         var rData = req.body;
+        var global = req.body.global;
         var inputComp1 = null;
         var inputComp2 = null;
         setPDFDirectories(false);
