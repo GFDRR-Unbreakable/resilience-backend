@@ -201,15 +201,26 @@ def compute_resilience(df_in,cat_info, hazard_ratios=None, is_local_welfare=True
     macro["gdp_pc_pp"]= macro["avg_prod_k"]*agg_to_economy_level(cat_info,"k")
 
     # conso from k and macro
-    cat_info["c"]=(1-macro["tau_tax"])*macro["avg_prod_k"]*cat_info["k"]+ cat_info["gamma_SP"]*macro["tau_tax"]*macro["avg_prod_k"]*agg_to_economy_level(cat_info,"k")
+    if 'c' in cat_info:
+        # add finance to diversification and taxation
+        cat_info["social"] = unpack_social(macro, cat_info)
+        cat_info["social"] += 0.1 * cat_info["axfin"]
+        macro["tau_tax"], cat_info["gamma_SP"] = social_to_tx_and_gsp(cat_info)
 
-    #add finance to diversification and taxation
-    cat_info["social"] = unpack_social(macro,cat_info)
-    cat_info["social"]+= 0.1* cat_info["axfin"]
-    macro["tau_tax"], cat_info["gamma_SP"] = social_to_tx_and_gsp(cat_info)
+        cat_info["k"] = (cat_info["c"] / macro["avg_prod_k"]) * ((1 - cat_info['social']) / (1 - macro["tau_tax"]))
+        macro["gdp_pc_pp"] = macro["avg_prod_k"] * agg_to_economy_level(cat_info, "k")
 
-    #RECompute consumption from k and new gamma_SP and tau_tax
-    cat_info["c"]=(1-macro["tau_tax"])*macro["avg_prod_k"]*cat_info["k"]+ cat_info["gamma_SP"]*macro["tau_tax"]*macro["avg_prod_k"]*agg_to_economy_level(cat_info,"k")
+    else:
+        macro["gdp_pc_pp"] = macro["avg_prod_k"] * agg_to_economy_level(cat_info, "k")
+        cat_info["c"] = (1 - macro["tau_tax"]) * macro["avg_prod_k"] * cat_info["k"] + cat_info["gamma_SP"] * macro["tau_tax"] * macro["avg_prod_k"] * agg_to_economy_level(cat_info, "k")
+
+        # add finance to diversification and taxation
+        cat_info["social"] = unpack_social(macro, cat_info)
+        cat_info["social"] += 0.1 * cat_info["axfin"]
+        macro["tau_tax"], cat_info["gamma_SP"] = social_to_tx_and_gsp(cat_info)
+
+        # RECompute consumption from k and new gamma_SP and tau_tax
+        cat_info["c"] = (1 - macro["tau_tax"]) * macro["avg_prod_k"] * cat_info["k"] + cat_info["gamma_SP"] * macro["tau_tax"] * macro["avg_prod_k"] * agg_to_economy_level(cat_info, "k")
 
 
     # # # # # # # # # # # # # # # # # # #
