@@ -202,7 +202,7 @@ function formatCSVData(resData, data, fields) {
                     var label2;
                     if (outp === 'resilience') {
                         label += ' - Pcnt';
-                        objData[label] = out[outp].value + '%';
+                        objData[label] = out[outp].value.value + '%';
                     } else {
                         label2 = label + ' - US, Millions';
                         objData[label] = out[outp].value['valueGDP'] + '%';
