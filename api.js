@@ -177,10 +177,15 @@ function formatCSVData(resData, data, fields) {
                         var label = out[outK].label;
                         if (outK === 'resilience') {
                             label += ' - Pcnt';
-                            fields.push(label);
+                            fields.push(label + ' - Today');
+                            fields.push(label + ' - Delta');
+                            fields.push(label + ' - New Value');
                         } else {
-                            fields.push(label + ' - US, Millions');
+                            let label2 = label + ' - US, Millions';
                             fields.push(label);
+                            fields.push(label2 + ' - Today');
+                            fields.push(label2 + ' - Delta');
+                            fields.push(label2 + ' - New Value');
                         }
                     }
                 }
@@ -202,11 +207,15 @@ function formatCSVData(resData, data, fields) {
                     var label2;
                     if (outp === 'resilience') {
                         label += ' - Pcnt';
-                        objData[label] = out[outp].value.value + '%';
+                        objData[label + ' - Today'] = out[outp].value['today'];
+                        objData[label + ' - Delta'] = out[outp].value['difference'];
+                        objData[label + ' - New Value'] = out[outp].value['newValue'];
                     } else {
                         label2 = label + ' - US, Millions';
                         objData[label] = out[outp].value['valueGDP'] + '%';
-                        objData[label2] = '$' + out[outp].value['dollarGDP'];
+                        objData[label2 + ' - Today'] = out[outp].value['today'];
+                        objData[label2 + ' - Delta'] = out[outp].value['difference'];
+                        objData[label2 + ' - New Value'] = out[outp].value['newValue'];
                     }
 
                 }
