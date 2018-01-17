@@ -248,9 +248,9 @@ function getFormattedHTML(htmlTxt) {
  */
 function getMapLayerValues() {
     return [
-        {id: 'well-layer', label: 'Well-Being Losses (%)'},
-        {id: 'asset-layer', label: 'Asset Losses (%)'},
-        {id: 'socio-layer', label: 'Socio-Economic Capacity (%)'}
+        {id: 'well-layer', label: 'Risk to Well-Being (% of GDP)'},
+        {id: 'asset-layer', label: 'Risk to Assets (% of GDP)'},
+        {id: 'socio-layer', label: 'Socio-Economic Resilience'}
     ];
 }
 /**
