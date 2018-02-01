@@ -45,7 +45,7 @@ module.exports = {
         console.log('Request body', JSON.stringify(rData));
         setPDFDirectories(true);
         if (rData.page === 'policyList') {
-            formatChartNumValues(rData);
+            formatChartNumValues(rData, true);
         }
         rData.reportDate = getReportDate();
         var file = rData.page === 'policyList' ? 'policy_list_template.html' : 'policy_scenario_template.html';
@@ -68,7 +68,7 @@ module.exports = {
         var inputComp1 = null;
         var inputComp2 = null;
         setPDFDirectories(false);
-        formatChartNumValues(rData);
+        formatChartNumValues(rData, false);
         var mapTypeComp = getViewerHTMLHelperProcess(rData);
         var hazardSelComp = getHazardSelHTMLHelperProcess(rData);
         var mapLegendComp = getMapLegendHTMLHelperProcess(rData.map.type);
@@ -131,7 +131,7 @@ function compilePDFTemplate(file, isScorecard) {
  * Formats numeric 'output' numeric data to be set in HTML template and generate a PDF file.
  * @param {Object} data - Request body param
  */
-function formatChartNumValues(data) {
+function formatChartNumValues(data, replaceMillions) {
     var outputs1 = data['country1']['outputs'];
     var outputs2 = data['country2']['outputs'];
     var formatDollarValue = function(dollar) {
@@ -154,6 +154,10 @@ function formatChartNumValues(data) {
             if (key.indexOf('risk') >= 0) {
                outputs1[key].value.dollarGDP = outputs1[key].value.newValue;
                outputs2[key].value.dollarGDP = outputs2[key].value.newValue;
+               if (replaceMillions) {
+                  outputs1[key].value.dollarGDP = outputs1[key].value.dollarGDP.replace('M', ' Millions').replace('B', ' Billions');
+                  outputs2[key].value.dollarGDP = outputs2[key].value.dollarGDP.replace('M', ' Millions').replace('B', ' Billions');
+               }
             }
         }
     }
