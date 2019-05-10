@@ -210,10 +210,17 @@ function formatCSVData(resData, data, fields) {
                     var label = out[outp].label;
                     var label2;
                     if (outp === 'resilience') {
-                        label += ' - Pcnt';
-                        objData[label + ' - Today'] = out[outp].value['today'];
-                        objData[label + ' - Delta'] = out[outp].value['difference'];
-                        objData[label + ' - New Value'] = out[outp].value['newValue'];
+                        if (objData['name'] === 'Global') {
+                            label += ' - Pcnt';
+                            objData[label + ' - Today'] = 'n/a';
+                            objData[label + ' - Delta'] = 'n/a';
+                            objData[label + ' - New Value'] = 'n/a';
+                        } else {
+                            label += ' - Pcnt';
+                            objData[label + ' - Today'] = out[outp].value['today'];
+                            objData[label + ' - Delta'] = out[outp].value['difference'];
+                            objData[label + ' - New Value'] = out[outp].value['newValue'];
+                        }
                     } else {
                         label2 = label + ' - US, Millions';
                         objData[label] = out[outp].value['valueGDP'] + '%';
