@@ -1,5 +1,6 @@
 var restify = require('restify');
 var apiFns = require('./api');
+var helmet = require('helmet');
 const corsMiddleware = require('restify-cors-middleware');
 
 /**
@@ -19,6 +20,7 @@ var port = 9090;
 var server = restify.createServer();
 server.pre(cors.preflight);
 server.use(cors.actual);
+server.use(helmet());
 server.use(restify.plugins.bodyParser({maxBodySize: 104857600}));
 /**
  * Defined endpoint routes for the server to be persisted from any REST client.
